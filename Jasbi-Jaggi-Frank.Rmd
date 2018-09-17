@@ -1,0 +1,446 @@
+---
+title             : "Learning to Interpret a Disjunction"
+shorttitle        : "Learning Disjunction"
+
+author: 
+  - name          : "Masoud Jasbi"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "masoud_jasbi@fas.harvard.edu"
+  - name          : "Akshay Jaggi"
+    affiliation   : "2"
+  - name          : "Michael C. Frank"
+    affiliation   : "2"
+
+affiliation:
+  - id            : "1"
+    institution   : "Harvard University"
+  - id            : "2"
+    institution   : "Stanford University"
+
+author_note: |
+  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+
+  Enter author note here.
+
+abstract: |
+  Enter abstract here. Each new line herein must be indented, like this line.
+  
+keywords          : "keywords"
+wordcount         : "X"
+
+bibliography      : ["JasbiJaggiFrank.bib"]
+
+figsintext        : yes
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+lineno            : yes
+mask              : no
+
+class             : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r global_options2, include=FALSE}
+knitr::opts_chunk$set(fig.width=3, fig.height=3, 
+                      fig.crop = F, fig.pos = "tb", fig.path='figs/',
+                      echo=F, warning=F, cache=TRUE, 
+                      message=F, sanitize = T)
+```
+
+```{r load_packages}
+library("papaja")
+library(tidyverse)
+library(ggthemes)
+library(lubridate)
+library(magrittr)
+library(kableExtra)
+```
+
+# Introduction
+
+# Study 1: Disjunction in adult conversations
+
+# Study 2: Disjunction in child-directed speech
+
+```{r importProcessedData}
+wordCounts <- read_csv("connective_learning/2_processed_data/wordCounts.csv")
+wordCounts_byAge <- read_csv("connective_learning/2_processed_data/wordCounts_byAge.csv")
+
+freqTable_bySpeaker <- read.csv("connective_learning/2_processed_data/relfreq_bySpeaker.csv")
+
+freqTable_bySpeakerSpeechAct <- read.csv("connective_learning/2_processed_data/relfreq_bySpeakerSpeechAct.csv")
+
+cnctv_prop_bySpeechAct <- read_csv("connective_learning/2_processed_data/connective_prop_bySpeechAct.csv")
+
+freqTable_bySpeechAct <- read.csv("connective_learning/2_processed_data/frequency_bySpeechAct.csv")
+
+freqTable_byAge <- read.csv("connective_learning/2_processed_data/RelFreq_byAge.csv")
+freqTable_byAgeSpeechAct <- read.csv("connective_learning/2_processed_data/RelFreq_byAgeSpeechAct.csv")
+
+relFreq_bySpeaker <- read.csv("connective_learning/2_processed_data/relFreq_bySpeaker.csv")
+
+relFerq_bySpeakerSpeechAct <- read.csv("connective_learning/2_processed_data/relFerq_bySpeakerSpeechAct.csv")
+
+utteranceType_bySpeaker <- read_csv("connective_learning/2_processed_data/utteranceType_bySpeaker.csv")
+
+utteranceType_byAge <- read_csv("connective_learning/2_processed_data/utteranceType_byAge.csv")
+
+wordCounts_byCollection <- read_csv("connective_learning/2_processed_data/wordCounts_byCollection.csv")
+
+corpus_density <- read_csv("connective_learning/2_processed_data/corpusDensity.csv")
+child_density <- read_csv("connective_learning/2_processed_data/childDensity.csv")
+```
+
+```{r corpusStats}
+corpora_info <- read_csv("connective_learning/1_raw_data/corpora_info.csv")
+
+# convert the ages into years
+corpora_info$target_child_age_years <-
+  corpora_info$target_child_age %>% duration("days") %>% as.numeric("years")
+
+# children's ages
+Ages <- 
+  corpora_info$target_child_age_years %>% unique() %>% na.omit()
+
+# number of transcripts after age exclusion
+n_transcripts <- corpora_info %>% filter(target_child_age_years < 6, target_child_age_years > 1) %>% select(transcript_id) %>% unique()
+
+n_transcripts <- length(n_transcripts$transcript_id)
+
+exclusions <- read_csv("connective_learning/2_processed_data/exclusions.csv")
+```
+
+## Methods
+
+For samples of parents' and children's speech, this study used the online database [childes-db](childes-db.stanford.edu) and its associated R programming package `childesr` [@sanchez2018childes]. Childes-db is an online interface to the child language components of [TalkBank](https://talkbank.org/), namely [CHILDES](https://childes.talkbank.org/) [@macwhinney2000childes] and [PhonBank](https://phonbank.talkbank.org/). Two collections of corpora were selected: English-North America and English-UK. All word tokens were tagged for the following information: 1. The speaker role (mother, father, child), 2. the age of the child when the word was produced, 3. the type of the utterance the word appeared in (declarative, question, imperative, other), and 4. whether the word was *and*, *or*, or neither.
+
+```{r corpusDensityPlot, fig.width=6, fig.height=2.5, fig.align="center", fig.env="figure", fig.cap="Frequency for all the words in the North America and UK corpora of CHILDES."}
+corpus_density %>%
+  ggplot(aes(x=target_child_age_months, y=word_count, color=speaker_role)) +
+  geom_line(stat="identity") +
+  facet_grid(.~collection_name) +
+  labs(x="age (months)", y="word count") +
+  theme_few() +
+  theme(text = element_text(size=11, family="Times")) +
+  scale_color_discrete(name = "Speaker Role")
+```
+
+```{r childDensityPlot, fig.width=5, fig.height=2.5, fig.align="center", fig.env="figure", fig.cap="The number of children represented at different ages in the North America and UK corpora in CHILDES."}
+child_density %>%
+  ggplot(aes(x=target_child_age_months, y=child_count)) +
+  geom_bar(stat="identity") +
+  facet_grid(.~collection_name) +
+  labs(x="age (months)", y="Number of Children") +
+  theme_few() +
+  theme(text = element_text(size=11, family="Times"))
+```
+
+### Exclusion Criteria
+First, observations (tokens) that were coded as unintelligible were excluded (N = `r format(exclusions$Unintelligible, big.mark=",")`). Second, observations that had missing information on children's age were excluded (N = `r format(exclusions$missing, big.mark=",")`). Third, observations outside the age range of 1 to 6 years were excluded (N = `r format(exclusions$age_ex, big.mark=",")`). This exclusion was mainly because there was not much data outside this age range. Figure \@ref(fig:ageDistPlot) shows the distribution of transcripts based on the age of the child at recording time. The mean age is shown with a red vertical line (Mean Age = `r round(mean(Ages),2)`, SD = `r round(sd(Ages),2)`). The collection contained the speech of `r exclusions$n_children` children and their parents after the exclusions. 
+
+#### Procedure
+Each token was marked for the utterance type that the token appeared in. This study grouped utterance types into four main categories: "declarative", "question", "imperative", and "other". Utterance type categorization followed the convention used in the [TalkBank manual](https://talkbank.org/manuals/CHAT.html#_Toc486414422). The utterance types are similar to sentence types (declarative, interrogative, imperative) with one exception: the category "question" consists of interrogatives as well as rising declaratives (i.e. declaratives with rising question intonation). In the transcripts, declaratives are marked with a period, questions with a question mark, and imperatives with an exclamation mark. It is important to note that the manual also provides [terminators for special-type utterances](https://talkbank.org/manuals/CHAT.html#_Toc486414431). Among the special type utterances, this study included the following in the category "questions": trailing off of a question, question with exclamation, interruption of a question, and self-interrupted question. The category imperatives also included "emphatic imperatives". The rest of the special type utterances such as "interruptions" and "trailing off" were included in the category "other".     
+
+```{r ageDistPlot, fig.asp=0.5, fig.width=5, fig.height=3, fig.pos="center", fig.cap="Distribution of children's ages at recording times. Mean age is shown using a red vertical line."}
+  par(family = "Times")
+  hist(Ages, breaks = 50) 
+  abline(v=mean(Ages),col="red", xlim=c(0,10))
+  axis(side=1, at=seq(0,15, 1), labels=seq(0,15, 1))
+```
+
+### Properties of the CHILDES Corpora
+
+```{r wordCount}
+count_table <-
+  wordCounts %>%
+  select(-X1) %>%
+  spread(word, counts) %>%
+  mutate(total = and + or + other) %>%
+  select(-other)
+
+total_words <- sum(count_table$total)
+```
+
+In this section, I report some results on the distribution of words and utterances among the speakers in our collection of corpora. The collection contained `r format(total_words, big.mark = ",")` words. Table (\@ref(tab:countTable)) shows the total number of *and*'s, *or*'s, and words in the speech of children, fathers, and mothers. The collection contains  `r round(count_table$total[2]/count_table$total[1],1)` times more words for mothers compared to fathers and `r round(count_table$total[2]/count_table$total[3],1)` more words for mothers compared to children. Therefore, the collection is more representative of the mother-child interactions than father-child interactions. Compared to *or*, the word *and* is `r round(count_table$and[2]/count_table$or[2],1)` times more likely in the speech of mothers, `r round(count_table$and[1]/count_table$or[1],1)` times more likely in the speech of fathers, and `r round(count_table$and[3]/count_table$or[3],1)` times more likely in the speech of children. Overall, *and* is `r round(sum(count_table$and)/sum(count_table$or),2)` times more likely than *or* in this collection which is close to the rate reported by @morris2008logically. He extracted 5,994 instances of *and* and 465 instances of *or* and found that overall, *and* was 12.89 times more frequent than *or* in parent-child interactions.
+
+```{r countTable}
+kable(count_table, caption = "Number of \\textit{and}'s, \\textit{or}'s, and the total number of words in the speech of children and their parents in English-North America and English-UK collections after exclusions.", format.args = list(big.mark = ','), col.names = c("Speaker Role", "and", "or", "total"))
+```
+
+Figure \@ref(fig:wordsByAge) shows the number of words spoken by parents and children at each month of the child's development. The words in the collection are not distributed uniformly and there is a high concentration of data between the ages of 20 and 40 months (around 2 to 3 years of age). There is also a high concentration around 60 months (5 years of age). The speech of fathers shows a relatively low word-count across all ages. Therefore, in our analyses we should be more cautious in drawing conclusions about the speech of fathers generally, and the speech of mothers and children after age 5.
+
+```{r wordsByAge, fig.env="figure", fig.align="center", fig.width=5, fig.height=2.5, fig.cap="The number of words in the corpora for parents and children in each month of children's development."}
+wordCounts_byAge %>%
+  ggplot(aes(x=target_child_age_months, y=count, color=speaker_role)) +
+  geom_line(size=0.8) +
+  labs(x="age (months)", y="number of words") +
+  scale_x_continuous(breaks=seq(12,72, 12)) +
+  theme_few() +
+  theme(text = element_text(size=11, family="Times")) +
+  scale_color_discrete(name = "Speaker Role")
+```
+
+The distribution of function words is sensitive to the type of utterance or more broadly the type of speech act produced by speakers. For example, it is not surprising to hear a parent say "go to your room" but a child saying the same to a parent is unexpected. If a function word commonly occurs in such speech acts, it is unlikely to be produced by children, even though they may understand it very well. Therefore, it is important to check the distribution of speech acts in corpora when studying different function words. Since it is hard to classify and quantify speech acts automatically, here I use utterance type as a proxy for speech acts. I investigate the distribution of declaratives, questions, and imperatives in this collection of corpora on parent-child interactions. Figure \@ref(fig:totalUtteranceTypePlot) shows the distribution of different utterance types in the speech of parents and children. Overall, most utterances are either declaratives or questions, and there are more declaratives than questions in this collection. While mothers and fathers show similar proportions of declaratives and questions in their speech, children produce a lower proportion of questions and higher proportion of declaratives than their parents.
+
+```{r totalUtteranceTypePlot, fig.align="center", fig.width=4, fig.height=2, fig.cap="The proportion of declaratives and questions in children's and parents' utterances."}
+utteranceType_bySpeaker %>%
+#  filter(type == "declarative" | type == "question") %>%
+  ggplot(aes(x=speaker_role, y=utteranceType_ppc, fill=speech_act)) + 
+  theme(text = element_text(size=12)) +
+  geom_bar(stat="identity") + labs(x="Speaker Role", y="Proportion (%)") + 
+  theme_few() + theme(text = element_text(size = 11, family="Times")) +
+  scale_fill_discrete(name = "Speech Act")
+```
+
+Figure \@ref(fig:utteranceTypeByAgePlot) shows the developmental trend of declaratives and questions between the ages of one and six. Children start with only producing declaratives and add non-declarative utterances to their repertoire gradually until they get closer to the parents' rate around the age six. They also start with very few questions and increase the number of questions they ask gradually. It is important to note that the rates of declaratives and questions in children's speech do not reach the adult rate. These two figures show that parent-child interactions are asymmetric. Parents ask more questions and children produce more declaratives. This asymmetry also interacts with age: the speech of younger children has a higher proportion of declaratives than older children.
+
+```{r utteranceTypeByAgePlot, fig.width=5.5, fig.height=2.5, fig.cap = "Proportion of declaratives to questions in parent-child interactions by age."}
+utteranceType_byAge %>%
+  filter(speech_act == "declarative" | speech_act == "question") %>%
+  ggplot(aes(x=target_child_age_months, y=utteranceType_ppc, shape=speaker_role, color = speaker_role)) +
+  geom_point(aes(), size=0.6) + 
+  geom_smooth(aes(group = speaker_role, color=speaker_role), span=1) +  
+  scale_color_manual(values = c("seagreen3","seagreen", "darkblue")) + 
+  labs(x = "age (months)", y="Proportion (%)") +
+  scale_x_continuous(breaks=seq(12,72, 12)) +
+  facet_grid(.~speech_act) + 
+  theme_few() +
+  theme(text = element_text(size=11, family="Times"))
+```
+
+```{r utteranceTypeByAgePlot2, eval=FALSE}
+utteranceType_byAge
+utteranceType_byAge$Speaker <- "Parents"
+utteranceType_byAge[utteranceType_byAge$speaker_role=="Target_Child",]$Speaker <- "Children"
+
+utteranceType_byAge %>%
+  filter(speech_act == "declarative" | speech_act == "question") %>%
+  ggplot(aes(x=target_child_age_months, y=utteranceType_ppc, shape=Speaker, color = Speaker)) +
+  geom_point(aes(), size=0.6) + 
+  geom_smooth(aes(group = Speaker, color=Speaker), span=1) +  
+  scale_color_manual(values = c("seagreen", "darkblue")) + 
+  labs(x = "age (months)", y="Proportion (%)") +
+  scale_x_continuous(breaks=seq(12,72, 12)) +
+  facet_grid(.~speech_act) + 
+  theme_few() +
+  theme(text = element_text(size=11, family="Times"))
+```
+
+The frequency of function words such as *and* and *or* may be affected by such conversational asymmetries if they are more likely to appear in some utterance types than others. Figure \@ref(fig:CnctPropbySpeechAct) shows the proportion of *and*'s and *or*'s that appear in different utterance types in parents' and children's speech. In parents' speech, *and* appears more often in declaratives (around 60% in declaratives and 20% in questions). On the other hand, *or* appears  more often in questions than declaratives, although this difference is small in mothers. In children's speech, both *and* and *or* appear most often in declaratives. However, children have a higher proportion of *or* in questions than *and* in questions. 
+
+The differences in the distribution of utterance types can affect our interpretation of the corpus data on function words such as *and* and *or* in three ways. First, since the collection contains more declaratives than questions, it may reflect the frequency and diversity of function words like *and* that appear in declaratives better. Second, since children produce more declaratives and fewer questions than parents, we may underestimate children's knowledge of function words like *or* that are frequent in questions. Third, given that the percentage of questions in the speech of children increases as they get older, function words like *or* that are more likely to appear in questions may appear infrequent in the early stages and more frequent in the later stages of children's development. In other words, function words like *or* that are common in questions may show a seeming delay in production which is possibly due to the development of questions in children's speech. Therefore, in studying children's productions of function words, it is important to look at their relative frequencies in different utterance types as well as the overall trends. This is the approach I pursue in the next section.
+
+```{r CnctPropbySpeechAct, fig.env="figure", fig.align="center", fig.width= 6, fig.height=3, fig.cap="The proportion of \\textit{and} and \\textit{or} in different utterance types in the speech of parents and children."}
+cnctv_prop_bySpeechAct %>%
+  filter(word != "other") %>%
+  ggplot(aes(x=speech_act, y=connective_pct, fill=speech_act)) + 
+  geom_bar(stat="identity") + 
+  facet_grid(word~speaker_role) + 
+  theme_few() +
+  geom_errorbar(aes(ymin=lower_pct, ymax=upper_pct), width=0.1) + 
+  labs(x="", y="Proportion (%)") + 
+#  scale_fill_manual(values = c("seagreen3","seagreen", "darkblue", "gray")) + 
+  theme(axis.text.x = element_text(angle=45, hjust=1, vjust=1), text = element_text(size=11, family="Times")) +
+  guides(fill=FALSE)
+```
+
+<!--
+### Properties of the Switchboard Corpus
+-->
+### Results {#study1results}
+
+First, I consider the overall distribution of *and* and *or* in the corpora and then look closer at their distributions in different utterance types. Figure \@ref(fig:freqTableBySpeakerPlot) shows the frequency of *and* and *or* relative to the total number of words produced by each speaker (i.e. fathers, mothers, and children). The y-axes show relative frequency per thousand words. It is also important to note that the y-axes show different ranges of values for *and* vs. *or*. This is due to the large difference between the relative frequencies of these connectives. Overall, *and* occurs around 15 times per thousand words but *or* only occurs 3 times per 2000 words in the speech of parents and around 1 time every 2000 words in the speech of children. Comparing the relative frequency of the connectives in parents' and children's speech, we can see that overall, children and parents produce similar rates of *and* in their interactions. However, children produce fewer *or*'s than their parents. 
+
+```{r freqTableBySpeakerPlot, fig.env="figure", fig.align="center", fig.width=3, fig.height=2.5, fig.cap="The relative frequency of \\textit{and/or} in the speech of fathers, mothers, and children. 95\\% binomial proportion confidence intervals calculated using Agresti-Coull's approximate method."}
+freqTable_bySpeaker %>%
+  filter(word != "other") %>%
+  ggplot(aes(x=speaker_role, y=ppt, fill=speaker_role)) + 
+  geom_bar(stat="identity", width = 0.7) + 
+  facet_grid(word~., scales = "free_y") + theme_few() +
+  geom_errorbar(aes(ymin = ppt_lower, ymax=ppt_upper), width=0.2) +
+  labs(x="", y="Relative Frequency (per thaousand)") + 
+  scale_fill_manual(values = c("seagreen3","seagreen", "darkblue")) + 
+  guides(fill=FALSE) + 
+  theme(text = element_text(size=11, family="Times"))
+```
+
+```{r freqTablebySpeechAct2, eval=FALSE}
+freqTable_bySpeaker$Speaker <- "Parents"
+freqTable_bySpeaker[freqTable_bySpeaker$speaker_role=="Target_Child",]$Speaker <- "Children"
+
+freqTable_bySpeaker2 <-
+freqTable_bySpeaker %>%
+  group_by(Speaker, word) %>%
+  summarize(count=sum(count), total=sum(total))
+
+# calculating the confidence intervals
+conf_ints <- 
+  binom.confint(freqTable_bySpeaker2$count, freqTable_bySpeaker2$total, conf.level = 0.95, methods = "exact") %>%
+  rename(total = "n", count="x", rel_freq = "mean") %>%
+  select(-method)
+
+#joining the confidence interval table and the proportion table
+freqTable_bySpeaker2 %<>%
+  full_join(conf_ints, by=c("count","total")) %>%
+  mutate(ppt = rel_freq*1000, upper_ppt=upper*1000, lower_ppt=lower*1000)
+
+freqTable_bySpeaker2 %>%
+  filter(word != "other") %>%
+  ggplot(aes(x=Speaker, y=ppt, fill=Speaker)) + 
+  geom_bar(stat="identity") + 
+  facet_grid(word~., scales = "free_y") + theme_few() +
+  geom_errorbar(aes(ymin=lower_ppt, ymax=upper_ppt), width=0.2) +
+  labs(x="", y="relative frequency (per thousand)") + 
+  scale_fill_manual(values = c("seagreen", "darkblue")) + 
+  theme(text = element_text(size=14, family="Times")) +
+  guides(fill=FALSE)
+```
+Next we look at the relative frequencies of *and* and *or* in parents and children's speech during the course of children's development. Figure \@ref(fig:agePlot) shows the relative frequencies of *and* and *or* in parents' and children's speech between 12 and 72 months  (1-6 years). Production of *and* in parents' speech seems to be relatively stable and somewhere between 10 to 20 *and*'s per thousand words over the course of children's development. For children, they start producing *and* between 12 and 24 months, and show a sharp increase in their production until they reach the parent level between 30 to 36 months of age. Children stay close to the parents' production level between 36 and 72 months, possibly surpassing them a bit at 60 months -- although as stated in the previous section, we should be cautious about patterns after 60 months due to the small amount of data in this period. For *or*, parents produce between 1 to 2 *or*'s every thousand words and mothers show a slight increase in their productions between 12 to 36 months. Children start producing *or* between 18 to 30 months of age. They show a steady increase in their productions of *or* until they get close to 1 *or* per thousand words at 48 months (4 years) and  stay at that level until 72 months (6 years). 
+
+Children's productions of *and* and *or* show two main differences. First, the onset of *or* production is later than that of *and*. Children start producing *and* around 1 to 1.5 years old while *or* productions start around 6 months later. Second, children's *and* production shows a steep rise and reaches the parent level of production at three-years old. For *or*, however, the rise in children's production level does not reach the parent level even though it seems to reach a constant level between the ages of 4 and 6 years. 
+
+Not reaching the parent level of *or* production does not necessarily mean that children's understanding of *or* has not fully developed yet. It can also be due to the nature of parent-child interactions. For example, since parents ask more questions than children and *or* appears frequently in questions, parents may have a higher frequency of *or*. There are two ways of controlling for this possibility. One is to research children's speech to peers. Unfortunately such a large database of children's speech to peers is not currently available for analysis. Alternatively, we can look at the relative frequencies and developmental trends within utterance types such as declaratives and questions to see if we spot different developmental trends. This is what I pursue next.
+\newline
+```{r agePlot, fig.env="figure", fig.align="center", fig.width=4.5, fig.height=3.5, fig.cap="The monthly relative frequency of \\textit{and/or} in parents and children's speech between 12 and 72 months (1-6 years)."}
+freqTable_byAge %>%
+  filter(word!="other") %>%
+  ggplot(aes(target_child_age_months, ppt, shape = speaker_role, color=speaker_role)) +
+  geom_point(aes(), size=0.6) +
+  facet_grid(word~., scales="free_y") +
+  scale_x_continuous(breaks=seq(12,72, 6)) +
+  labs(x = "Age (months)", y="relative frequency (per thousand words)") +
+  geom_smooth(aes(group = speaker_role, color=speaker_role), span=1) +
+  scale_color_manual(values = c("seagreen3","seagreen", "darkblue"), name="Speaker Role") + 
+  theme_few() + guides(shape=FALSE) +
+  theme(text = element_text(size=11, family = "Times"))
+```
+
+```{r agePlot2, eval=FALSE}
+freqTable_byAge$Speaker <- "Parents"
+freqTable_byAge[freqTable_byAge$speaker_role=="Target_Child",]$Speaker <- "Children"
+
+
+freqTable_byAge %>%
+  filter(word!="other") %>%
+  ggplot(aes(target_child_age_months, ppt, shape = Speaker, color=Speaker)) +
+  geom_point(aes(), size=0.6) +
+  facet_grid(word~., scales="free_y") +
+#  scale_y_continuous(limits = c(0, 20)) +
+  scale_x_continuous(breaks=seq(12,72, 6)) +
+  labs(x = "Age (months)", y="relative frequency (per thousand words)") +
+  geom_smooth(aes(group = Speaker, color=Speaker), span=1) +
+  scale_color_manual(values = c("seagreen", "darkblue")) + 
+  theme_few() + guides(shape=FALSE) +
+  theme(text = element_text(size=11, family = "Times"))
+```
+
+Figure \@ref(fig:freqTablebySpeechAct) shows the relative frequency of *and* and *or* in declaratives, questions, and imperatives. *And* has the highest relative frequency in declaratives while *or* has the highest relative frequency in questions. Figure \@ref(fig:ageSpeechActPlot) shows the developmental trends of the relative frequencies of *and* and *or* in questions and declaratives. Comparing *and* in declaratives and questions, we see that the onset of *and* productions are slightly delayed for questions but in both declaratives and questions, *and* productions reach the parent level around 36 months (3 years). For *or*, we see a similar delay in questions compared to declaratives. Children start producing *or* in declaratives at around 18 months but they start producing *or* in questions at 24 months. Production of *or* increases in both declaratives and questions until it seems to reach a constant rate in declaratives between 48 and 72 months. The relative frequency of *or* in questions continues to rise until 60 months. Comparing figures \@ref(fig:agePlot) and \@ref(fig:ageSpeechActPlot), we see that children are closer to the adult rate of production in declaratives than questions. The large difference between parents and children's production of *or* in figure \@ref(fig:agePlot) may partly be due to the development of *or* in questions. Overall the results show that children have a substantial increase in their productions of *and* and *or* between 1.5 to 4 years of age. Therefore, it is reasonable to expect that early mappings for the meaning and usage of these words develop in this age range. 
+
+```{r freqTablebySpeechAct, fig.align="center", fig.width=5, fig.height=3, fig.cap="Relative frequency of \\textit{and/or} in declaratives, imperatives, and interrogatives for parents and children "}
+freqTable_bySpeakerSpeechAct %>%
+  filter(word != "other", speech_act!="other") %>%
+  ggplot(aes(x=speech_act, y=ppt, fill=speaker_role)) + 
+  geom_bar(stat="identity") + 
+  facet_grid(word~speaker_role, scales = "free_y") + theme_few() +
+  geom_errorbar(aes(ymin=lower_ppt, ymax=upper_ppt), width=0.2) +
+  labs(x="", y="relative frequency (per thousand)") + 
+  scale_fill_manual(values = c("seagreen3","seagreen", "darkblue"), name="Speaker Role") + 
+  theme(axis.text.x = element_text(angle=45, hjust=1, vjust=1), text = element_text(size=11, family="Times")) +
+  guides(fill=FALSE)
+```
+
+```{r freqTablebySpeechAct22, eval=FALSE}
+freqTable_bySpeakerSpeechAct$Speaker <- "Parents"
+freqTable_bySpeakerSpeechAct[freqTable_bySpeakerSpeechAct$speaker_role=="Target_Child",]$Speaker <- "Children"
+
+freqTable_bSpeakerSpeechAct2 <-
+freqTable_bySpeakerSpeechAct %>%
+  group_by(Speaker, word, speech_act) %>%
+  summarize(count=sum(count), total=sum(total))
+
+# calculating the confidence intervals
+conf_ints <- 
+  binom.confint(freqTable_bSpeakerSpeechAct2$count, freqTable_bSpeakerSpeechAct2$total, conf.level = 0.95, methods = "exact") %>%
+  rename(total = "n", count="x", rel_freq = "mean") %>%
+  select(-method)
+
+#joining the confidence interval table and the proportion table
+freqTable_bSpeakerSpeechAct2 %<>%
+  full_join(conf_ints, by=c("count","total")) %>%
+  mutate(ppt = rel_freq*1000, upper_ppt=upper*1000, lower_ppt=lower*1000)
+
+freqTable_bSpeakerSpeechAct2 %>%
+  filter(word != "other", speech_act!="other") %>%
+  ggplot(aes(x=speech_act, y=ppt, fill=Speaker)) + 
+  geom_bar(stat="identity") + 
+  facet_grid(word~Speaker, scales = "free_y") + theme_few() +
+  geom_errorbar(aes(ymin=lower_ppt, ymax=upper_ppt), width=0.2) +
+  labs(x="", y="relative frequency (per thousand)") + 
+  scale_fill_manual(values = c("seagreen", "darkblue")) + 
+  theme(text = element_text(size=14, family="Times")) +
+  guides(fill=FALSE)
+```
+
+```{r ageSpeechActPlot, fig.env="figure", fig.align="center", fig.width=6, fig.height=4, fig.cap="Relative frequency of \\textit{and/or} in declaratives and questions for parents and childern between the child-age of 12 and 72 months (1-6 years)."}
+freqTable_byAgeSpeechAct %>%
+  filter(word!="other", speech_act!="other", speech_act!="imperative") %>%
+  ggplot(aes(target_child_age_months, ppt, shape = speaker_role, color=speaker_role)) +
+  geom_point(aes(), size=0.6) +
+  facet_grid(word~speech_act, scales="free_y") +
+#  scale_y_continuous(limits = c(0, 20)) +
+  scale_x_continuous(breaks=seq(12,72, 6)) +
+  labs(x = "age (months)", y="relative frequency (per thousand words)") +
+  geom_smooth(aes(group = speaker_role, color=speaker_role), span=1) +
+  scale_color_manual(values = c("seagreen3","seagreen", "darkblue"), name="Speaker Role") + 
+  theme_few() +
+  theme(text = element_text(size=11, family="Times")) + 
+  scale_shape_discrete(name = "Speaker Role")
+```
+
+```{r ageSpeechActPlot2, eval=FALSE}
+freqTable_byAgeSpeechAct$Speaker <- "Parents"
+freqTable_byAgeSpeechAct[freqTable_byAgeSpeechAct$speaker_role=="Target_Child",]$Speaker <- "Children"
+
+freqTable_byAgeSpeechAct %>%
+  filter(word!="other", speech_act!="other", speech_act!="imperative") %>%
+  ggplot(aes(target_child_age_months, ppt, shape = Speaker, color=Speaker)) +
+  geom_point(aes(), size=0.6) +
+  facet_grid(word~speech_act, scales="free_y") +
+#  scale_y_continuous(limits = c(0, 20)) +
+  scale_x_continuous(breaks=seq(12,72, 6)) +
+  labs(x = "age (months)", y="relative frequency (per thousand words)") +
+  geom_smooth(aes(group = Speaker, color=Speaker), span=1) +
+  scale_color_manual(values = c("seagreen", "darkblue")) + 
+  theme_few() +
+  theme(text = element_text(size=11, family="Times"))
+#  guides(shape=FALSE, color=FALSE)
+```
+
+### Discussion {#study1discussion}
+
+The goal of this study was to explore the frequency of *and* and *or* in parents and children's speech. The study found three differences. First, it found a difference between the overall frequency of *and* and *or* in both parents and children. *And* was about 10 times more frequent than *or* in the speech of parents and 30 times more likely in the speech of children. Second, the study found a difference between parents' and children's productions of *or*. Relative to the total number of words spoken by parents and children between the ages of 1 and 6 years, both children and parents produce on average 15 *and*'s every 1000 words. Therefore, children match parents' rate of *and* production overall. This is not the case for *or* as parents produce 3 *or*'s every 2000 words and children only 1 every 2000 words. Third, the study found a developmental difference between *and* and *or* as well. The study found that the onset of production is earlier for *and* than *or*. In the monthly relative frequencies of *and* and *or* in the speech of parents and children, the study also found that children reach the parents' level of production for *and* at age 3 while *or* does not reach the parents' level even at age 6. 
+
+What causes these production differences? The first difference -- that *and* is far more frequent than *or* -- is not surprising or limited to child-directed speech. *And* is useful in a large set of contexts from conjoining elements of a sentence to connecting discourse elements or even holding the floor and delaying a conversational turn. In comparison, *or* seems to have a more limited usage. The second and the third differences -- namely that children produce fewer *or*'s than parents, and that they produce *and* and reach their parents rate earlier than *or* -- could be due to three factors. First, production of *and* develops and reaches the parents' rate earlier possibly because it is much more frequent than *or* in children's input. Previous research suggests that within the same syntactic category, words with higher frequency in child-directed speech are acquired earlier [@goodman2008does]. The conjunction word *and* is at least 10 times more likely than *or* so earlier acquisition of *and* is consistent with the effect of frequency on age of acquisition. Second, research on concept attainment has suggested that the concept of conjunction is easier to conjure and possibly acquire than the concept of disjunction. In experiments that participants are asked to detect a pattern in the classification of cards, participants can detect a conjunctive classification pattern faster than a disjunctive one [@neisser1962hierarchies]. Therefore, it is possible that children learn the meaning of *and* faster and start to produce it earlier but they need more time to figure out the meaning and usage of *or*.
+
+A third possibility is that the developmental difference between *and* and *or* is mainly due to the asymmetric nature of parent-child interactions and the utterance types that each role in this interaction requires. For example, this study found that parents ask more questions of children than children do of parents. It also found that *or* is much more frequent in questions than *and* is. Therefore, parent-child interaction provides more opportunities for parents to use *or* than children. In the next study we will discuss several constructions and communicative functions that are also more appropriate for the role of parents. For example, *or* is often used to ask what someone else wants like "do you want apple juice or orange juice?" or for asking someone to clarify what they said such as "did you mean ball or bowl?". Both of these constructions are more likely to be produced by a parent than a child. *Or* is also used to introduce examples or provide definitions such as "an animal, like a rabbit, or a lion, or a sheep". It is very unlikely that children would use such constructions to define terms for parents! Furthermore, such constructions also reveal their own developmental trends. For example, the study found that children start by almost entirely producing declaratives and increase their questions until at age 4 to 6, about 10% of their utterances are questions. Therefore, children's ability to produce *or* in a question is subject to the development of questions themselves. More generally, the developmental difference between *and* and *or* may also be due to a difference in the development of other factors that production of *and* and *or* rely on, such as the development of constructions with specific communicative functions like unconditionals (Whether X or Y, discussed in Chapter \@ref(sempragLit)). In future research, it will be important to establish the extent to which each of these potential causes -- frequency, conceptual complexity, and the development of other factors such as utterance type or constructions with specific communicative functions --  contribute to the developmental differences in the production of conjunction and disjunction. 
+
+# Study 3: Learning to interpret a disjunction
+
+# Conclusion
+
+\newpage
+
+# References
+```{r create_r-references}
+r_refs(file = "r-references.bib")
+```
+
+# Appendix
+
+## Inter-annotator agreement
+
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
