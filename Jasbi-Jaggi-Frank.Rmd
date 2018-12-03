@@ -50,6 +50,16 @@ knitr::opts_chunk$set(fig.width=3, fig.height=3,
                       message=F, sanitize = T)
 ```
 
+```{r bootstrapping}
+## for bootstrapping 95% confidence intervals
+theta <- function(x,xdata) {mean(xdata[x])}
+ci.low <- function(x) {
+  quantile(bootstrap(1:length(x),1000,theta,x)$thetastar,.025)}
+ci.high <- function(x) {
+  quantile(bootstrap(1:length(x),1000,theta,x)$thetastar,.975)}
+```
+
+
 ```{r load_packages}
 library("papaja")
 library(tidyverse)
@@ -57,6 +67,11 @@ library(ggthemes)
 library(lubridate)
 library(magrittr)
 library(kableExtra)
+library(bootstrap)
+library(lme4)
+library(lmerTest)
+library(jpeg)
+library(png)
 ```
 
 # Introduction
