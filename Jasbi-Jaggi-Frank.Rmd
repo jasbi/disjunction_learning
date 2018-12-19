@@ -59,7 +59,6 @@ ci.high <- function(x) {
   quantile(bootstrap(1:length(x),1000,theta,x)$thetastar,.975)}
 ```
 
-
 ```{r load_packages}
 library("papaja")
 library(tidyverse)
