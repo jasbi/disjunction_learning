@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  18 JUL 2019 15:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  1 AUG 2019 09:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -979,11 +979,7 @@ LaTeX Info: Redefining \\ on input line 3056.
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
-(./Jasbi-Jaggi-Frank.aux
-
-LaTeX Warning: Label `tab:providence' multiply defined.
-
-)
+(./Jasbi-Jaggi-Frank.aux)
 \openout1 = `Jasbi-Jaggi-Frank.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
@@ -1160,394 +1156,66 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 ) [1{/Users/Masoud/Library/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdfte
 x.map}
 
-] [2] [3] [4] [5]
+] [2] [3] [4]
 Underfull \vbox (badness 4752) has occurred while \output is active []
 
-[6] <figs/theories-1.png, id=160, 1957.3125pt x 1355.0625pt>
+[5] <figs/theories-1.png, id=71, 910.40125pt x 337.26pt>
 File: figs/theories-1.png Graphic file (type png)
 <use figs/theories-1.png>
-Package pdftex.def Info: figs/theories-1.png used on input line 185.
-(pdftex.def)             Requested size: 469.73474pt x 325.20097pt.
-[7 <./figs/theories-1.png>] [8] <figs/cueBasedAccount-1.png, id=175, 1957.3125p
-t x 1355.0625pt>
+Package pdftex.def Info: figs/theories-1.png used on input line 139.
+(pdftex.def)             Requested size: 469.75789pt x 174.02277pt.
+[6 <./figs/theories-1.png>] [7] <figs/cueBasedAccount-1.png, id=86, 1957.3125pt
+ x 1355.0625pt>
 File: figs/cueBasedAccount-1.png Graphic file (type png)
 <use figs/cueBasedAccount-1.png>
-Package pdftex.def Info: figs/cueBasedAccount-1.png used on input line 213.
+Package pdftex.def Info: figs/cueBasedAccount-1.png used on input line 165.
 (pdftex.def)             Requested size: 469.73474pt x 325.20097pt.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 229.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 178.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
+) [8 <./figs/cueBasedAccount-1.png>]
+
+LaTeX Warning: Reference `fig:freqTableBySpeakerPlot' on page 9 undefined on in
+put line 193.
+
+
+LaTeX Warning: Reference `fig:agePlot' on page 9 undefined on input line 193.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[9 <./figs/cueBasedAccount-1.png>] <figs/corpusDensityPlot-1.png, id=187, 1806.
-75pt x 752.8125pt>
-File: figs/corpusDensityPlot-1.png Graphic file (type png)
-<use figs/corpusDensityPlot-1.png>
-Package pdftex.def Info: figs/corpusDensityPlot-1.png used on input line 233.
-(pdftex.def)             Requested size: 469.74393pt x 195.72662pt.
-[10 <./figs/corpusDensityPlot-1.png>] [11]
+[9] <figs/bySpeaker_byAge_plots-1.png, id=108, 752.8125pt x 451.6875pt>
+File: figs/bySpeaker_byAge_plots-1.png Graphic file (type png)
+<use figs/bySpeaker_byAge_plots-1.png>
+Package pdftex.def Info: figs/bySpeaker_byAge_plots-1.png used on input line 19
+7.
+(pdftex.def)             Requested size: 469.77148pt x 281.86288pt.
 
-LaTeX Warning: Reference `fig:wordsByAge' on page 12 undefined on input line 27
-2.
-
-[12] <figs/totalUtteranceTypePlot-1.png, id=213, 1957.3125pt x 1355.0625pt>
-File: figs/totalUtteranceTypePlot-1.png Graphic file (type png)
-<use figs/totalUtteranceTypePlot-1.png>
-Package pdftex.def Info: figs/totalUtteranceTypePlot-1.png used on input line 2
-77.
-(pdftex.def)             Requested size: 469.73474pt x 325.20097pt.
-[13 <./figs/totalUtteranceTypePlot-1.png>] <figs/utteranceTypeByAgePlot-1.pdf, 
-id=223, 384.43625pt x 164.615pt>
-File: figs/utteranceTypeByAgePlot-1.pdf Graphic file (type pdf)
-<use figs/utteranceTypeByAgePlot-1.pdf>
-Package pdftex.def Info: figs/utteranceTypeByAgePlot-1.pdf used on input line 2
-88.
-(pdftex.def)             Requested size: 384.44702pt x 164.61961pt.
-[14 <./figs/utteranceTypeByAgePlot-1.pdf>] <figs/CnctPropbySpeechAct-1.png, id=
-240, 1806.75pt x 903.375pt>
-File: figs/CnctPropbySpeechAct-1.png Graphic file (type png)
-<use figs/CnctPropbySpeechAct-1.png>
-Package pdftex.def Info: figs/CnctPropbySpeechAct-1.png used on input line 298.
-
-(pdftex.def)             Requested size: 469.74393pt x 234.87196pt.
-[15 <./figs/CnctPropbySpeechAct-1.png>] <figs/freqTableBySpeakerPlot-1.png, id=
-249, 903.375pt x 752.8125pt>
-File: figs/freqTableBySpeakerPlot-1.png Graphic file (type png)
-<use figs/freqTableBySpeakerPlot-1.png>
-Package pdftex.def Info: figs/freqTableBySpeakerPlot-1.png used on input line 3
-12.
-(pdftex.def)             Requested size: 469.7577pt x 391.46475pt.
-
-Underfull \vbox (badness 4752) has occurred while \output is active []
-
-[16] <figs/agePlot-1.png, id=256, 1355.0625pt x 1053.9375pt>
-File: figs/agePlot-1.png Graphic file (type png)
-<use figs/agePlot-1.png>
-Package pdftex.def Info: figs/agePlot-1.png used on input line 327.
-(pdftex.def)             Requested size: 469.75082pt x 365.36174pt.
-
-Underfull \vbox (badness 4752) has occurred while \output is active []
-
-[17] <figs/freqTablebySpeechAct-1.png, id=268, 1505.625pt x 903.375pt>
-File: figs/freqTablebySpeechAct-1.png Graphic file (type png)
-<use figs/freqTablebySpeechAct-1.png>
-Package pdftex.def Info: figs/freqTablebySpeechAct-1.png used on input line 338
-.
-(pdftex.def)             Requested size: 469.74852pt x 281.8491pt.
-<figs/ageSpeechActPlot-1.png, id=269, 1806.75pt x 1204.5pt>
-File: figs/ageSpeechActPlot-1.png Graphic file (type png)
-<use figs/ageSpeechActPlot-1.png>
-Package pdftex.def Info: figs/ageSpeechActPlot-1.png used on input line 347.
-(pdftex.def)             Requested size: 469.74393pt x 313.16261pt.
-[18]
-
-LaTeX Warning: Reference `sempragLit' on page 19 undefined on input line 361.
-
-[19] [20] [21] [22]
-Underfull \vbox (badness 4752) has occurred while \output is active []
-
-[23]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 421.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 421.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 421.
-[24]
-Underfull \vbox (badness 1609) has occurred while \output is active []
-
-[25]
-Underfull \vbox (badness 2384) has occurred while \output is active []
-
-[26] <figs/answerPlot-1.png, id=344, 1204.5pt x 602.25pt>
-File: figs/answerPlot-1.png Graphic file (type png)
-<use figs/answerPlot-1.png>
-Package pdftex.def Info: figs/answerPlot-1.png used on input line 441.
-(pdftex.def)             Requested size: 469.75311pt x 234.87654pt.
-<figs/connectivePlot-1.png, id=347, 1505.625pt x 752.8125pt>
-File: figs/connectivePlot-1.png Graphic file (type png)
-<use figs/connectivePlot-1.png>
-Package pdftex.def Info: figs/connectivePlot-1.png used on input line 452.
-(pdftex.def)             Requested size: 469.74852pt x 234.87425pt.
-[27] <figs/utterancetypePlot-1.png, id=358, 1204.5pt x 752.8125pt>
-File: figs/utterancetypePlot-1.png Graphic file (type png)
-<use figs/utterancetypePlot-1.png>
-Package pdftex.def Info: figs/utterancetypePlot-1.png used on input line 463.
-(pdftex.def)             Requested size: 469.75311pt x 293.59569pt.
-<figs/intonationPlot-1.png, id=360, 1204.5pt x 752.8125pt>
-File: figs/intonationPlot-1.png Graphic file (type png)
-<use figs/intonationPlot-1.png>
-Package pdftex.def Info: figs/intonationPlot-1.png used on input line 474.
-(pdftex.def)             Requested size: 469.75311pt x 293.59569pt.
-
-Underfull \vbox (badness 4752) has occurred while \output is active []
-
-[28] <figs/consistencyPlot-1.png, id=368, 1204.5pt x 752.8125pt>
-File: figs/consistencyPlot-1.png Graphic file (type png)
-<use figs/consistencyPlot-1.png>
-Package pdftex.def Info: figs/consistencyPlot-1.png used on input line 485.
-(pdftex.def)             Requested size: 469.75311pt x 293.59569pt.
-<figs/consistencyByintonationPlot-1.png, id=371, 1806.75pt x 903.375pt>
-File: figs/consistencyByintonationPlot-1.png Graphic file (type png)
-<use figs/consistencyByintonationPlot-1.png>
-Package pdftex.def Info: figs/consistencyByintonationPlot-1.png used on input l
-ine 496.
-(pdftex.def)             Requested size: 469.74393pt x 234.87196pt.
-<figs/syntaxPlot-1.png, id=372, 1505.625pt x 752.8125pt>
-File: figs/syntaxPlot-1.png Graphic file (type png)
-<use figs/syntaxPlot-1.png>
-Package pdftex.def Info: figs/syntaxPlot-1.png used on input line 505.
-(pdftex.def)             Requested size: 469.74852pt x 234.87425pt.
-<figs/speechActPlot-1.png, id=374, 1806.75pt x 1505.625pt>
-File: figs/speechActPlot-1.png Graphic file (type png)
-<use figs/speechActPlot-1.png>
-Package pdftex.def Info: figs/speechActPlot-1.png used on input line 516.
-(pdftex.def)             Requested size: 469.74393pt x 391.45326pt.
-[29]
-Underfull \vbox (badness 4752) has occurred while \output is active []
-
-[30]
-Underfull \vbox (badness 2384) has occurred while \output is active []
-
-[31] [32]
-
-LaTeX Warning: Reference `corpus' on page 33 undefined on input line 548.
-
-[33] <figs/binaryLogicalConnectivess-1.png, id=406, 1505.625pt x 602.25pt>
-File: figs/binaryLogicalConnectivess-1.png Graphic file (type png)
-<use figs/binaryLogicalConnectivess-1.png>
-Package pdftex.def Info: figs/binaryLogicalConnectivess-1.png used on input lin
-e 554.
-(pdftex.def)             Requested size: 469.74852pt x 187.8994pt.
-
-LaTeX Warning: Reference `corpus' on page 34 undefined on input line 566.
-
-
-LaTeX Warning: Reference `sempragLit' on page 34 undefined on input line 566.
-
-<figs/interpretation-1.png, id=408, 542.025pt x 542.025pt>
-File: figs/interpretation-1.png Graphic file (type png)
-<use figs/interpretation-1.png>
-Package pdftex.def Info: figs/interpretation-1.png used on input line 570.
-(pdftex.def)             Requested size: 469.77148pt x 469.77148pt.
-[34] [35]
-<figs/interpretationByIntonationAndConsistency-1.png, id=420, 1053.9375pt x 752
-.8125pt>
-File: figs/interpretationByIntonationAndConsistency-1.png Graphic file (type pn
-g)
-<use figs/interpretationByIntonationAndConsistency-1.png>
-Package pdftex.def Info: figs/interpretationByIntonationAndConsistency-1.png us
-ed on input line 595.
-(pdftex.def)             Requested size: 469.7646pt x 335.54614pt.
-[36]
-Underfull \vbox (badness 2384) has occurred while \output is active []
-
-[37] [38] <figs/binaryBaseline-1.pdf, id=440, 260.975pt x 188.705pt>
-File: figs/binaryBaseline-1.pdf Graphic file (type pdf)
-<use figs/binaryBaseline-1.pdf>
-Package pdftex.def Info: figs/binaryBaseline-1.pdf used on input line 628.
-(pdftex.def)             Requested size: 260.97437pt x 188.70453pt.
-<figs/binaryCueBased-1.pdf, id=441, 371.3875pt x 325.215pt>
-File: figs/binaryCueBased-1.pdf Graphic file (type pdf)
-<use figs/binaryCueBased-1.pdf>
-Package pdftex.def Info: figs/binaryCueBased-1.pdf used on input line 634.
-(pdftex.def)             Requested size: 371.3979pt x 325.22412pt.
-<figs/XorBinary-1.pdf, id=444, 459.7175pt x 325.215pt>
-File: figs/XorBinary-1.pdf Graphic file (type pdf)
-<use figs/XorBinary-1.pdf>
-Package pdftex.def Info: figs/XorBinary-1.pdf used on input line 642.
-(pdftex.def)             Requested size: 459.74442pt x 325.23404pt.
-<figs/IorBinary-1.pdf, id=445, 459.7175pt x 325.215pt>
-File: figs/IorBinary-1.pdf Graphic file (type pdf)
-<use figs/IorBinary-1.pdf>
-Package pdftex.def Info: figs/IorBinary-1.pdf used on input line 648.
-(pdftex.def)             Requested size: 459.74442pt x 325.23404pt.
-<figs/ternaryBaseline-1.pdf, id=448, 403.5075pt x 282.05376pt>
-File: figs/ternaryBaseline-1.pdf Graphic file (type pdf)
-<use figs/ternaryBaseline-1.pdf>
-Package pdftex.def Info: figs/ternaryBaseline-1.pdf used on input line 656.
-(pdftex.def)             Requested size: 403.51266pt x 282.05736pt.
-<figs/ternaryCueBased-1.pdf, id=449, 469.755pt x 712.6625pt>
-File: figs/ternaryCueBased-1.pdf Graphic file (type pdf)
-<use figs/ternaryCueBased-1.pdf>
-Package pdftex.def Info: figs/ternaryCueBased-1.pdf used on input line 662.
-(pdftex.def)             Requested size: 428.7536pt x 650.45953pt.
-
-LaTeX Warning: Float too large for page by 106.01944pt on input line 664.
-
-[39] <figs/ANDintermediate-1.pdf, id=464, 459.7175pt x 325.215pt>
-File: figs/ANDintermediate-1.pdf Graphic file (type pdf)
-<use figs/ANDintermediate-1.pdf>
-Package pdftex.def Info: figs/ANDintermediate-1.pdf used on input line 670.
-(pdftex.def)             Requested size: 459.74442pt x 325.23404pt.
-<figs/ANDintermediateDis-1.pdf, id=465, 459.7175pt x 325.215pt>
-File: figs/ANDintermediateDis-1.pdf Graphic file (type pdf)
-<use figs/ANDintermediateDis-1.pdf>
-Package pdftex.def Info: figs/ANDintermediateDis-1.pdf used on input line 676.
-(pdftex.def)             Requested size: 459.74442pt x 325.23404pt.
-<figs/XORintermediate-1.pdf, id=466, 459.7175pt x 325.215pt>
-File: figs/XORintermediate-1.pdf Graphic file (type pdf)
-<use figs/XORintermediate-1.pdf>
-Package pdftex.def Info: figs/XORintermediate-1.pdf used on input line 682.
-(pdftex.def)             Requested size: 459.74442pt x 325.23404pt.
-<figs/IORintermediate-1.pdf, id=467, 459.7175pt x 325.215pt>
-File: figs/IORintermediate-1.pdf Graphic file (type pdf)
-<use figs/IORintermediate-1.pdf>
-Package pdftex.def Info: figs/IORintermediate-1.pdf used on input line 688.
-(pdftex.def)             Requested size: 459.74442pt x 325.23404pt.
-<figs/wholeBaseline-1.pdf, id=470, 469.755pt x 277.035pt>
-File: figs/wholeBaseline-1.pdf Graphic file (type pdf)
-<use figs/wholeBaseline-1.pdf>
-Package pdftex.def Info: figs/wholeBaseline-1.pdf used on input line 696.
-(pdftex.def)             Requested size: 469.75386pt x 277.03432pt.
-<figs/wholeCueBased-1.pdf, id=471, 469.755pt x 559.08875pt>
-File: figs/wholeCueBased-1.pdf Graphic file (type pdf)
-<use figs/wholeCueBased-1.pdf>
-Package pdftex.def Info: figs/wholeCueBased-1.pdf used on input line 702.
-(pdftex.def)             Requested size: 469.75386pt x 559.08737pt.
-
-LaTeX Warning: Float too large for page by 62.64224pt on input line 704.
-
-[40] <figs/ANDWhole-1.pdf, id=485, 459.7175pt x 325.215pt>
-File: figs/ANDWhole-1.pdf Graphic file (type pdf)
-<use figs/ANDWhole-1.pdf>
-Package pdftex.def Info: figs/ANDWhole-1.pdf used on input line 710.
-(pdftex.def)             Requested size: 459.74442pt x 325.23404pt.
-<figs/XORWhole-1.pdf, id=486, 459.7175pt x 325.215pt>
-File: figs/XORWhole-1.pdf Graphic file (type pdf)
-<use figs/XORWhole-1.pdf>
-Package pdftex.def Info: figs/XORWhole-1.pdf used on input line 716.
-(pdftex.def)             Requested size: 459.74442pt x 325.23404pt.
-<figs/IORWhole-1.pdf, id=487, 459.7175pt x 325.215pt>
-File: figs/IORWhole-1.pdf Graphic file (type pdf)
-<use figs/IORWhole-1.pdf>
-Package pdftex.def Info: figs/IORWhole-1.pdf used on input line 722.
-(pdftex.def)             Requested size: 459.74442pt x 325.23404pt.
-<figs/NORWhole-1.pdf, id=489, 459.7175pt x 325.215pt>
-File: figs/NORWhole-1.pdf Graphic file (type pdf)
-<use figs/NORWhole-1.pdf>
-Package pdftex.def Info: figs/NORWhole-1.pdf used on input line 730.
-(pdftex.def)             Requested size: 459.74442pt x 325.23404pt.
-<figs/NPQWhole-1.pdf, id=491, 459.7175pt x 325.215pt>
-File: figs/NPQWhole-1.pdf Graphic file (type pdf)
-<use figs/NPQWhole-1.pdf>
-Package pdftex.def Info: figs/NPQWhole-1.pdf used on input line 738.
-(pdftex.def)             Requested size: 459.74442pt x 325.23404pt.
-[41] [42] <figs/logicalConnectives-1.png, id=507, 1656.1875pt x 752.8125pt>
-File: figs/logicalConnectives-1.png Graphic file (type png)
-<use figs/logicalConnectives-1.png>
-Package pdftex.def Info: figs/logicalConnectives-1.png used on input line 762.
-(pdftex.def)             Requested size: 469.74393pt x 213.51996pt.
-
-Overfull \hbox (0.77386pt too wide) in paragraph at lines 843--844
-[]\T1/lmr/m/n/12 (-20) Intonation|  
+Overfull \hbox (34.80402pt too wide) in paragraph at lines 197--198
+ []\T1/lmr/m/n/12 (-20) {[] 
  []
 
 
-Overfull \hbox (0.77386pt too wide) in paragraph at lines 853--854
-[]\T1/lmr/m/n/12 (-20) Intonation|  
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[43] [44]
-Overfull \hbox (0.9488pt too wide) in paragraph at lines 1032--1033
-[]\T1/lmr/m/n/12 (-20) Descriptions|  
- []
+[10]
 
+! Package caption Error: \caption outside float.
 
-Overfull \hbox (9.99246pt too wide) in paragraph at lines 1039--1040
-[]\T1/lmr/m/n/12 (-20) Identifications|  
- []
-
-
-Overfull \hbox (5.52472pt too wide) in paragraph at lines 1074--1075
-[]\T1/lmr/m/n/12 (-20) Clarifications|  
- []
-
-
-Overfull \hbox (2.32666pt too wide) in paragraph at lines 1088--1089
-[]\T1/lmr/m/n/12 (-20) Conditionals|  
- []
-
-
-Overfull \hbox (14.15721pt too wide) in paragraph at lines 1095--1096
-[]\T1/lmr/m/n/12 (-20) Unconditionals|  
- []
-
-[45] [46] [47] <figs/oReliabilityPlot-1.png, id=535, 1656.1875pt x 1355.0625pt>
-File: figs/oReliabilityPlot-1.png Graphic file (type png)
-<use figs/oReliabilityPlot-1.png>
-Package pdftex.def Info: figs/oReliabilityPlot-1.png used on input line 1157.
-(pdftex.def)             Requested size: 469.74393pt x 384.33594pt.
-
-Underfull \vbox (badness 1377) has occurred while \output is active []
-
-[48] [49] <figs/andReliabilityPlot-1.png, id=550, 1656.1875pt x 1355.0625pt>
-File: figs/andReliabilityPlot-1.png Graphic file (type png)
-<use figs/andReliabilityPlot-1.png>
-Package pdftex.def Info: figs/andReliabilityPlot-1.png used on input line 1170.
-
-(pdftex.def)             Requested size: 469.74393pt x 384.33594pt.
-[50] [51] [52] [53] AED endfloat: Processing end Figures and Tables [54] [55 <.
-/figs/freqTableBySpeakerPlot-1.png>] [56 <./figs/agePlot-1.png>] [57 <./figs/fr
-eqTablebySpeechAct-1.png>] [58 <./figs/ageSpeechActPlot-1.png>] [59 <./figs/ans
-werPlot-1.png> <./figs/connectivePlot-1.png>] [60 <./figs/utterancetypePlot-1.p
-ng>] [61 <./figs/intonationPlot-1.png>] [62 <./figs/consistencyPlot-1.png> <./f
-igs/consistencyByintonationPlot-1.png>] [63 <./figs/syntaxPlot-1.png>] [64 <./f
-igs/speechActPlot-1.png>] [65 <./figs/binaryLogicalConnectivess-1.png>] [66 <./
-figs/interpretation-1.png>] [67 <./figs/interpretationByIntonationAndConsistenc
-y-1.png> <./figs/binaryBaseline-1.pdf>] [68 <./figs/binaryCueBased-1.pdf>] [69 
-<./figs/XorBinary-1.pdf>] [70 <./figs/IorBinary-1.pdf>] [71 <./figs/ternaryBase
-line-1.pdf>] [72 <./figs/ternaryCueBased-1.pdf>] [73 <./figs/ANDintermediate-1.
-pdf>] [74 <./figs/ANDintermediateDis-1.pdf>] [75 <./figs/XORintermediate-1.pdf>
-] [76 <./figs/IORintermediate-1.pdf>] [77 <./figs/wholeBaseline-1.pdf>] [78 <./
-figs/wholeCueBased-1.pdf>] [79 <./figs/ANDWhole-1.pdf>] [80 <./figs/XORWhole-1.
-pdf>] [81 <./figs/IORWhole-1.pdf>] [82 <./figs/NORWhole-1.pdf>] [83 <./figs/NPQ
-Whole-1.pdf>] [84 <./figs/logicalConnectives-1.png>] [85 <./figs/oReliabilityPl
-ot-1.png>] [86 <./figs/andReliabilityPlot-1.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1320.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1320.
-(./Jasbi-Jaggi-Frank.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1320.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1320.
-
-Package rerunfilecheck Info: File `Jasbi-Jaggi-Frank.out' has not changed.
-(rerunfilecheck)             Checksum: DC24C1DCF208FEF66558F397BE534475;4837.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.201 \caption
+              {The relative frequency of \textit{and/or} in the speech of fa...
+ 
 Here is how much of TeX's memory you used:
- 16255 strings out of 493014
- 242075 string characters out of 6133351
- 395902 words of memory out of 5000000
- 19138 multiletter control sequences out of 15000+600000
- 92928 words of font info for 147 fonts, out of 8000000 for 9000
+ 15632 strings out of 493014
+ 230516 string characters out of 6133351
+ 343946 words of memory out of 5000000
+ 18810 multiletter control sequences out of 15000+600000
+ 51263 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,10n,47p,2331b,524s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/lo
-cal/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/20
-16/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2016/texmf-dist/
-fonts/enc/dvips/lm/lm-mathsy.enc}</usr/local/texlive/2016/texmf-dist/fonts/type
-1/public/lm/lmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/l
-m/lmbxi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi12.
-pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2016/texm
-f-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts
-/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publi
-c/lm/lmri10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri1
-2.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Jasbi-Jaggi-Frank.pdf (86 pages, 3434800 bytes).
-PDF statistics:
- 996 PDF objects out of 1000 (max. 8388607)
- 759 compressed objects within 8 object streams
- 239 named destinations out of 1000 (max. 500000)
- 12734 words of extra memory for PDF output out of 14400 (max. 10000000)
-
+ 43i,10n,47p,1449b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!
