@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.7.18)  18 JUL 2019 16:40
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  1 AUG 2019 09:05
+>>>>>>> origin/master
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -681,11 +685,7 @@ LaTeX Info: Redefining \\ on input line 3056.
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
-(./Jasbi-Jaggi-Frank.aux
-
-LaTeX Warning: Label `tab:providence' multiply defined.
-
-)
+(./Jasbi-Jaggi-Frank.aux)
 \openout1 = `Jasbi-Jaggi-Frank.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
@@ -870,9 +870,10 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 ) [1{/Users/akshay/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 }
 
-] [2] [3] [4] [5]
+] [2] [3] [4]
 Underfull \vbox (badness 4752) has occurred while \output is active []
 
+<<<<<<< HEAD
 [6]
 <figs/theories-1.pdf, id=160, 469.755pt x 174.6525pt>
 File: figs/theories-1.pdf Graphic file (type pdf)
@@ -886,9 +887,24 @@ File: figs/cueBasedAccount-1.pdf Graphic file (type pdf)
 Package pdftex.def Info: figs/cueBasedAccount-1.pdf  used on input line 213.
 (pdftex.def)             Requested size: 469.75386pt x 210.78699pt.
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 229.
+=======
+[5] <figs/theories-1.png, id=71, 910.40125pt x 337.26pt>
+File: figs/theories-1.png Graphic file (type png)
+<use figs/theories-1.png>
+Package pdftex.def Info: figs/theories-1.png used on input line 139.
+(pdftex.def)             Requested size: 469.75789pt x 174.02277pt.
+[6 <./figs/theories-1.png>] [7] <figs/cueBasedAccount-1.png, id=86, 1957.3125pt
+ x 1355.0625pt>
+File: figs/cueBasedAccount-1.png Graphic file (type png)
+<use figs/cueBasedAccount-1.png>
+Package pdftex.def Info: figs/cueBasedAccount-1.png used on input line 165.
+(pdftex.def)             Requested size: 469.73474pt x 325.20097pt.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 178.
+>>>>>>> origin/master
 
 (/Users/akshay/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+<<<<<<< HEAD
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1227,12 +1243,31 @@ Overfull \hbox (5.52472pt too wide) in paragraph at lines 1074--1075
 Overfull \hbox (2.32666pt too wide) in paragraph at lines 1088--1089
 []\T1/lmr/m/n/12 (-20) Conditionals|  
  []
+=======
+) [8 <./figs/cueBasedAccount-1.png>]
+
+LaTeX Warning: Reference `fig:freqTableBySpeakerPlot' on page 9 undefined on in
+put line 193.
 
 
-Overfull \hbox (14.15721pt too wide) in paragraph at lines 1095--1096
-[]\T1/lmr/m/n/12 (-20) Unconditionals|  
+LaTeX Warning: Reference `fig:agePlot' on page 9 undefined on input line 193.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+>>>>>>> origin/master
+
+[9] <figs/bySpeaker_byAge_plots-1.png, id=108, 752.8125pt x 451.6875pt>
+File: figs/bySpeaker_byAge_plots-1.png Graphic file (type png)
+<use figs/bySpeaker_byAge_plots-1.png>
+Package pdftex.def Info: figs/bySpeaker_byAge_plots-1.png used on input line 19
+7.
+(pdftex.def)             Requested size: 469.77148pt x 281.86288pt.
+
+Overfull \hbox (34.80402pt too wide) in paragraph at lines 197--198
+ []\T1/lmr/m/n/12 (-20) {[] 
  []
 
+<<<<<<< HEAD
 [53] [54] [55]
 <figs/oReliabilityPlot-1.pdf, id=744, 380.42125pt x 312.16624pt>
 File: figs/oReliabilityPlot-1.pdf Graphic file (type pdf)
@@ -1262,14 +1297,24 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1320.
 
 Package rerunfilecheck Info: File `Jasbi-Jaggi-Frank.out' has not changed.
 (rerunfilecheck)             Checksum: DC24C1DCF208FEF66558F397BE534475;4837.
+=======
+>>>>>>> origin/master
 
-LaTeX Warning: There were undefined references.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
+[10]
 
-LaTeX Warning: There were multiply-defined labels.
+! Package caption Error: \caption outside float.
 
- ) 
+See the caption package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.201 \caption
+              {The relative frequency of \textit{and/or} in the speech of fa...
+ 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  16086 strings out of 494553
  244228 string characters out of 6174236
  375616 words of memory out of 5000000
@@ -1300,3 +1345,13 @@ PDF statistics:
  229 named destinations out of 1000 (max. 500000)
  12734 words of extra memory for PDF output out of 14400 (max. 10000000)
 
+=======
+ 15632 strings out of 493014
+ 230516 string characters out of 6133351
+ 343946 words of memory out of 5000000
+ 18810 multiletter control sequences out of 15000+600000
+ 51263 words of font info for 83 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 43i,10n,47p,1449b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!
+>>>>>>> origin/master
