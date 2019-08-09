@@ -13,8 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This chunk imports data from Childes-db using the childesr package and saves them as csv or feather files in the local drive
 
-```{r ChildesDBimports}
-
+```{r ChildesDBimports, eval=FALSE}
 english_tokens <- get_tokens(collection = c("Eng-NA","Eng-UK"), 
                           corpus = NULL, 
                           role = c("target_child","Mother", "Father"),
@@ -112,7 +111,7 @@ exclusions <-
              n_children = n_children)
 
 # save the exclusion data in a file
-#write.csv(exclusions, "connective_learning/2_processed_data/exclusions.csv", row.names=FALSE)
+write.csv(exclusions, "connective_learning/2_processed_data/exclusions.csv", row.names=FALSE)
 
 # Prepare the speech_act categories for this study based on the utterance_types in childes-db
 ## Categories: declarative, impertaive, question, and other
@@ -163,9 +162,11 @@ wordCounts_byCollectionAge <-
   group_by(speaker_role, collection_name, target_child_age_months) %>%
   summarize(count=n())
 
-#write.csv(wordCounts, "connective_learning/2_processed_data/wordCounts.csv", row.names=FALSE)
-#write.csv(wordCounts_byAge, "connective_learning/2_processed_data/wordCounts_byAge.csv", row.names=FALSE)
-#write.csv(wordCounts_byCollection, "connective_learning/2_processed_data/wordCounts_byCollection.csv", row.names=FALSE)
+write.csv(wordCounts, "connective_learning/2_processed_data/wordCounts.csv", row.names=FALSE)
+
+write.csv(wordCounts_byAge, "connective_learning/2_processed_data/wordCounts_byAge.csv", row.names=FALSE)
+
+write.csv(wordCounts_byCollection, "connective_learning/2_processed_data/wordCounts_byCollection.csv", row.names=FALSE)
 ```
 
 ```{r RelFreqBySpeaker, eval=FALSE}

@@ -59,6 +59,7 @@ ci.high <- function(x) {
 ```
 
 ```{r load_packages}
+library(stargazer)
 library(grid)
 library(gridExtra)
 library("papaja")
@@ -77,22 +78,27 @@ library(DescTools)
 
 # Introduction
 
+<!--mapping problem-->
+Word learning is commonly construed as the process of detecting a word form, hypothesizing candidate meanings for that word form, and mapping it to the right meaning [@clark1995lexicon]. For example, a father holding a baby may point to a squirrel and say "look at the squirrel!" Assuming that the baby understands the phrase "look at the", she needs to detect the novel word *squirrel*, consider some potential referents for it (e.g tree, chair, leaf, squirrel, etc.) and select the right referent among them. The problem of finding the right meaning among a set of candidate word meanings is called "the mapping problem".  and plays a central role in using the available cues, in this case the father's pointing. While there has been a lot of research on cues and mechanisms that help children's acquisition of content words such as *squirrel*, *red*, and *run*, 
 
-Word learning is commonly construed as the process of isolating a word form, selecting a meaning from a set of potential meanings, and mapping the word to the selected meaning [@clark1995lexicon]. For example, a father holding a baby may point to a squirrel and say "look at the squirrel!" The baby -- already familiar with the phrase "look at the" -- should recognize the novel word *squirrel*, consider some potential referents (e.g tree, squirrel, chair, etc.) and select the right referent using the available cues, in this case the father's pointing. While there has been a lot of research on cues and mechanisms that help children's acquisition of content words such as *squirrel*, *red*, and *run*, we know little about cues and mechanisms that can assist children in learning the meaning of function words such as *and*, *the*, *of*, and *or*. In this study, we focus on the disjunction word *or* and provide a novel learning account that uses salient cues to learn the interpretations of disjunction in English. 
+<!--function words and the importance of disjunction-->
+cues and mechanisms involved in learning function words such as *and* and *or* have remained a major challenge. In this study, we focus on the disjunction word *or* and provide a novel learning account that uses salient cues to learn the interpretations of disjunction in English. 
 
-We argue that the case of *or*, shows the ...
+<!--disjunction-->
 
-## Previous Literature
+How do children learn the meaning of disjunction
 
-To our knowledge, only one study has looked at parents' and children's spontaneous productions of logical connectives *and* and *or* before. @morris2008logically investigated the use of these connectives by parents and children between the ages of 2;0 and 5;0, using 240 transcriptions of audiotaped exchanges obtained in the CHILDES database. Each connective was analyzed with respect to its frequency, sentence type, and meaning (or use). The study found that overall, *and* was approximately 12.8 times more likely to be produced than *or*. The connective *and* appeared predominantly in statements (more than 90% of the time) while *or* was most common in questions (more than 85% of the time). Children started producing *and* at 2 years and *or* at 2.5 years of age.
+## Previous Studies
 
-Regarding the meaning of the connectives, @morris2008logically adopted a usage-based (item-based) approach [@levy1994words;@tomasello2003constructing] and predicted that children start producing connectives with a single "core meaning" (also referred to as "use" or "communicative function"). He also predicted that the core meanings mirror the most frequent usage/meaning of the connectives in child-directed speech, and that children acquire more meanings of the connectives as they grow older. He found that children started producing *and* as conjunction at 2, and *or* as exclusive disjunction at 2.5 years of age. In line with the predictions of the usage-based account, he found that these two meanings are the most frequent meanings in parents' speech. For disjunction, 75-80% of the *or*-examples children heard recevied an exclusive interpretation. Finally, as children grew older, they started using connectives to convey additional meanings such as inclusive disjunction for *or* and temporal conjunction for *and*. However, the inclusive use of *or* was extremely rare in adults, and children barely produced it even at age 5. @morris2008logically argued that the development of connectives conforms to the predictions of a usage-based account and that in the first five years of children's development, the (core) meaning of disjunction is exclusive.
+To our knowledge, only one study has looked at spontaneous productions of *and* and *or* in parents' and children's speech. @morris2008logically investigated children between the ages of 2;0 and 5;0, using 240 transcriptions of audiotaped exchanges obtained from the CHILDES database. Each connective was analyzed with respect to its frequency, sentence type, and meaning (or use). The study found that overall, *and* was approximately 12.8 times more likely to be produced than *or*. The connective *and* appeared predominantly in statements (more than 90% of the time) while *or* was most common in questions (more than 85% of the time). Children started producing *and* at 2 years and *or* at 2.5 years of age.
+
+Regarding the meaning of the connectives, @morris2008logically adopted a usage-based (item-based) approach [@levy1994words;@tomasello2003constructing] and predicted that children start producing connectives with a single "core meaning" (also referred to as "use" or "communicative function"). He predicted that the core meaning mirrors the most frequent usage/meaning of the connective in child-directed speech. Children acquire the less frequent meanings of the connectives as they grow older. He found that children started producing *and* as conjunction at 2, and *or* as exclusive disjunction at 2.5 years of age. In line with the predictions of the usage-based account, he found that these two meanings are the most frequent meanings in parents' speech. For disjunction, 75-80% of the *or*-examples children heard recevied an exclusive interpretation. Finally, as children grew older, they started using connectives to convey additional meanings such as inclusive disjunction for *or* and temporal conjunction for *and*. However, the inclusive use of *or* was extremely rare in adults, and children barely produced it even at age 5. @morris2008logically argued that the development of connectives conforms to the predictions of a usage-based account and that in the first five years of children's development, the (core) meaning of disjunction is exclusive.
 
 However, a series of experimental studies have found that preschool children are more likely to interpret *or* as inclusive in a variety of linguistic contexts such as negative sentences [@crain2000acquisition], conditional sentences [@gualmini2000], restriction and nuclear scope of the universal quantifier *every* [@chierchia2001acquisition; @chierchia2004semantic], nuclear scope of the negative quantifier *none* [@gualminicrain2002], restriction and nuclear scope of *not every* [@notley2012notevery], and prepositional phrases headed by *before* [@notley2012children]. These studies almost unanimously claim that at least in declarative sentences, the inclusive interpretation of *or* emerges earlier than the exclusive interpretation.
 
-The findings of these studies as well as those of @morris2008logically give rise to what we call "the paradox of learning disjunction". Given @morris2008logically's finding that the majority of *or* examples children hear are exclusive, how can children learn to interpret it as inclusive? To address this paradox, @crain2012emergence put forth the logical nativist theory of connective acquisition. In logical nativism, the language faculty contains information regarding what connective meanings are allowed for connective words crosslinguistically. @crain2012emergence considered it unlikely that children learn the meaning of *or* from the examples they hear in adult usage. Instead, he argued that children rely on an innate knowledge that the meaning of disjunction words in natural languages must be inclusive. In other words, upon hearing a connective word, children consider inclusive disjunction as a viable candidate for its meaning but not exclusive disjunction. In this account, the exclusive interpretation emerges as part of children's pragmatic development after they have mastered the inclusive semantics of disjunction.
+The findings of these studies as well as those of @morris2008logically give rise to what we call "the paradox of learning disjunction". Given @morris2008logically's finding that the majority of *or* examples children hear are exclusive, how can children learn to interpret it as inclusive? One way to addresses this paradox is logical nativism [crain2008logic; crain2010logic;@crain2012emergence]. This approach assumes that the language faculty contains information regarding what connective meanings are allowed for connective words crosslinguistically. @crain2012emergence considered it unlikely that children learn the meaning of *or* from the examples they hear in adult usage. Instead, he argued that children rely on an innate knowledge that the meaning of disjunction words in natural languages must be inclusive. In other words, upon hearing a connective word, children consider inclusive disjunction as a viable candidate for its meaning but not exclusive disjunction. In this account, the exclusive interpretation emerges as part of children's pragmatic development after they have mastered the inclusive semantics of disjunction.
 
-While logical nativism addresses the paradox of learning disjunction, it does not provide an explanation for cases where children interpret disjunction as exclusive. @morris2008logically reported that in his study, the vast majority of children's *or* productions between the ages of 2 and 5 years received an exclusive interpretation. This is not expected if preschool children consider disjunction to be inclusive. Second, other experimental studies, especially those testing disjunction in commands, find that preschool children interpret it as exclusive [@johansson1975preschool; @braine1981development]. For example, in response to a command such as "give me the doll or the dog", children as young as three- and four-years-old give one of the objects and not both. In its current version, the nativist account does not provide any explanation for such cases.
+While logical nativism addresses the paradox of learning disjunction, it does not provide an explanation for cases where children interpret disjunction as exclusive. @morris2008logically reported that in his study, the vast majority of children used *or* in its exclusive sense. This is not expected if preschool children consider disjunction to be inclusive. Second, other experimental studies, especially those testing disjunction in commands, find that preschool children interpret it as exclusive [@johansson1975preschool; @braine1981development]. For example, in response to a command such as "give me the doll or the dog", children as young as three- and four-years-old give one of the objects and not both. In its current version, the nativist account does not provide any explanation for such cases.
 
 Figure \@ref(fig:theories) summarizes the usage-based and nativist approaches to the acquisition of disjunction. The major difference between them is their assumptions on the learners' semantic hypothesis space for *or*. The usage-based account considers a wide array of meanings to be available for mapping, including different flavors of conjunction such as "temporal conjunction" (e.g. Bob pressed the key and (then) the door opened) and "explanatory conjunction". The nativist account limits the hypothesis space to binary logical connectives, more specifically to those commonly used in standard propositional logic: inclusive disjunction, conjunction, and material implication. Both accounts agree that the input favors the exclusive interpretation of disjunction. The usage-based account concludes that children's early mappings mirror this input. The nativist account suggests that innate biases towards the inclusive meaning and against the exclusive interpretation result in an inclusive semantics for *or* in children's early mappings. 
 
@@ -103,20 +109,9 @@ grid::grid.raster(theories)
 
 ## Current Study
 
-We propose a new account for children's acquisition of disjunction. Figure \@ref(fig:cueBasedAccount) shows the summary of this account which we call cue-based context-dependent mapping. It is inspired by the usage-based and nativist accounts of disjunction and shares many of their insights. Similar to the nativist account, we assume that the semantic hypothesis space includes binary logical relations. However, we do not limit the hypothesis space further and do not bias the learning towards the inclusive meaning. We will show that the input will do this.
+In this study, we provide an alternative solution to the paradox of learning disjunction. The main claim of this paper is that children may learn to interpret *or*-- for example as exclusive or inclusive -- using the salient cues that accompany it in the input. We support this hypothesis using three studies. In the first study, we investigate the distribution of *and* and *or* in parent-child interactions to address the following basic questions: how often do children hear or produce *or*? when do they start producing it? Using a large corpus of parent-child interactions, we found that children hear 1-2 examples of *or* in every thousand words parents produce. They start producing it themselves between 18-30 months, and by 42 months they reach a rate of one *or* per thousand words. In study 2, we ask: what interpretations can *or* have in child-directed speech? We annotated examples of *or* and found that its most likely interpretation is exclusive disjunction, as @morris2008logically had concluded. However, we also found that exclusive interpretations correlated strongly with two cues: rise-fall prosody, and logically inconsistent propositions connected by *or*. In the absence of these cues, *or* was most likely inclusive. In our third study, we ask if it is possible to learn the interpreation of *or* from these cues. Using the annotation data of study 2 and a supervised learning task, we showed that a decision-tree classifer can use prosody and consistency of propositions to predict its interpretation with high accuracy.
 
-Similar to usage based proposals, our account maps more complex constructions to meanings rather than the word directly. Therefore, the mapping units are similar to feature matrices. The learner can later extract commonalities across these mappings and extract a core meaning. However, the early mappings do not have any "core" meaning as opposed to what the usage-based account proposes.
-
-The major point of departure from previous accounts is the mechanism of learning. While in pervious accounts the most frequent meaning in the input was mapped to the connective word, in our account the input is partitioned or broken down by a set of salient cues that designate the context of use. Mapping is done based on the cues that accompany the connective word. 
-
-The purpose of this paper is to provide a novel resolution to the paradox of learning disjunction. The current consensus in the litereature - usage-based and nativist - is that learning from child-directed speech will result in an exclusive interpretation for disjunciton. We argue that this is true only under the vanilla model of form-meaning mapping. 
-
-We show that the frequency of *or*'s We provide a model that learns to interpret a disjunciton as inclusive or exclusive depending on the cues available in the context. 
-
-
-Here we present 4 studies. The first study focuses on the frequency of disjunction in adult-adult interactions. The second study looks at the frequency of disjunction in parent-child interactions. The third study selects a sample of parent-child interactions and takes a closer look at the interpretations of disjunction in context. The fourth study uses the annotations developed in the third study to train a computational model that learns the interpretation of a disjunction based on the cues that accompany it. We show that a learner that pays attention to the interpretive cues accompanying disjunction can learn to interpret it successfully as inclusive or exclusive.
-
-Readers who are mainly interested in our proposed account and computational modeling could skip to study 4. 
+Based on the results of our studies, we propose a new account for children's acquisition of disjunction. Figure \@ref(fig:cueBasedAccount) shows the summary of this account which we call cue-based context-dependent mapping. It is inspired by the usage-based and nativist accounts of disjunction and shares many of their insights. Similar to the nativist account, we assume that the semantic hypothesis space includes binary logical relations. However, we do not limit the hypothesis space further and do not bias the learning towards the inclusive meaning. We will show that the input can achieve this. Similar to usage based proposals, our account relies on the structure of the input to distinguish between exclusive and inclusive uses of disjunction. We also map more complex constructions to meanings rather than the word *or* directly. The learner can later extract commonalities across these mappings and extract a core semantics for a particular word. However, the early mappings do not have any core meaning as opposed to what the usage-based account of @morris2008logically proposes. The major point of departure from previous accounts is the mechanism of learning. While in pervious accounts the most frequent meaning in the input was mapped to the connective word directly, in our account the input is partitioned or broken down by a set of salient cues that designate the context of use. Mapping is done based on the cues that accompany the connective word. 
 
 ```{r cueBasedAccount, fig.env="figure", fig.align="center", fig.cap="Summary of the usage-based and nativist approaches to the acquisition of disjunction."}
 cueBasedAccount<- png::readPNG("figs/cueBasedAccount.png")
@@ -173,9 +168,22 @@ n_transcripts <- length(n_transcripts$transcript_id)
 exclusions <- read_csv("connective_learning/2_processed_data/exclusions.csv")
 ```
 
+```{r wordCount}
+count_table <-
+  wordCounts %>%
+  select(-X1) %>%
+  spread(word, counts) %>%
+  mutate(total = and + or + other) %>%
+  select(-other)
+
+total_words <- sum(count_table$total)
+```
+
+In our first study, we looked at the frequencies of *and* and *or* in a corpus of parent-child interactions (CHILDES) with `r format(total_words, big.mark = ",")` words. This is a considerably larger corpus than previously used.
+
 ## Methods
 
- For samples of parents' and children's speech, this study used the online database [childes-db](childes-db.stanford.edu) and its associated R programming package `childesr` [@sanchez2018childes]. Childes-db is an online interface to the child language components of [TalkBank](https://talkbank.org/), namely [CHILDES](https://childes.talkbank.org/) [@macwhinney2000childes] and [PhonBank](https://phonbank.talkbank.org/). Two collections of corpora were selected: English-North America and English-UK. All word tokens were tagged for the following information: 1. The speaker role (mother, father, child), 2. the age of the child when the word was produced, 3. the type of the utterance the word appeared in (declarative, question, imperative, other), and 4. whether the word was *and*, *or*, or neither.
+For samples of parents' and children's speech, we used the online database [childes-db](childes-db.stanford.edu) and its associated R programming package `childesr` [@sanchez2018childes]. Childes-db is an online interface to the child language components of [TalkBank](https://talkbank.org/), namely [CHILDES](https://childes.talkbank.org/) [@macwhinney2000childes] and [PhonBank](https://phonbank.talkbank.org/). Two collections of corpora were selected: English-North America and English-UK. All word tokens were tagged for the following information: 1. The speaker role (mother, father, child), 2. the age of the child when the word was produced, 3. the type of the utterance the word appeared in (declarative, question, imperative, other), and 4. whether the word was *and*, *or*, or neither.
 
 ### Exclusion Criteria
 
@@ -189,7 +197,7 @@ exclusions <- read_csv("connective_learning/2_processed_data/exclusions.csv")
 
 Overall, *and* was about 10 times more likely to occur in parents' speech than *or*. More specifically, *and* occurred 15 times and *or* only 1.5 times per 1000 words. Children produced *and* at the same rate as their parents but produced *or* at a considerably lower rate, only 0.5 per thousand (\@ref(fig:freqTableBySpeakerPlot)). The developmental trend (\@ref(fig:agePlot)) showed that between 12 to 72 months, production of *and* in parents' speech varied between 10 to 20 *and*'s per thousand words. Children started producing *and* between 12 and 18 months, and showed a sharp increase in their production until they reached the parent level between 30 to 36 months of age. Their productions stayed close to the parents' production level between 36 and 72 months, possibly surpassing them at 60 months -- although due to the small amount of data after 60 months we should be cautious with our interpretations of the trend there. Parents produced between 1 to 2 *or*'s every thousand words. Children started producing *or* between 18 to 30 months, steadily increasing their productions until they got close to 1 *or* per thousand words at 48 months (4 years). Their *or* productions plateaued and stayed at this rate until 72 months (6 years).
 
-```{r bySpeaker_byAge_plots, fig.env="figure", fig.align="center", fig.width=2.5, fig.height=1.5, fig.cap="The relative frequency of \\textit{and/or} in the speech of fathers, mothers, and children. The y-axes show different ranges of values for \\textit{and} vs. \\textit{or}. 95\\% binomial proportion confidence intervals calculated using Agresti-Coull's approximate method. The monthly relative frequency of \\textit{and/or} in parents and children's speech between 12 and 72 months (1-6 years)."}
+```{r bySpeakerAgePlots, fig.env="figure", fig.align="center", fig.width=2.5, fig.height=1.5, fig.cap="The relative frequency of \\textit{and/or} in the speech of fathers, mothers, and children. The y-axes show different ranges of values for \\textit{and} vs. \\textit{or}. 95\\% binomial proportion confidence intervals calculated using Agresti-Coull's approximate method. The monthly relative frequency of \\textit{and/or} in parents and children's speech between 12 and 72 months (1-6 years)."}
 
 by_speaker <-
   freqTable_bySpeaker %>%
@@ -201,7 +209,7 @@ by_speaker <-
   labs(x="", y="Relative Frequency (per thaousand)") + 
   scale_fill_manual(values = c("seagreen3","seagreen", "darkblue")) + 
   guides(fill=FALSE) + 
-  theme(text = element_text(size=11, family="Times"))
+  theme(text = element_text(size=12, family="Times"))
 
 by_age <-
   freqTable_byAge %>%
@@ -214,25 +222,16 @@ by_age <-
   geom_smooth(aes(group = speaker_role, color=speaker_role), span=1) +
   scale_color_manual(values = c("seagreen3","seagreen", "darkblue"), name="Speaker Role") + 
   theme_few() + guides(shape=FALSE) +
-  theme(text = element_text(size=11, family = "Times"), legend.position = "none")
+  theme(text = element_text(size=12, family = "Times"), legend.position = "none")
 
 grid.arrange(by_speaker, by_age, ncol=2, widths = c(1,1.5))
-```
-
-```{r statistical_models}
-stats_byAge <- 
-  freqTable_byAge %>%
-  filter(word != "other")
-
-study1_model <- lm(ppt ~ speaker_role * target_child_age_months * word, data = stats_byAge)
-summary(study1_model)
 ```
 
 Children's productions of *or* showed two main differences. First, children started producing *or* around 6 months later than *and*. Second, while children's *and* productions showed a steep rise over a year and reached the parent level around 30 months, their *or* productions rose slowly and did not reach the parent level even at 6 years of age. What factors cause these differences in children's productions of *and* and *or*? We consider three possibilities here: frequency, conceptual complexity, and usage. 
 
 First, *and* is a far more frequent connective than *or*. @goodman2008does argue that within the same syntactic category, words with higher frequency in child-directed speech are acquired earlier. The conjunction word *and* is at least 10 times more likely to occur than *or* so earlier acquisition of *and* is consistent with the effect of frequency on age of acquisition. Second, research on concept attainment has suggested that the concept of conjunction is easier to conjure and possibly acquire than the concept of disjunction. In experiments that participants are asked to detect the pattern of classification in some cards, they can detect a conjunctive classification faster than a disjunctive one [@neisser1962hierarchies]. Therefore, it is possible that children discover the concept that corresponds to the meaning of *and* faster and start to produce it earlier, but they need more time to attain the concept corresponding to the meaning of *or*.
 
-A third possibility is that the developmental difference between *and* and *or* is at least partly due to their different usages. Parent-child interactions are not symmetrical and what parents would like to communicate to children is different from what children would like to communicate to parents. This asymmetry can result in different distribution of speech acts between parents and children and consequently functional elements that constitute them. For example, a parent saying "go to your room" to a child is not unexpected, but a child saying the same to a parent is very unexpected. Due to the nature of parent-child interactions, it is more ususal to hear parents use imperatives towards children and not vice versa. If a functional element is mostly used in imperatives, then the rate of production will be higher in parents than in children. Here we present evidence that suggests *or* is affected in a similar way. 
+A third possibility is that the developmental difference between *and* and *or* is at least partly due to their different usages. Parent-child interactions are not symmetrical and what parents would like to communicate to children is different from what children would like to communicate to parents. This asymmetry can result in different distribution of speech acts between parents and children and consequently functional elements that constitute them. Here we present evidence that suggests *or* is affected in this way. 
 
 ```{r freqTablebySpeechAct, fig.align="center", fig.width=5, fig.height=3, fig.cap="Relative frequency of \\textit{and/or} in declaratives, imperatives, and interrogatives for parents and children "}
 freqTable_bySpeakerSpeechAct %>%
@@ -263,16 +262,17 @@ freqTable_byAgeSpeechAct %>%
   scale_shape_discrete(name = "Speaker Role")
 ```
 
-```{r, eval=FALSE}
+```{r regressionAnlaysis}
 stats_byspeechact <- 
   freqTable_byAgeSpeechAct %>%
-  filter(word != "other", speech_act != "other", speech_act != "imperative", speaker_role != "Father")
+  filter(word == "or", speech_act != "other", speech_act != "imperative", speaker_role != "Father")
 
-speechAct_model <- lm(ppt~ target_child_age_months * word * speech_act * speaker_role ,data=stats_byspeechact)
-summary(speechAct_model)
+speechAct_model <- lm(ppt~ target_child_age_months * speech_act * speaker_role , data=stats_byspeechact)
+
+stargazer(speechAct_model)
 ```
 
-First, we found that *or* is more likely to occur in questions than in declaratives (\@ref(fig:freqTablebySpeechAct)). This is in contrast to *and* which is more likely to occur in declaratives. Second, parents ask more questions from children than children do from parents, and children produce more declaratives than parents (\@ref(fig:utteranceTypeByAgePlot1)). In fact, questions have their own developmental trajectory, emerging in the second year of children's lives and reaching a relatively constant rate of about 15% of children's utterances in their fourth year. However, parents produce a constant rate of questions which is about 25% of their utterances. Therefore, parent-child interaction provides more opportunities for parents to use *or* than children. 
+First, we found that *or* is more likely to occur in questions than in declaratives (\@ref(fig:freqTablebySpeechAct)). This is in contrast to *and* which is more likely to occur in declaratives. Second, parents asked more questions from children than children did from parents, and children produced more declaratives than parents (\@ref(fig:utteranceTypeByAgePlot1)). In fact, questions have their own developmental trajectory, emerging in the second year of children's lives and reaching a relatively constant rate of about 15% of children's utterances in their fourth year. However, parents produce a constant rate of questions which is about 25% of their utterances. Therefore, parent-child interaction provides more opportunities for parents to use *or* than children. 
 
 Figure \@ref(fig:ageSpeechActPlot) shows the developmental trends of the relative frequencies of *and* and *or* in questions and declaratives. Comparing *and* in declaratives and questions, we see that the onset of *and* productions are slightly delayed for questions but in both declaratives and questions, *and* productions reach the parent level around 36 months (3 years). For *or*, we see a similar delay in questions compared to declaratives. Children start producing *or* in declaratives at around 18 months but they start producing *or* in questions at 24 months. Production of *or* increases in both declaratives and questions until it seems to reach a constant rate in declaratives between 48 and 72 months. The relative frequency of *or* in questions continues to rise until 60 months. Comparing figures \@ref(fig:agePlot) and \@ref(fig:ageSpeechActPlot), we see that children are closer to the adult rate of production in declaratives than questions.
 
@@ -292,7 +292,7 @@ utteranceType_byAge %>%
 
 ## Conclusion {#study1discussion}
 
-Our first study was a large-scale quantitative analysis of parents and children's productions of the connectives *and* and *or*. We found that children in our corpora started producing *and* in the second year of their lives and quickly reached their parents’ rate of production by two and a half. Their production of disjunction was delayed by six months on average: they started producing *or* between 1.5 and 2.5 years of age, and around 3.5 years, they reached a relatively constant rate of production below that of their parents. We considered three possible causes for disjunction's delay and lower rate of production: the higher frequency of *and*, the conceptual and mapping complexity of *or*, and the asymmetry in speech acts produced by parents and children. We provided evidence for the last cause. We showed that parents produce more questions than children, and that *or* is more likelly to occur in questions. Therefore, parents' speech contains more *or* partly due to the fact that parents ask more questions. 
+In a large-scale quantitative analysis of parents and children's productions of *and* and *or*, we found that children started producing *and* in the second year of their lives, and quickly reached their parents’ rate of production by two and a half. Their production of disjunction was delayed by six months on average: they started producing *or* between 1.5 and 2.5 years of age, and around 3.5 years, they reached a relatively constant rate of production below that of their parents. We considered three possible causes for disjunction's delay and lower rate of production: the higher frequency of *and*, the conceptual and mapping complexity of *or*, and the asymmetry in speech acts produced by parents and children. We provided evidence for the last cause. We showed that parents produced more questions than children, and that *or* was more likelly to occur in questions. Therefore, parents' speech contained more *or* partly due to the fact that parents asked more questions. 
 
 # Study 2: Interpretations of disjunction in child-directed speech
 
@@ -321,10 +321,11 @@ connective_annotations$answer %<>% recode(`0` = "No Answer")
 connective_annotations$speech_act %<>% tolower()
 connective_annotations$utterance_type %<>% tolower()
 connective_annotations$speech_act %<>% tolower()
+connective_annotations$annotation %<>% tolower()
 
 # store disjunctions separetely
-disjunctions <- connective_annotations %>% filter(annotation=="OR")
-conjunctions <- connective_annotations %>% filter(annotation=="AND")
+disjunctions <- connective_annotations %>% filter(annotation=="or")
+conjunctions <- connective_annotations %>% filter(annotation=="and")
 
 # the number of *and* and *or* examples annotated
 total_annotaitons<-
@@ -333,7 +334,7 @@ connective_annotations %>%
   summarize(counts=n())
 ```
 
-This study used [the Providence corpus](https://phonbank.talkbank.org/browser/index.php?url=Eng-NA/Providence/) [@demuth2006word] available via the [PhonBank](https://phonbank.talkbank.org) section of [the TalkBank.org archive](https://talkbank.org/). The corpus was chosen because of its relatively dense data on child-directed speech as well as the availability of audio and video recordings that would allow annotators access to the context of the utterance. The corpus was collected between 2002 and 2005 in Providence, Rhode Island. Table \@ref(tab:providence) in appendix reports the name, age range, and the number of recording sessions for the participants in the study. All children were monolingual English speakers and were followed between the ages of 1 and 4 years. Based on Study 2, this is the age range when children develop their early understanding or mappings for the meanings of *and* and *or*. The corpus contains roughly biweekly hour-long recordings of spontaneous parent-child interactions, with most recordings being of mother-child interactions. The corpus consists of a total of 364 hours of speech.
+This study used [the Providence corpus](https://phonbank.talkbank.org/browser/index.php?url=Eng-NA/Providence/) [@demuth2006word] available via the [PhonBank](https://phonbank.talkbank.org) section of [the TalkBank.org archive](https://talkbank.org/). The corpus was chosen because of its relatively dense data on child-directed speech as well as the availability of audio and video recordings that would allow annotators access to the context of the utterance. The corpus was collected between 2002 and 2005 in Providence, Rhode Island. Table \@ref(tab:providence) in appendix reports the name, age range, and the number of recording sessions for the children in this study. All children were monolingual English speakers and were followed between the ages of 1 and 4 years. Based on Study 2, this is the age range when children develop their early understanding of *and* and *or*. The corpus contains 364 hours of biweekly hour-long interactions between parents and children.
 
 ### Exclusion Criteria
 
@@ -345,39 +346,41 @@ All utterances containing *and* and *or* were extracted using [the CLAN software
 
 ### Annotation Categories
 
-Every extracted instance of *and* and *or* was manually annotated for 7 categories: 1. Connective Interpretation 2. Intonation Type 3. Utterance Type  4. Syntactic Level 5. Conceptual Consistency 6. Communicative Function and 7. Answer Type. We briefly explain how each annotation category was defined. Further details and examples are provided in the appendix section.
+Every extracted instance of *and* and *or* was manually annotated for 7 categories: connective interpretation, intonation type, utterance type, syntactic level, conceptual consistency, communicative function, and answer type. We briefly explain how each annotation category was defined. Further details and examples are provided in the appendix section.
 
-#### Connective Interpretation 
-This annotation category was the dependent variable of the study. Annotators listened to coordinations such as "A or B" and "A and B", and decided the intended interpretation of the connective with respect to the truth of A and B. We used the sixteen binary connectives shown in Figure \@ref(fig:logicalConnectives) as the space of possible connective interpretations. Annotators were asked to consider the two propositions raised by the coordinated construction, ignoring the connective and functional elements such as negation and modals. Consider the following sentences containing *or*: "Bob plays soccer or tennis" and "Bob doesn't play soccer or tennis". Both discuss the same two propositions: A. Bob playing soccer, and B. Bob playing tennis. However, the functional elements combining these two propositions result in different interpretations with respect to the truth of A and B. In "Bob plays soccer or tennis" which contains a disjunction, the interpretation is that Bob plays one or possibly both sports (inclusive disjunction IOR). In "Bob doesn't play soccer or tennis" which contains a negation and a disjunction, the interpretation is that Bob plays neither sport (NOR). For connective interpretations, the annotators first reconstructed the coordinated propositions without the connectives or negation and then decided which propositions were implied to be true/false.
+  1. *Connective Interpretation*
+  
+This annotation category was the dependent variable of the study. Annotators listened to coordinations such as "A or B" and "A and B", and decided the intended interpretation of the connective with respect to the truth of A and B. We used the sixteen binary connectives shown in Figure \@ref(fig:logicalConnectives) as the space of possible connective interpretations. Annotators were asked to consider the two propositions raised by the coordinated construction, ignoring the connective and functional elements such as negation and modals. Consider the following sentences containing *or*: "Bob plays soccer or tennis" and "Bob doesn't play soccer or tennis". Both discuss the same two propositions: A. Bob playing soccer, and B. Bob playing tennis. However, the functional elements combining these two propositions result in different interpretations with respect to the truth of A and B. In "Bob plays soccer or tennis" which contains a disjunction, the interpretation is that Bob plays one or possibly both sports (IOR). In "Bob doesn't play soccer or tennis" which contains a negation and a disjunction, the interpretation is that Bob plays neither sport (NOR). For connective interpretations, the annotators first reconstructed the coordinated propositions without the connectives or negation and then decided which propositions were implied to be true/false.
 
-This approach is partly informed by children's development of function and content words. Since children acquire content words earlier than functions words, we assumed that when learning logical connectives, they better understand the content of the propositions being coordinated rather than the functional elements involved in building the coordinated construction. For example, considering the sentences "Bob doesn't play soccer or tennis" without its function words as "Bob, play, soccer, tennis", one can still deduce that there are two relevant propositions: Bob playing soccer, and Bob playing tennis. However, the real challenge is to figure out what is being communicated with respect to the truth of these two propositions. If the learner can figure this out, then the meaning of the functional elements can be reverse engineered. For example, if the learner recognizes that "Bob plays soccer or tennis" communicates that one or both propositions are true (IOR), the learner can associate this interpretation to the unknown element *or*. Similarly, if the learner recognizes the interpretation of "Bob doesn't play soccer or tennis" as neither proposition is true (NOR), they can associate this interpretation to the co-presence of *or* and *doesn't*. Table \@ref(tab:connectiveInterpretaion) in the appendix section reports the connective interpretations found in our annotations as well as some examples for each interpretation.
-
-####Intonation Type
-
-Annotators listened to the utterances and decided whether the intonation contour on the coordination was flat, rise, or rise-fall. Table \@ref(tab:intonationTypes) in the appendix shows the definitions and examples for these intonation types. In order to judge the intonation of the sentence accurately, annotators were asked to construct all three intonation contours for the sentence and see which one is closer to the actual intonation of the utterance. For example, to judge the sentence "do you want orange juice$\uparrow$ or apple juice$\downarrow$?", they reconstructed the sentence with the prototypical flat, rising, and rise-fall intonations and checked to see which intonation is closer to the actual one. It is important to note that while these three intonation contours provide a good general classification, there is a substantial degree of variation as well as a good number of subtypes within each intonation type.
-
-#### Utterance Type
-
-Annotators decided whether an utterance was an instance of a declarative, an interrogative, or an imperative. Occasionally, we found examples with different utterance types for each coordinand. For example, the mother would say "put your backpack on and I'll be right back", where the first cooridnand is an imperative and the second a declarative. Such examples were coded for both utterance types with a dash inbetween: imperative-declarative. Table \@ref(tab:utteranceTypes) in the appendix provides the definitions and examples for each utterance type.
-
-#### Syntactic Level 
-
-For this annotation category, annotators decided whether the coordination was at the clausal level or at the sub-clausal level. Clausal level was defined as sentences, clauses, verb phrases, and verbs. Coordination of other categories was coded as sub-clausal. This annotation category was introduced to check the hypothesis that the syntactic category of the coordinands may influence the interpretation of a coordination. The intuition was that a sentence such as "He drank tea or coffee" is less likely to be interpreted as exclusive than "He drank tea or he drank coffee." The clausal vs. sub-clausal distinction was inspired by the fact that in many languages, coordinators that connect sentences and verb phrases are different lexical items than those that connect nominal, adjectival, or prepositional phrases [see @haspelmath2007]. 
-
-####Conceptual Consistency
-Propositions that are connected by words such as *and* and *or* often stand in complex conceptual relations with each other. For conceptual consistency, annotators decided whether the propositions that make up the coordination can be true at the same time or not. If the two propositions could be true at the same time they were marked as consistent. If the two propositions could not be true at the same time and resulted in a contradiction, they were marked as inconsistent. Our annotators used the following diagnostic to decide the consistency of the disjuncts: Two disjuncts were marked as inconsistent if replacing the word *or* with *and* produced a contradiction. For example, changing "the ball is in my room *or* your room" to "the ball is in my room *and* your room" produces a contradiction because a ball cannot be in two rooms at the same time[^1]. 
-
-[^1]:This criterion is quite strict. In many cases, the possibility of both propositions being true is ruled out based on prior knowledge and expectations of the situation. For example, when asking people whether they would like tea or coffee, it is often assumed and expected that people choose one or the other. However, wanting to drink both tea and coffee is not conceptually inconsistent. It is just very unlikely. Our annotations of consistency are very conservative in that they still consider such unlikely cases as consistent. Relaxing this criterion to capture the unlikely cases may increase exclusivity inferences that are caused by alternatives that are considered unlikely to co-occur.
 <!--
-Second, there are other more complex relations between coordinated propositions that we have not coded for. For example, coordinated propositions sometimes stand in a causal relation (e.g. the cup fell and broke) or sometimes in a temporal relation (e.g. she brushed her teeth and went to bed), among many more. It is quite feasible to assume that the rich conceptual structure of these propositions help children learn the meaning and use of connectives such as *and*, *or*, *if*, *therefore*, etc. It is possible to develop a more detailed investigation on the relation between propositions and how that affects the acquisition of connective meaning generally. However, in this study we mainly focus on conceptual consistency of the coordinated propositions and how that affects the acquisition of *and* and *or*.
+This approach is partly informed by children's development of function and content words. Since children acquire content words earlier than functions words, we assumed that when learning logical connectives, they better understand the content of the propositions being coordinated rather than the functional elements involved in building the coordinated construction. For example, considering the sentences "Bob doesn't play soccer or tennis" without its function words as "Bob, play, soccer, tennis", one can still deduce that there are two relevant propositions: Bob playing soccer, and Bob playing tennis. However, the real challenge is to figure out what is being communicated with respect to the truth of these two propositions. If the learner can figure this out, then the meaning of the functional elements can be reverse engineered. For example, if the learner recognizes that "Bob plays soccer or tennis" communicates that one or both propositions are true (IOR), the learner can associate this interpretation to the unknown element *or*. Similarly, if the learner recognizes the interpretation of "Bob doesn't play soccer or tennis" as neither proposition is true (NOR), they can associate this interpretation to the co-presence of *or* and *doesn't*. Table \@ref(tab:connectiveInterpretaion) in the appendix section reports the connective interpretations found in our annotations as well as some examples for each interpretation.
 -->
-It is also important to note that if the coordinands are inconsistent, this does not necessarily means that the connective interpretation must be exclusive. For example, in a sentence like "you could stay here or go out", the alternatives "staying here" and "going out" are inconsistent. Yet, the overall interpretation of the connective could be conjunctive: you could stay here AND you could go out. The statement communicates that both possibilities hold. This pattern of interaction between possibility modals like *can* and disjunction words like *or* are often discussed under the label "free-choice inferences" in the semantics and pragmatics literature [@von1968essay; @kamp1973free]. Another example is unconditionals such as "Ready or not, here I come!". The coordinands are contradictions: one is the negation of the other. However, the overall interpretation of the sentences is that in both cases, the speaker is going to come.
 
-####Communicative Functions
-This study constructed a set of categories that captured particular usages or communicative functions of the words *or* and *and*. They include descriptions, directives, preferences, identifications, definitions and examples, clarifications, repairs, and a few others shown with examples in Table \@ref(tab:speechActs) in the appendix section. These communicative functions were created using the first 100 examples and then they were used for the classification of the rest of the examples. Some communicative functions are general and some are specific to coordination. For example, directives are a general class while conditionals (e.g. Put that out of your mouth, or I'm gonna put it away) are more specific to coordinated constructions. It is also important to note that the list is not unstructured. Some communicative functions are subtypes of others. For example, "identifications" and "unconditionals" are subtypes of "descriptions" while "conditionals" are a subtype of directives. Furthermore, "repairs" seem parallel to other categories in that any type of speech can be repaired. We do not fully explore the details of these functions in this study but such details matter for a general theory of acquisition that makes use of the speaker's communicative intentions as early coarse-grained communicative cues for the acquisition of fine-grained meaning such as function words.
+2. *Intonation Type* 
 
-####Answer Type
-Whenever a parent's utterance was a polar question, the annotators coded the utterance for the type of response it received from the children. Table \@ref(tab:answerTypes) in the appendix shows the answer types in this study and their definitions and examples. Utterances that were not polar questions were simply coded as NA for this category. If children responded to polar questions with "yes" or "no", the category was YN and if they repeated with one of the coordinands the category was AB. If children said yes/no and followed it with one of the coordinands, the answer type was determined as YN (yes/no). For example, if a child was asked "Do you want orange juice or apple juice?" and the child responded with "yes, apple juice", our annotators coded the response as YN. The reason is that in almost all cases, if a simple yes/no response is felicitous, then it can also be optionally followed with mentioning a disjunct. However, if yes/no is not a felicitous response, then mentioning one of the alternatives is the only appropriate answer. For example, if someone asks "Do you want to stay here or go out?" a response such as "yes, go out" is infelicitous and a better response is to simply say "go out". Therefore, we counted responses with both yes/no and mentioning an alternative as a yes/no response.
+Annotators listened to the utterances and decided whether the intonation contour on the coordination was flat, rise, or rise-fall. Table \@ref(tab:intonationTypes) in the appendix shows the definitions and examples for these intonation types. In order to judge the intonation of the sentence accurately, annotators were asked to construct all three intonation contours for the same sentence and see which one is closer to the actual intonation of the utterance. For example, to judge the sentence "do you want orange juice$\uparrow$ or apple juice$\downarrow$?", they reconstructed the sentence with the prototypical flat, rising, and rise-fall intonations and checked to see which intonation is closer to the actual one.
+
+3. *Utterance Type* 
+
+Annotators decided whether an utterance was an instance of a declarative, an interrogative, or an imperative. Occasionally, we found examples with different utterance types for each coordinand. For example, a mother could say "put your backpack on and I'll be right back", where the first cooridnand is an imperative and the second a declarative. Such examples were coded for both utterance types with a dash inbetween: imperative-declarative. Table \@ref(tab:utteranceTypes) in the appendix provides the detailed definitions and examples for each utterance type.
+
+4. *Syntactic Level* 
+
+Annotators marked whether the coordination was at the clausal level or at the sub-clausal level. Clausal level was defined as sentences, clauses, verb phrases, and verbs. Coordination of other categories was coded as sub-clausal. This annotation category was introduced to check the hypothesis that the syntactic category of the coordinands may influence the interpretation of a coordination. For example, a sentence like "He drank tea or coffee" is less likely to be interpreted as exclusive than "He drank tea or he drank coffee." The clausal vs. sub-clausal distinction was inspired by the fact that in many languages, coordinators that connect sentences and verb phrases are different lexical items than those that connect nominal, adjectival, or prepositional phrases [see @haspelmath2007]. 
+
+4. *Conceptual Consistency*
+
+Propositions stand in complex conceptual relations with each other. For example, have logical, temporal, and causal relation with each other. For conceptual consistency, annotators decided whether the propositions that made up the coordination could be true at the same time or not. If the two propositions could not be true at the same time and resulted in a contradiction, they were marked as inconsistent. Our annotators used the following diagnostic to decide the consistency of the disjuncts: Two disjuncts were marked as inconsistent if replacing the word *or* with *and* produced a contradiction. For example, changing "the ball is in my room *or* your room" to "the ball is in my room *and* your room" produces a contradiction because a ball cannot be in two rooms at the same time. 
+
+It is important to discuss two issues regarding conceptual consistency. First, our diagnostic for consistency was quite strict. In many cases, propositions are not inconsistent in this sense but they are implausible. For example, drinking both tea and coffee at the same time is not inconsistent, but is unlikely. It is possible that many exclusive interpretations are based on such judgments of implausability. Second, if the coordinands are inconsistent, this does not necessarily mean that the connective interpretation must be exclusive. For example, in a sentence like "you could stay here or go out", the alternatives "staying here" and "going out" are inconsistent. Yet, the overall interpretation of the connective could be conjunctive: you could stay here AND you could go out. The statement communicates that both possibilities hold. This pattern of interaction between possibility modals like *can* and disjunction words like *or* are often discussed under "free-choice inferences" in the semantics and pragmatics literature [@von1968essay; @kamp1973free]. Another example is unconditionals such as "Ready or not, here I come!". The coordinands are contradictions: one is the negation of the other. However, the overall interpretation of the sentences is that in both cases, the speaker is going to come.
+
+5. *Communicative Functions*
+
+We constructed a set of categories that captured particular usages or communicative functions of the words *or* and *and*. They include descriptions, directives, preferences, identifications, definitions-examples, clarifications, repairs, and a few others shown in Table \@ref(tab:speechActs) in appendix. These communicative functions were created using the first 100 examples and then they were used for the classification of the rest of the examples. Some communicative functions are general and some are specific to coordination. For example, directives are a general class while conditionals (e.g. Put that out of your mouth, or I'm gonna put it away) are more specific to coordinated constructions. It is also important to note that the list is not unstructured. Some communicative functions are subtypes of others. For example, "identifications" and "unconditionals" are subtypes of "descriptions" while "conditionals" are a subtype of directives. Furthermore, "repairs" seem parallel to other categories in that any type of speech can be repaired. We do not fully explore the details of these functions in this study but such details matter for a general theory of acquisition that makes use of the speaker's communicative intentions as early coarse-grained communicative cues for the acquisition of fine-grained meaning such as function words.
+
+6. *Answer Type* 
+
+Whenever a parent's utterance was a polar question, the annotators coded the utterance for the type of response it received from the children. This annotation category was different from others in that it was included as a cue for learning disjunction. It was used as an opportunity to assess, albeit in a limited and indirect way, the comprehension of children in the same corpus. Table \@ref(tab:answerTypes) in the appendix shows the answer types in this study and their definitions and examples. Utterances that were not polar questions were simply coded as NA for this category. If children responded to polar questions with "yes" or "no", the category was YN and if they repeated with one of the coordinands the category was AB. If children said yes/no and followed it with one of the coordinands, the answer type was determined as YN (yes/no). For example, if a child was asked "Do you want orange juice or apple juice?" and the child responded with "yes, apple juice", our annotators coded the response as YN. The reason is that in almost all cases, if a simple yes/no response is felicitous, then it can also be optionally followed with mentioning a disjunct. However, if yes/no is not a felicitous response, then mentioning one of the alternatives is the only appropriate answer. For example, if someone asks "Do you want to stay here or go out?" a response such as "yes, go out" is infelicitous and a better response is simply "go out". Therefore, we counted responses with both yes/no and mentioning an alternative as a yes/no response.
 
 ### Inter-annotator Reliability
 
@@ -388,77 +391,19 @@ and_agreement <- read_csv("connective_learning/3_providence_annotations/reliabil
 
 To train annotators and confirm their reliability for disjunction examples, two annotators coded the same 240 instances of disjunction. The inter-annotator reliability was calculated over 8 iterations of 30 examples each. After each iteration, annotators met to discuss disagreements and resolve them. They also decided whether the category definitions or annotation criteria needed to be made more precise. Training was completed after three consecutive iterations showed substantial agreement between the annotators for all categories (Cohen's $\kappa > 0.7$). Further details on inter-annotator reliability are presented in the appendix section.
 
-### Results
+## Results
 
-First we look at how children responded to their parents' questions with *or* (Answer Type). Figure \@ref(fig:answerPlot) shows the monthly proportions of "yes/no" and alternative (AB) answers between the ages of 1 and 3 years. Initially, children provided no answer to questions, but by the age of 3 years, the majority of such questions received a yes/no (YN) or alternative (AB) answer. This increase in the proportion of responses to questions containing *or* between 20 to 30 months of age suggests that initial form-meaning mappings for disjunction is formed in this age range.
+```{r multinomialRegression, eval=FALSE}
+library(brms)
 
-```{r answerPlot, fig.env="figure", fig.width=4, fig.height=2, fig.align="center", fig.cap="The proportions of children's answer types to polar questions containing the connective \\textit{or} at different ages (in months)."}
-answer_prop <- 
-  disjunctions %>%
-  filter(answer!="N", answer!="S") %>%
-  group_by(answer, age_months) %>%
-  summarise(counts= n()) %>%
-  na.omit() %>%
-  group_by(age_months) %>%
-  mutate(total = sum(counts), proportion = counts/total)
-
-answer_prop %>%
-  ggplot(aes(x= age_months, y=proportion, fill=answer)) + 
-  geom_bar(stat = "identity", width=0.7) +
-#  geom_linerange(aes(ymax = cih, ymin = cil)) + 
-#  facet_grid(.~annotation) +
-#  guides(fill=FALSE) +
-#  scale_x_continuous(lim=c(13,39)) +
-  scale_fill_manual(values=c("gray", "springgreen3", "springgreen4")) +
-  labs(x="age (months)", y = "proportion")+
-  theme_few() +
-  theme(text = element_text(size=11, family="Times"))
+multinomial_fit <- brm(
+  formula = connective_meaning ~ annotation * consistency * intonation,
+  family = categorical(),
+  file = "multinomial_fit",
+  data = connective_annotations
+)
 ```
-<!--
-These two answer types are not appropriate for all types of polar questions that contain *or*. For example, alternative answers are typically provided to alternative questions with the rise-fall intonation. For example, a question such as "do you want to stay here or go out?" receives an answer such as "stay-here/go-out" and not "yes/no". However, a polar disjunctive question such as "do you want any tea or coffee?" typically receives a "yes"/"no" rather than only one of the alternatives like "tea/coffee", even though both answers are possible. 
 
-Based on such typical responses patterns, we can define appropriate answers to questions with disjunction in the following way: an alternative (AB) answer is appropriate for an alternative questions (with "or" and rise-fall intonation) and a "yes/no" answer (YN) is appropriate for a polar question. Of course this classification is too strict and misses some nuanced cases but it provides a rough estimate of appropriate answers offered to parents' questions. Figure \@ref(fig:answerHitsPlot) shows the monthly proportion of children's appropriate answers between the ages of 1 and 3. The results show that even with a strict measure, children show an increase in the proportion of their appropriate responses to questions containing *or* between 20 to 30 months of age (roughly 2 and 3 years of age). This increase in appropriate responses is consistent with the results from comprehension studies that suggest children's understanding of *and* and *or* develops between 2 and 4 years of age.  
-
-```{r answerHitsPlot, fig.env="figure", fig.width=4, fig.height=2, fig.align="center", fig.cap="Proportion of children's appropriate resonses" }
-disjunctions$appropriate <- "0"
-
-disjunctions$appropriate[disjunctions$answer == "YN" & 
-                                        disjunctions$utterance_type == "interrogative" &
-                                        disjunctions$intonation == "rise"
-                                       ] <- "1"
-
-# In case you would like to count an alternative answer to a rising question as correct as well. The results are similar
-#disjunctions$appropriate[disjunctions$answer == "AB" & 
-#                                        disjunctions$utterance_type == "interrogative" &
-#                                        disjunctions$intonation == "rise"
-#                                       ] <- "1"
-
-disjunctions$appropriate[disjunctions$answer == "AB" & 
-                                        disjunctions$utterance_type == "interrogative" &
-                                        disjunctions$intonation == "rise-fall"
-                                       ] <- "1"
-
-answer_prop <- 
-  disjunctions %>%
-  filter(answer!="N", answer!="S") %>%
-  group_by(appropriate, age_months) %>%
-  summarise(counts= n()) %>%
-  group_by(age_months) %>%
-  mutate(total = sum(counts), proportion = counts/total)
-
-answer_prop %>%
-  ggplot(aes(x= age_months, y=proportion, fill=appropriate)) + 
-  geom_bar(stat = "identity", width=0.7) +
-#  geom_linerange(aes(ymax = cih, ymin = cil)) + 
-#  facet_grid(.~annotation) +
-  scale_x_continuous(lim=c(12,38)) +
-  #  guides(fill=FALSE) +
-  scale_fill_manual(values=c("gray","navy")) +
-  theme_few() +
-  labs(x="age (months)", y = "proportion")+
-  theme(text = element_text(size=11, family = "Times"))
-```
--->
 ```{r interpretations}
 interpretation_prop <- 
   connective_annotations %>%
@@ -476,30 +421,6 @@ interpretation_prop %<>% full_join(connective_confint, by="est")
 #Order interpretation as AND > XOR > IOR > ...
 interpretation_prop$connective_meaning %<>% fct_relevel("AND", "XOR")
 
-
-#  connective_annotations %>%
-#  group_by(connective_meaning, annotation) %>%
-#  summarise(counts= n()) %>%
-#    ggplot(aes(x=connective_meaning, y=counts)) +
-#    geom_bar(stat="identity", width=0.2) +
-#    facet_grid(.~annotation) + 
-#    theme_few()
-```
-
-Next we consider the interpretations that our annotations assigned to *and* and *or* in child-directed speech. The most common interpretation was the conjunctive interpretation (AND, `r round(interpretation_prop$est[1],2)*100`%) followed by the exclusive interpretation (XOR, `r round(interpretation_prop$est[6],2)*100`%). Figure \@ref(fig:connectivePlot) shows the distribution of connective interpretations by the connective words *and* and *or*^[All the confidence intervals shown in the plots for this section are simultaneous multinomial confidence intervals computed using the @sison1995simultaneous method.]. For *and*, the most frequent interpretation (in fact almost the only interpretation), was conjunction AND. For *or*, the most frequent interpretation was exclusive disjunction XOR. These results replicated the findings of @morris2008logically.
-
-```{r interpretationPlot, include=F, fig.env="figure", fig.align="center", fig.width=3, fig.height=2.5, fig.cap="The proportion of different interpretations of the connectives \\textit{and/or} in child-directed speech"}
-interpretation_prop %>%
-  ggplot(aes(x= connective_meaning, y=est, fill=connective_meaning)) + 
-  geom_bar(stat = "identity", width=0.7) +
-  geom_linerange(aes(ymax = upr.ci, ymin = lwr.ci)) + 
-  guides(fill=FALSE) +
-  labs(x="", y="Proportion") +
-  theme_few() +
-  theme(text = element_text(size=11, family="Times"))
-```
-
-```{r connectivePlot, fig.align="center", fig.env="figure", fig.width=5, fig.height=2.5, fig.cap="Interpretations of \\textit{and/or} in child-directed speech"}
 connective_prop <- 
   connective_annotations %>%
   group_by(connective_meaning, annotation) %>%
@@ -511,14 +432,14 @@ connective_prop <-
 # calculating the multinomial confidence intervals
 connective_confint_AND <-
   connective_prop %>%
-  filter(annotation =="AND")
+  filter(annotation =="and")
 connective_confint_AND <-
   connective_confint_AND$counts %>%
   MultinomCI(conf.level = 0.95, method = "sisonglaz") %>% data.frame() %>%
   full_join(connective_confint_AND, by="est")
 connective_confint_OR <-
   connective_prop %>%
-  filter(annotation =="OR")
+  filter(annotation =="or")
 connective_confint_OR <-
   connective_confint_OR$counts %>%
   MultinomCI(conf.level = 0.95, method = "sisonglaz") %>% data.frame() %>%
@@ -526,8 +447,23 @@ connective_confint_OR <-
 
 connective_prop <-
   bind_rows(connective_confint_AND, connective_confint_OR)
+```
 
-connective_prop %>%
+Figure blah shows the distribution of connective interpretations in child-directed speech. The most common interpretation was the conjunctive interpretation (AND, `r round(interpretation_prop$est[1],2)*100`%) followed by the exclusive interpretation (XOR, `r round(interpretation_prop$est[6],2)*100`%). The figure also shows the distribution of connective interpretations broken down by the connective word used: *and* vs. *or*^[All the confidence intervals shown in the plots for this section are simultaneous multinomial confidence intervals computed using the @sison1995simultaneous method.]. The most frequent interpretation for *and* was conjunction (AND), and for *or*, exclusive disjunction (XOR). These results replicated the findings of @morris2008logically.
+
+```{r interpretationPlot, fig.env="figure", fig.align="center", fig.width=3, fig.height=2.5, fig.cap="The proportion of different interpretations of the connectives \\textit{and/or} in child-directed speech. Interpretations of \\textit{and/or} in child-directed speech"}
+interpretation_plot <-
+  interpretation_prop %>%
+  ggplot(aes(x= connective_meaning, y=est, fill=connective_meaning)) + 
+  geom_bar(stat = "identity", width=0.7) +
+  geom_linerange(aes(ymax = upr.ci, ymin = lwr.ci)) + 
+  guides(fill=FALSE) +
+  labs(x="", y="Proportion") +
+  theme_few() +
+  theme(text = element_text(size=11, family="Times"))
+
+connective_plot <-
+  connective_prop %>%
   ggplot(aes(x= connective_meaning, y=est, fill=connective_meaning)) + 
   geom_bar(stat = "identity", width=0.7) +
   geom_linerange(aes(ymax = upr.ci, ymin = lwr.ci)) + 
@@ -536,9 +472,12 @@ connective_prop %>%
   labs(y="Proportion", x="") +
   theme_few() +
   theme(text = element_text(size=11, family = "Times"))
+
+grid.arrange(interpretation_plot, connective_plot, ncol=2, widths = c(1,1.5))
 ```
 
-Morris argued that given the high frequency of conjunction and exclusive disjunction in the input, children should initially (between the ages of 2 and 5 years) map the meanings of *and* and *or* as conjunction and exclusive disjunction. According to @morris2008logically, children learn the inclusive interpretation of disjunction later as they encounter more inclusive (logical) uses of *or*. However, comprehension tasks show that children between 3 and 5 tend to interpret *or* as inclusive disjunction rather than exclusive disjunction in a variety of declarative sentences [@chierchia2001acquisition; @notley2012children; @gualmini2000; @gualmini2000inclusion, among others]. How can children learn the inclusive semantics of *or* if they rarely hear it? This is the puzzle of learning disjunction, discussed in the introduction. The remainder of this section focuses on disjunction, and shows how different cues separate inclusive vs. exclusive interpretations, which in principle can help a learner in acquiring both the inclusive and exclusive interpretations of disjunction relatively quickly.
+
+<!--
 
 ```{r utteranceTypes}
 utteranceType_prop <- 
@@ -687,6 +626,7 @@ consistency_confint %>%
 ```
 
 Figure \@ref(fig:consistencyPlot) shows the proportions of connective interpretations in disjunctions with consistent vs. inconsistent disjuncts. When the disjuncts were consistent, the interpretation could be exclusive (XOR), inclusive (IOR), or conjunctive (AND). When the disjuncts were inconsistent, a disjunction almost always received an exclusive interpretation. These results suggest that the exclusive interpretation of a disjunction often stems from the inconsistent or contradictory nature of the disjuncts themselves.[^It should be noted here that in all *and*-examples, the disjuncts were consistent. This is not surprising given that inconsistent meanings with *and* result in a contradiction. The only exception to this was one example where the mother was mentioning two words as antonyms: "short and tall". This example is quite different from the normal utterances given that it is meta-linguistic and list words rather than asserting the content of the words.] In Figure \@ref(fig:consistencyByintonationPlot), we break down interpretations by both intonation and consistency. The results show a clear pattern: disjunctions are interpreted as exclusive XOR when they carry either inconsistent disjuncts or a rise-fall intonation. If the disjunction has consistent disjuncts and carries a rising intonation, it is most likely interpreted as inclusive IOR. This pattern suggests that using disjunct consistency and sentence intonation, a learner can reliably separate the exclusive and inclusive interpretations of disjunction. 
+-->
 
 ```{r consistencyByIntonation}
 consistonation_prop <- 
@@ -923,9 +863,87 @@ Repairs often received an exclusive (XOR) or a second-disjunct-true (NAB) interp
 
 Options were often interpreted either as conjunctive (AND) or inclusive (IOR). The category "options" contained examples of free-choice inferences such as "you could drink orange juice or apple juice". This study found free-choice examples much more common than the current literature on the acquisition of disjunction suggests. Finally, directives received either an IOR or XOR interpretation. It is important to note here that the most common communicative function in the data were preferences and descriptions. Other communicative functions such as unconditionals or options were fairly rare. Despite their infrequent appearance, these constructions must be learned by children at some point, since almost all adults know how to interpret them. It is clear from the investigation here that any learning account for function word meaning/interpretation also needs to account for how such infrequent constructions are learned.  
 
-### Discussion
+### Comprehension
 
-The goal of this study was to discover the cues in child-directed speech that could help children learn the interpretations of a disjunction. The study presented 1000 examples of *and* and *or* in child-directed speech, annotated for their truth-conditional interpretation, as well as five candidate cues to their interpretation: (1) Utterance Type; (2) Intonation Type; (3) Syntactic Level; (4) Conceptual Consistency; and (5) Communicative Function. Like @morris2008logically, this study found that the most common interpretations of *and* and *or* are conjunction (AND) and exclusive disjunction (XOR) respectively. However, we found many inclusive and conjunctive instances of *or* as well.
+First we look at how children responded to their parents' questions with *or* (Answer Type). Figure \@ref(fig:answerPlot) shows the monthly proportions of "yes/no" and alternative (AB) answers between the ages of 1 and 3 years. Initially, children provided no answer to questions, but by the age of 3 years, the majority of such questions received a yes/no (YN) or alternative (AB) answer. This increase in the proportion of responses to questions containing *or* between 20 to 30 months of age suggests that initial form-meaning mappings for disjunction is formed in this age range.
+
+```{r answerPlot, fig.env="figure", fig.width=4, fig.height=2, fig.align="center", fig.cap="The proportions of children's answer types to polar questions containing the connective \\textit{or} at different ages (in months)."}
+answer_prop <- 
+  disjunctions %>%
+  filter(answer!="N", answer!="S") %>%
+  group_by(answer, age_months) %>%
+  summarise(counts= n()) %>%
+  na.omit() %>%
+  group_by(age_months) %>%
+  mutate(total = sum(counts), proportion = counts/total)
+
+answer_prop %>%
+  ggplot(aes(x= age_months, y=proportion, fill=answer)) + 
+  geom_bar(stat = "identity", width=0.7) +
+#  geom_linerange(aes(ymax = cih, ymin = cil)) + 
+#  facet_grid(.~annotation) +
+#  guides(fill=FALSE) +
+#  scale_x_continuous(lim=c(13,39)) +
+  scale_fill_manual(values=c("gray", "springgreen3", "springgreen4")) +
+  labs(x="age (months)", y = "proportion")+
+  theme_few() +
+  theme(text = element_text(size=11, family="Times"))
+```
+
+<!--
+These two answer types are not appropriate for all types of polar questions that contain *or*. For example, alternative answers are typically provided to alternative questions with the rise-fall intonation. For example, a question such as "do you want to stay here or go out?" receives an answer such as "stay-here/go-out" and not "yes/no". However, a polar disjunctive question such as "do you want any tea or coffee?" typically receives a "yes"/"no" rather than only one of the alternatives like "tea/coffee", even though both answers are possible. 
+
+Based on such typical responses patterns, we can define appropriate answers to questions with disjunction in the following way: an alternative (AB) answer is appropriate for an alternative questions (with "or" and rise-fall intonation) and a "yes/no" answer (YN) is appropriate for a polar question. Of course this classification is too strict and misses some nuanced cases but it provides a rough estimate of appropriate answers offered to parents' questions. Figure \@ref(fig:answerHitsPlot) shows the monthly proportion of children's appropriate answers between the ages of 1 and 3. The results show that even with a strict measure, children show an increase in the proportion of their appropriate responses to questions containing *or* between 20 to 30 months of age (roughly 2 and 3 years of age). This increase in appropriate responses is consistent with the results from comprehension studies that suggest children's understanding of *and* and *or* develops between 2 and 4 years of age.  
+
+```{r answerHitsPlot, fig.env="figure", fig.width=4, fig.height=2, fig.align="center", fig.cap="Proportion of children's appropriate resonses" }
+disjunctions$appropriate <- "0"
+
+disjunctions$appropriate[disjunctions$answer == "YN" & 
+                                        disjunctions$utterance_type == "interrogative" &
+                                        disjunctions$intonation == "rise"
+                                       ] <- "1"
+
+# In case you would like to count an alternative answer to a rising question as correct as well. The results are similar
+#disjunctions$appropriate[disjunctions$answer == "AB" & 
+#                                        disjunctions$utterance_type == "interrogative" &
+#                                        disjunctions$intonation == "rise"
+#                                       ] <- "1"
+
+disjunctions$appropriate[disjunctions$answer == "AB" & 
+                                        disjunctions$utterance_type == "interrogative" &
+                                        disjunctions$intonation == "rise-fall"
+                                       ] <- "1"
+
+answer_prop <- 
+  disjunctions %>%
+  filter(answer!="N", answer!="S") %>%
+  group_by(appropriate, age_months) %>%
+  summarise(counts= n()) %>%
+  group_by(age_months) %>%
+  mutate(total = sum(counts), proportion = counts/total)
+
+answer_prop %>%
+  ggplot(aes(x= age_months, y=proportion, fill=appropriate)) + 
+  geom_bar(stat = "identity", width=0.7) +
+#  geom_linerange(aes(ymax = cih, ymin = cil)) + 
+#  facet_grid(.~annotation) +
+  scale_x_continuous(lim=c(12,38)) +
+  #  guides(fill=FALSE) +
+  scale_fill_manual(values=c("gray","navy")) +
+  theme_few() +
+  labs(x="age (months)", y = "proportion")+
+  theme(text = element_text(size=11, family = "Times"))
+```
+-->
+
+
+## Conclusion
+
+<!--
+The most likely interpretation of *or* in child-directed speech is exclusive. However, exclusive interpretations correlate with a rise-fall prosody and logically inconsistent propositions connected by “or”. In the absence of these two factors, “or” is most likely not exclusive.
+-->
+
+This study focused on the interpretations that connectives *and* and *or* recieve in child-directed speech. It also investigated some candidate cues that can help children learn these interpretations of a disjunction. The study presented 1000 examples of *and* and *or* in child-directed speech, annotated for their truth-conditional interpretation, as well as five candidate cues to their interpretation: (1) Utterance Type; (2) Intonation Type; (3) Syntactic Level; (4) Conceptual Consistency; and (5) Communicative Function. Like @morris2008logically, this study found that the most common interpretations of *and* and *or* are conjunction (AND) and exclusive disjunction (XOR) respectively. However, we found many inclusive and conjunctive instances of *or* as well.
 
 The most likely interpretation of a disjunction depended on the cues that accompanied it. A disjunction was most likely exclusive if the alternatives were inconsistent (i.e. contradictory). A disjunction was either inclusive or exclusive if it appeared in a question. Within questions, a disjunction was most likely exclusive if the intonation was rise-fall. If the intonation was rising, the question was interpreted as inclusive. The syntactic category of the disjuncts could also provide information for interpretation. If the disjuncts were clausal then it was more likely for the disjunction to be interpreted as exclusive, even though this effect was small. Finally, specific communicative functions required specific interpretations of the connective. *Or* often received a conjunctive interpretation in the following contexts: defining terms and providing examples, enumerating options, and in unconditional constructions. These results suggest that a learner can rely on cues that accompany a disjunciton for its interpretation. In the next section, we develop a computational model to test this hypothesis more formally.
 
@@ -1225,7 +1243,7 @@ corpus_density %>%
 
 ## Properties of CHILDES Corpora
 
-```{r wordCount}
+```{r wordCountt}
 count_table <-
   wordCounts %>%
   select(-X1) %>%
@@ -1255,7 +1273,7 @@ wordCounts_byAge %>%
   scale_color_discrete(name = "Speaker Role")
 ```
 -->
-The distribution of function words is sensitive to the type of utterance or more broadly the type of speech act produced by speakers. For example, it is not surprising to hear a parent say "go to your room" but a child saying the same to a parent is unexpected. If a function word commonly occurs in such speech acts, it is unlikely to be produced by children, even though they may understand it very well. Therefore, it is important to check the distribution of speech acts in corpora when studying different function words. Since it is hard to classify and quantify speech acts automatically, here I use utterance type as a proxy for speech acts. I investigate the distribution of declaratives, questions, and imperatives in this collection of corpora on parent-child interactions. Figure \@ref(fig:totalUtteranceTypePlot) shows the distribution of different utterance types in the speech of parents and children. Overall, most utterances are either declaratives or questions, and there are more declaratives than questions in this collection. While mothers and fathers show similar proportions of declaratives and questions in their speech, children produce a lower proportion of questions and higher proportion of declaratives than their parents.
+The distribution of function words is sensitive to the type of utterance or more broadly the type of speech act produced by speakers. Therefore, it is important to check the distribution of speech acts in corpora when studying different function words. Since it is hard to classify and quantify speech acts automatically, here I use utterance type as a proxy for speech acts. I investigate the distribution of declaratives, questions, and imperatives in this collection of corpora on parent-child interactions. Figure \@ref(fig:totalUtteranceTypePlot) shows the distribution of different utterance types in the speech of parents and children. Overall, most utterances are either declaratives or questions, and there are more declaratives than questions in this collection. While mothers and fathers show similar proportions of declaratives and questions in their speech, children produce a lower proportion of questions and higher proportion of declaratives than their parents.
 
 ```{r totalUtteranceTypePlot, fig.env="figure", fig.align="center", fig.cap="The proportion of declaratives and questions in children's and parents' utterances."}
 utteranceType_bySpeaker %>%
