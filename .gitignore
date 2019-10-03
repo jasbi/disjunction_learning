@@ -44,5 +44,9 @@ rsconnect/
 *.fff
 *.ttt
 
-# 
+# Heavy files
+connective_learning/1_raw_data/All_Eng_Utterances.csv
+connective_learning/1_raw_data/All_Eng_Utterances.feather
+connective_learning/1_raw_data/english_tokens.csv
+connective_learning/1_raw_data/english_tokens.feather
 

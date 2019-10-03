@@ -9,6 +9,12 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library(tidyverse)
+library(feather)
+library(binom)
+```
+
 #Import Raw Data from CHILDES-db
 
 This chunk imports data from Childes-db using the childesr package and saves them as csv or feather files in the local drive
@@ -51,7 +57,7 @@ write_feather(all_utterances, "connective_learning/1_raw_data/All_Eng_Utterances
 
 ```{r exclusionsNrecoding, eval=FALSE}
 # read the english tokens
-english_tokens <- read_feather("connective_learning/1_raw_data/english_tokens.feather")
+english_tokens <- read_feather("1_raw_data/english_tokens.feather")
 
 #Convert and store children's age in years using the lubridate package
 english_tokens$target_child_age_years <- 
@@ -141,6 +147,10 @@ english_tokens$word[english_tokens$gloss!="or" &
                    english_tokens$gloss!="and" & 
                    english_tokens$gloss!="And"] <- "other"
 
+# Collapse mothers and fathers into parents
+english_tokens$speaker <- "parent"
+english_tokens$speaker[english_tokens$speaker_role=="Target_Child"] <- "child"
+
 # the next few chunks create the frequency tables needed for the analyses in this chapter
 wordCounts <- 
   english_tokens %>%
@@ -173,9 +183,9 @@ write.csv(wordCounts_byCollection, "connective_learning/2_processed_data/wordCou
 # frequency of "and" and "or" relativized to the speech of fathers, mothers, and children
 freqTable_bySpeaker <-
   english_tokens %>%
-  group_by(speaker_role, word) %>%
+  group_by(speaker, word) %>%
   summarize(count = n()) %>%
-  group_by(speaker_role) %>%
+  group_by(speaker) %>%
   mutate(total = sum(count))
 
 # calculating the confidence intervals
@@ -189,16 +199,16 @@ freqTable_bySpeaker %<>%
   full_join(conf_ints, by=c("count","total")) %>%
   mutate(ppt = rel_freq*1000, ppt_upper=upper*1000, ppt_lower=lower*1000)
 
-write.csv(freqTable_bySpeaker, "connective_learning/2_processed_data/RelFreq_bySpeaker.csv", row.names=FALSE)
+write.csv(freqTable_bySpeaker, "2_processed_data/RelFreq_bySpeaker.csv", row.names=FALSE)
 ```
 
 ```{r connectiveProportions, eval=FALSE}
 # proportions of "and" and "or" in different speech acts
 cnctv_prop_bySpeechAct <- 
   english_tokens %>%
-  group_by(word, speech_act, speaker_role) %>%
+  group_by(word, speech_act, speaker) %>%
   summarize(count = n()) %>%
-  group_by(word, speaker_role) %>%
+  group_by(word, speaker) %>%
   mutate(total = sum(count))
 
 # calculating the confidence intervals
@@ -212,16 +222,16 @@ cnctv_prop_bySpeechAct %<>%
   full_join(conf_ints, by=c("count","total")) %>%
   mutate(connective_pct = rel_freq*100, upper_pct=upper*100, lower_pct=lower*100)
 
-write.csv(cnctv_prop_bySpeechAct, "connective_learning/2_processed_data/connective_prop_bySpeechAct.csv", row.names=FALSE)
+write.csv(cnctv_prop_bySpeechAct, "2_processed_data/connective_prop_bySpeechAct.csv", row.names=FALSE)
 ```
 
 ```{r RelFreqBySpeakerSpeechAct, eval=FALSE}
 #frequency of "and" and "or" relative to speakers and speech acts
 freqTable_bySpeakerSpeechAct <-
   english_tokens %>%
-  group_by(speaker_role, word, speech_act) %>%
+  group_by(speaker, word, speech_act) %>%
   summarize(count = n()) %>%
-  group_by(speaker_role, speech_act) %>%
+  group_by(speaker, speech_act) %>%
   mutate(total = sum(count))
 
 # calculating the confidence intervals
@@ -235,31 +245,31 @@ freqTable_bySpeakerSpeechAct %<>%
   full_join(conf_ints, by=c("count","total")) %>%
   mutate(ppt = rel_freq*1000, upper_ppt=upper*1000, lower_ppt=lower*1000)
 
-write.csv(freqTable_bySpeakerSpeechAct, "connective_learning/2_processed_data/RelFreq_bySpeakerSpeechAct.csv", row.names=FALSE)
+write.csv(freqTable_bySpeakerSpeechAct, "2_processed_data/RelFreq_bySpeakerSpeechAct.csv", row.names=FALSE)
 ```
 
 ```{r relFreqbyAge, eval=FALSE}
 freqTable_byAge <-
   english_tokens %>%
-  group_by(speaker_role, word, target_child_age_months) %>%
+  group_by(speaker, word, target_child_age_months) %>%
   summarize(count = n()) %>%
-  group_by(speaker_role, target_child_age_months) %>%
+  group_by(speaker, target_child_age_months) %>%
   mutate(total = sum(count), rel_freq = count / total, ppt = rel_freq * 1000)
 
 freqTable_byAgeSpeechAct <-
   english_tokens %>%
-  group_by(speaker_role, word, target_child_age_months, speech_act) %>%
+  group_by(speaker, word, target_child_age_months, speech_act) %>%
   summarize(count = n()) %>%
-  group_by(speaker_role, target_child_age_months, speech_act) %>%
+  group_by(speaker, target_child_age_months, speech_act) %>%
   mutate(total = sum(count), rel_freq = count / total, ppt = rel_freq * 1000)
 
-write.csv(freqTable_byAge, "connective_learning/2_processed_data/RelFreq_byAge.csv", row.names=FALSE)
-write.csv(freqTable_byAgeSpeechAct, "connective_learning/2_processed_data/RelFreq_byAgeSpeechAct.csv", row.names=FALSE)
+write.csv(freqTable_byAge, "2_processed_data/RelFreq_byAge.csv", row.names=FALSE)
+write.csv(freqTable_byAgeSpeechAct, "2_processed_data/RelFreq_byAgeSpeechAct.csv", row.names=FALSE)
 ```
 
 ```{r UtteranceFreq, eval=FALSE}
 #read all the utterances
-all_utterances <- read_csv("connective_learning/1_raw_data/All_Eng_Utterances.csv")
+all_utterances <- read_csv("1_raw_data/All_Eng_Utterances.csv")
 
 #convert the age from days to years
 all_utterances$target_child_age_years <-
@@ -293,36 +303,40 @@ all_utterances$speech_act <-
          `trail off question` = "question"
          )
 
+# Collapse mothers and fathers into parents
+all_utterances$speaker <- "parent"
+all_utterances$speaker[all_utterances$speaker_role=="Target_Child"] <- "child"
+
 # count the number of utterances per speaker
 totalUtterance_bySpeaker <-
   all_utterances %>%
-  group_by(speaker_role) %>%
+  group_by(speaker) %>%
   summarize(total_utterance_count = n())
 
 # count the number of utterances per speaker at each age
 totalUtterance_bySpeakerAge <- 
   all_utterances %>%
-  group_by(speaker_role, target_child_age_months) %>%
+  group_by(speaker, target_child_age_months) %>%
   summarize(total_utterance_count = n())
 
 # Normalize a speaker's utterance type by the total number of utterances made
 utteranceType_bySpeaker <-
   all_utterances %>%
-  group_by(speech_act,speaker_role) %>%
+  group_by(speech_act,speaker) %>%
   summarize (utterance_count = n()) %>%
-  full_join(totalUtterance_bySpeaker, by="speaker_role") %>%
+  full_join(totalUtterance_bySpeaker, by="speaker") %>%
   mutate(utteranceType_relFreq = utterance_count / total_utterance_count, utteranceType_ppc = utteranceType_relFreq * 100)
 
 # normalize the speaker utterance type at a particular age by the total number of utterances by that speaker at that age
 utteranceType_byAge <- 
   all_utterances %>%
-  group_by(speech_act,speaker_role, target_child_age_months) %>%
+  group_by(speech_act,speaker, target_child_age_months) %>%
   summarize (utterance_count = n()) %>%
-  full_join(totalUtterance_bySpeakerAge, by=c("speaker_role", "target_child_age_months")) %>%
+  full_join(totalUtterance_bySpeakerAge, by=c("speaker", "target_child_age_months")) %>%
   mutate(utteranceType_relFreq = utterance_count / total_utterance_count, utteranceType_ppc = utteranceType_relFreq * 100)
 
-write.csv(utteranceType_bySpeaker,"connective_learning/2_processed_data/utteranceType_bySpeaker.csv", row.names=FALSE)
-write.csv(utteranceType_byAge,"connective_learning/2_processed_data/utteranceType_byAge.csv", row.names=FALSE)
+write.csv(utteranceType_bySpeaker,"2_processed_data/utteranceType_bySpeaker.csv", row.names=FALSE)
+write.csv(utteranceType_byAge,"2_processed_data/utteranceType_byAge.csv", row.names=FALSE)
 ```
 
 
