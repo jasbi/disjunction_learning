@@ -1,5 +1,5 @@
 ---
-title             : "Learning to Interpret a Disjunction"
+title             : "Learning Linguistic Disjunction"
 shorttitle        : "Learning Disjunction"
 
 author: 
@@ -45,8 +45,6 @@ output            : papaja::apa6_pdf
 
 <!--
 _ write the intro
-- Write study 2 conclusion
-- review study 2 results
 - add stats to study 2 results?
 -->
 
@@ -88,14 +86,26 @@ library(DescTools)
 # Introduction
 
 <!--mapping problem-->
-Word learning is commonly construed as the process of detecting a word form, hypothesizing candidate meanings for that word form, and mapping it to the right meaning [@clark1995lexicon]. For example, a father holding a baby may point to a squirrel and say "look at the squirrel!" Assuming that the baby understands the phrase "look at the", she needs to detect the novel word *squirrel*, consider some potential referents for it (e.g tree, chair, leaf, squirrel, etc.) and select the right referent among them. The problem of finding the right meaning among a set of candidate word meanings is called "the mapping problem".  and plays a central role in using the available cues, in this case the father's pointing. While there has been a lot of research on cues and mechanisms that help children's acquisition of content words such as *squirrel*, *red*, and *run*, 
+Word learning is commonly construed as the process of detecting a word form, hypothesizing candidate meanings, and mapping the word to its correct meaning [@clark1993lexicon]. But this is no easy task. For example, an Iranian father holding his child may point to a fish tank and say in Persian: "*mahi*!" After hearing and registering this novel word, the child needs to consider some potential meanings for it. But there are infinitely many concepts that could be the meaning for *mahi*. From "tank", "fish", "smelly", and "look!" to "maybe", "no touching", and "few bubbles", or even complex and absurd concepts like "fish-during-the-day" or "not-yet-disintegrated-animal". As argued by @quine1960word, the meanings of linguistic utterances are always underdetermined by the behavioral data available to the learner. This problem is called many names including "the mapping problem", "the gavagai problem", or "indeterminacy of reference".
 
-<!--function words and the importance of disjunction-->
-cues and mechanisms involved in learning function words such as *and* and *or* have remained a major challenge. In this study, we focus on the disjunction word *or* and provide a novel learning account that uses salient cues to learn the interpretations of disjunction in English. 
+There are three general ways of tackling the mapping problem. First, while each learning instance of a word in isolation may be compatible with innumerable candidate meanings, taken together and aggregating across situations a learner may be able to reduce the indeterminacy substantially. For example, the Iranian father may later point to the picture of a fish in a story book and say "*mahi*!" This time there is no "tank" or "bubbles", and the reading may be happing during the night. Therefore, this new observation is incompatible with hypotheses like "tank", "few bubbles", or "fish-during-the-day". If children track which hypotheses fair best across several naming instances, they have a better chance of narrowing down the hypothesis space to the correct answer.
+
+Second, prior linguistic or nonlinguistic knowledge can act as cues to word learning, by either favoring some hypotheses, or partitioning the input in ways that reduce indeterminacy. Considering prior linguistic knowledge, suppose the father says "*mahi ro bebin!*" (look at the fish) instead of just "*mahi*". If the child knows that "*ro bebin*" is an article + verb combination that takes a nominal, then she can limit the hypothesis space to nominal concepts. If in addition she knows that "*bebin*" means "look at", then she can limit her hypotheses to things she can actually look at in the scene. Therefore, prior knowledge of the syntax or semantics of known words, can limit the possible meanings for the unknown word [@brown1957linguistic; ]. Many nonlinguistic aspects of the interaction can also inform word learning and act as cues. For example, the father's pointing or the salience of the fish on the book's page can inform the learner to the meaning of *mahi* as "fish" [@baldwin1993infants; @tomasello2003constructing; @clark2009first].
+
+Third, we can assume that the mechanism of word learning has internal constraints and biases that weed out some candidate hypotheses, a priori. Examples: whole object, taxonomic assumption, mutual exclusivity, etc. 
+
+Learning models can also integrate cues and constraints to develop a learning account that uses multiple cues to home in on the target meaning of a word [@hollich2000breaking].
+
+<!--
+First, some theories place constraints or biases internal to the lexicon on either the hypothesis space or the structure of the lexicon. For example, the taxonomic constraint [@markman1984children] proposes that children generate semantic hypotheses for nouns that denote a set of taxonomically related entities and do not hypothesize meanings that capture sets of entities with thematic relations. For example, given the word *gavagai*, children hypothesize the meaning "rabbit" which denotes the set of rabbits (taxonomically related) but not "rabbit and carrot" (thematically related). Therefore, the taxonomic constraint limits the space of hypotheses that the learner entertains. On the other hand, the mutual exclusivity constraint [@markman1988children] as well as the pragmatic principle of contrast [@clark1987principle] limit the structure of the lexicon such that two words are not mapped into the same meaning. This constraint on the lexicon makes the word learning task easier by removing hypotheses that are already associated with learned words.
+
+While there has been a large body of research on the set of cues and constraints that aid the acquisition of content word, function words have not received comparable attention. This dissertation takes a small step in advancing research on the acquisition of functions words by focusing on the challenging case of the disjunction word *or*. The case of *or* shows that function words, due to their special properties such as abstract and variable interpretations, will play an important role in shaping theories of word learning. In the next section I explain the scope of this dissertation within a program that aims at developing a cue-based acquisition of function words.
+-->
 
 <!--disjunction-->
-
-How do children learn the meaning of disjunction
+This study looks at constraints and cues that can aid the acquisition of disjunction. 
+Why conjunction and disjunction?
+Among functional elements, Quine believed that logical connectives are most likely to be amenable to radical translation. empiricaly grounded, i.e. made concrete similar to concrete content words.
 
 ## Previous Studies
 
@@ -118,7 +128,7 @@ grid::grid.raster(theories)
 
 ## Current Study
 
-In this study, we provide an alternative solution to the paradox of learning disjunction. The main claim of this paper is that children may learn to interpret *or*-- for example as exclusive or inclusive -- using the salient cues that accompany it in the input. We support this hypothesis using three studies. In the first study, we investigate the distribution of *and* and *or* in parent-child interactions to address the following basic questions: how often do children hear or produce *or*? when do they start producing it? Using a large corpus of parent-child interactions, we found that children hear 1-2 examples of *or* in every thousand words parents produce. They start producing it themselves between 18-30 months, and by 42 months they reach a rate of one *or* per thousand words. In study 2, we ask: what interpretations can *or* have in child-directed speech? We annotated examples of *or* and found that its most likely interpretation is exclusive disjunction, as @morris2008logically had concluded. However, we also found that exclusive interpretations correlated strongly with two cues: rise-fall prosody, and logically inconsistent propositions connected by *or*. In the absence of these cues, *or* was most likely inclusive. In our third study, we ask if it is possible to learn the interpreation of *or* from these cues. Using the annotation data of study 2 and a supervised learning task, we showed that a decision-tree classifer can use prosody and consistency of propositions to predict its interpretation with high accuracy.
+In this study, we provide an alternative solution to the paradox of learning disjunction. The main claim of this paper is that children may learn to interpret *or*-- for example as exclusive or inclusive -- using the salient cues that accompany it in the input. We support this hypothesis using three studies. In the first study, we investigate the distribution of *and* and *or* in parent-child interactions to address the following basic questions: how often do children hear or produce *or*? and when do they start producing it? Using a large corpus of parent-child interactions, we found that children hear 1-2 examples of *or* in every thousand words parents produce. They start producing it themselves between 18-30 months, and by 42 months they reach a rate of one *or* per thousand words. In study 2, we ask: what interpretations can *or* have in child-directed speech? We annotated examples of *or* and found that its most likely interpretation is exclusive disjunction, as @morris2008logically had concluded. However, we also found that exclusive interpretations correlated strongly with two cues: rise-fall prosody, and logically inconsistent propositions connected by *or*. In the absence of these cues, *or* was most likely non-exclusive. In our third study, we ask if it is possible to learn the interpreation of *or* from these cues. Using the annotation data of study 2 and a supervised learning task, we showed that a decision-tree classifer can use prosody and consistency of propositions to predict its interpretation with high accuracy.
 
 Based on the results of our studies, we propose a new account for children's acquisition of disjunction. Figure \@ref(fig:cueBasedAccount) shows the summary of this account which we call cue-based context-dependent mapping. It is inspired by the usage-based and nativist accounts of disjunction and shares many of their insights. Similar to the nativist account, we assume that the semantic hypothesis space includes binary logical relations. However, we do not limit the hypothesis space further and do not bias the learning towards the inclusive meaning. We will show that the input can achieve this. Similar to usage based proposals, our account relies on the structure of the input to distinguish between exclusive and inclusive uses of disjunction. We also map more complex constructions to meanings rather than the word *or* directly. The learner can later extract commonalities across these mappings and extract a core semantics for a particular word. However, the early mappings do not have any core meaning as opposed to what the usage-based account of @morris2008logically proposes. The major point of departure from previous accounts is the mechanism of learning. While in pervious accounts the most frequent meaning in the input was mapped to the connective word directly, in our account the input is partitioned or broken down by a set of salient cues that designate the context of use. Mapping is done based on the cues that accompany the connective word. 
 
@@ -1144,9 +1154,32 @@ Second, in the annotation study we found that *and* never occurs with inconsiste
 Finally, it is reasonable to assume that not all binary connective meanings shown in Figure \@ref(fig:logicalConnectives) are as likely for mapping. For example, coordinators that communicate tautologies or contradictions seem to be not good candidates for informative communication. Similarly, if A coordinated with B simply asserts the truth of A and says nothing about B, it is unclear why it would be needed if the language already has the means of simply asserting A. It is possible that pragmatic principles already bias the hypothesis space to favor candidates that are communicatively more efficient.
 -->
 
-# Conclusion
+# General Discussion
 
 The case of disjunction shows that word learning requires to systmatically take different aspects of the linguistic and non-linguistic context into account. The meaning of a word such as *or* cannot be learned independent of its context such as its intonation contour, the meaning of the coordinands it conjoins, or type of speech act it participates in.  
+
+<!--logical nativism vs. logical constructivism-->
+
+Quine's View: language learning is wholistic (starts with utterances), and context-dependent
+
+Dimensions: what is innate? how much is innate? Is there representational continuity?
+
+Mapping mechanism: word-to-concept vs. utterance-to-concept
+Representational continuity vs. discontinuity
+  Derived from: perceptual primitives vs. social primitives
+
+
+Assuming Continuity:
+  Fully fledged waiting for activation: (The Cranian View)
+  Developed from basic perceptual primitives (The Quinian View)
+
+Lacking Continuity (The Piagetian View)
+  Socio-communicative Origins
+  Percpetual Origins
+
+What is the mechanism of mapping?
+  Mapping single words to single ideas
+  Mapping constructions: constructivist + Quinian view: utterances learned as a single unit.
 
 \newpage
 
