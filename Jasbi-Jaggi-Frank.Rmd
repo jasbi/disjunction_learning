@@ -25,7 +25,7 @@ author_note: |
   Enter author note here.
 
 abstract: |
-  At first glance, children's word learning appears to be mostly a problem of learning words like *dog* and *run*. However, it is small words like *and* and *or* that enable the construction of complex combinatorial language. How do children learn the meaning of these function words? Using transcripts of parent-child interactions, we investigate the cues in child-directed speech that can inform the interpretation and acquisition of the connective *or*  which has a particularly challenging semantics. Study 1 finds that, despite its low overall frequency, children can use *or* close to parents' rate by age 4, in some speech acts. Study 2 uses annotations of a subset of parent-child interactions to show that disjunctions in child-directed speech are accompanied by reliable cues to the correct interpretation (exclusive vs. inclusive). We present a decision-tree model that learns from a handful of annotated examples to correctly predict the interpretation of a disjunction. These studies suggest that conceptual and prosodic cues in child-directed speech can provide information for the acquisition of functional categories like disjunction.
+  Children may learn to interpret a disjunction by partition their form-meaning mappings based on salient cues that accompany disjunction in child-directed speech. We first show that children start producing "or" between 18-30 months and by 42 months their productions plateau at a constant rate. The most likely interpretation of "or" in child-directed speech is exclusive. However, exclusive interpretations correlate with a rise-fall intonation, and logically inconsistent propositions. In the absence of these two factors, it is more likely that "or" is not exclusive. Our computational modeling shows that a hypothetical learner can successfully interpret an English disjunction by mapping forms to meanings after partitioning the input using a set of salient cues (cue-based) in the context of the utterance (context-depenent).
   
 keywords          : "keywords"
 wordcount         : "X"
@@ -46,6 +46,7 @@ output            : papaja::apa6_pdf
 <!--
 _ write the intro
 - add stats to study 2 results?
+- write about the constraints and cues in the background
 -->
 
 ```{r global_options2, include=FALSE}
@@ -86,26 +87,19 @@ library(DescTools)
 # Introduction
 
 <!--mapping problem-->
-Word learning is commonly construed as the process of detecting a word form, hypothesizing candidate meanings, and mapping the word to its correct meaning [@clark1993lexicon]. But this is no easy task. For example, an Iranian father holding his child may point to a fish tank and say in Persian: "*mahi*!" After hearing and registering this novel word, the child needs to consider some potential meanings for it. But there are infinitely many concepts that could be the meaning for *mahi*. From "tank", "fish", "smelly", and "look!" to "maybe", "no touching", and "few bubbles", or even complex and absurd concepts like "fish-during-the-day" or "not-yet-disintegrated-animal". As argued by @quine1960word, the meanings of linguistic utterances are always underdetermined by the behavioral data available to the learner. This problem is called many names including "the mapping problem", "the gavagai problem", or "indeterminacy of reference".
+Word learning is commonly construed as the process of detecting a word form, hypothesizing candidate meanings, and mapping the word to its correct meaning [@clark1993lexicon]. As @quine1960word explained, this process involves numerious theoretical and computational complexities. Consider an Iranian father holding his child and pointing to a fish tank while saying in Persian: "*mahi*!" Assuming the child hears and registers the novel word correctly, how can she figure out its meaning? Given the information we have so far, there are infinitely many concepts that could be the meaning for *mahi*. From "water", "fish", "tail", "smelly", and "look" to "maybe", "no touching", and "few bubbles", as well as even more complex concepts like "fish-during-the-day" or "fish-water-bubbles". @quine1960word argued that the meanings of linguistic utterances are always underdetermined by the behavioral data available to the learner. This problem is known in the language acquisition literature as "the mapping problem", "the gavagai problem", or "indeterminacy of reference".
 
-There are three general ways of tackling the mapping problem. First, while each learning instance of a word in isolation may be compatible with innumerable candidate meanings, taken together and aggregating across situations a learner may be able to reduce the indeterminacy substantially. For example, the Iranian father may later point to the picture of a fish in a story book and say "*mahi*!" This time there is no "tank" or "bubbles", and the reading may be happing during the night. Therefore, this new observation is incompatible with hypotheses like "tank", "few bubbles", or "fish-during-the-day". If children track which hypotheses fair best across several naming instances, they have a better chance of narrowing down the hypothesis space to the correct answer.
+There are three general ways of tackling this problem. First, it is possible that mechanisms involved in human word learning have internal constraints and biases that narrow the hypothesis space, a priori. At the onset of mapping for example, children may assume that new words extend to taxonimically related objects and not thematically related ones [@markman1984children]. Such a constraint will avoid mapping *mahi* to a   Examples: whole object, taxonomic assumption, mutual exclusivity (water), etc. 
 
-Second, prior linguistic or nonlinguistic knowledge can act as cues to word learning, by either favoring some hypotheses, or partitioning the input in ways that reduce indeterminacy. Considering prior linguistic knowledge, suppose the father says "*mahi ro bebin!*" (look at the fish) instead of just "*mahi*". If the child knows that "*ro bebin*" is an article + verb combination that takes a nominal, then she can limit the hypothesis space to nominal concepts. If in addition she knows that "*bebin*" means "look at", then she can limit her hypotheses to things she can actually look at in the scene. Therefore, prior knowledge of the syntax or semantics of known words, can limit the possible meanings for the unknown word [@brown1957linguistic; ]. Many nonlinguistic aspects of the interaction can also inform word learning and act as cues. For example, the father's pointing or the salience of the fish on the book's page can inform the learner to the meaning of *mahi* as "fish" [@baldwin1993infants; @tomasello2003constructing; @clark2009first].
+For example, the taxonomic constraint  proposes that children generate semantic hypotheses for nouns that denote a set of taxonomically related entities and do not hypothesize meanings that capture sets of entities with thematic relations. For example, given the word *gavagai*, children hypothesize the meaning "rabbit" which denotes the set of rabbits (taxonomically related) but not "rabbit and carrot" (thematically related). Therefore, the taxonomic constraint limits the space of hypotheses that the learner entertains. On the other hand, the mutual exclusivity constraint [@markman1988children] as well as the pragmatic principle of contrast [@clark1987principle] limit the structure of the lexicon such that two words are not mapped into the same meaning. This constraint on the lexicon makes the word learning task easier by removing hypotheses that are already associated with learned words.
 
-Third, we can assume that the mechanism of word learning has internal constraints and biases that weed out some candidate hypotheses, a priori. Examples: whole object, taxonomic assumption, mutual exclusivity, etc. 
+Second, linguistic or sociopragmatic **cues** can add bias for or against some hypotheses. Considering prior linguistic knowledge, suppose instead of just saying "*mahi*", the father says "*mahi ro bebin!*". If the child knows that "*ro bebin*" is an article + verb combination that combines with a nominal, then she can limit the candidate meanings for *mahi* to nominal concepts. If she also knows that "*bebin*" means "look at", she can further limit the candidate meanings to things she can actually look at in the scene. Therefore, prior linguistic knowledge of the syntax or semantics of the utterance, can limit the possible meanings for the unknown word [@brown1957linguistic; ]. Prior knowledge of communicative acts or human interaction in general can also inform word learning. For example, the father's pointing to a fish or holding a toy fish in front of the child while saying *mahi* can inform the learner of what needs to be attended to for understanding the utterance [@baldwin1993infants; @tomasello2003constructing; @clark2009first].
 
-Learning models can also integrate cues and constraints to develop a learning account that uses multiple cues to home in on the target meaning of a word [@hollich2000breaking].
+Third, while each learning instance of a word in isolation may be compatible with innumerable candidate meanings, taken together and aggregating **across situations**, a learner may be able to reduce the indeterminacy substantially. For example, the Iranian father may later point to the picture of a fish in a story book and say "*mahi*!" This time there is no "tank" or "bubbles", and the reading may be happening during the night. Therefore, the new observation makes hypotheses like "tank", "few bubbles", or "fish-during-the-day" less plausible. If children track which hypotheses fair best across several naming instances, they have a better chance of narrowing down the hypothesis space to the correct meaning.
 
-<!--
-First, some theories place constraints or biases internal to the lexicon on either the hypothesis space or the structure of the lexicon. For example, the taxonomic constraint [@markman1984children] proposes that children generate semantic hypotheses for nouns that denote a set of taxonomically related entities and do not hypothesize meanings that capture sets of entities with thematic relations. For example, given the word *gavagai*, children hypothesize the meaning "rabbit" which denotes the set of rabbits (taxonomically related) but not "rabbit and carrot" (thematically related). Therefore, the taxonomic constraint limits the space of hypotheses that the learner entertains. On the other hand, the mutual exclusivity constraint [@markman1988children] as well as the pragmatic principle of contrast [@clark1987principle] limit the structure of the lexicon such that two words are not mapped into the same meaning. This constraint on the lexicon makes the word learning task easier by removing hypotheses that are already associated with learned words.
+These three ways of tackling the mapping problem are not mutually exclusive, and can operate in conjunction. Therfore, to learn the meaning of *mahi*, the child can potentially benefit from constraints, linguistic and communicative cues, as well as cross-situational learning.  [@hollich2000breaking].
 
-While there has been a large body of research on the set of cues and constraints that aid the acquisition of content word, function words have not received comparable attention. This dissertation takes a small step in advancing research on the acquisition of functions words by focusing on the challenging case of the disjunction word *or*. The case of *or* shows that function words, due to their special properties such as abstract and variable interpretations, will play an important role in shaping theories of word learning. In the next section I explain the scope of this dissertation within a program that aims at developing a cue-based acquisition of function words.
--->
-
-<!--disjunction-->
-This study looks at constraints and cues that can aid the acquisition of disjunction. 
-Why conjunction and disjunction?
-Among functional elements, Quine believed that logical connectives are most likely to be amenable to radical translation. empiricaly grounded, i.e. made concrete similar to concrete content words.
+While there has been a large body of research on the set of cues and constraints that aid the acquisition of content word, function words have not received comparable attention. This study looks at constraints and cues that can aid the acquisition of disjunction. This paper takes a small step in advancing research on the acquisition of functions words by focusing on the case of the disjunction word *or*. Among functional elements, Quine believed that logical connectives are most likely to be amenable to radical translation. empiricaly grounded, i.e. made concrete similar to concrete content words.
 
 ## Previous Studies
 
@@ -115,7 +109,7 @@ Regarding the meaning of the connectives, @morris2008logically adopted a usage-b
 
 However, a series of experimental studies have found that preschool children are more likely to interpret *or* as inclusive in a variety of linguistic contexts such as negative sentences [@crain2000acquisition], conditional sentences [@gualmini2000], restriction and nuclear scope of the universal quantifier *every* [@chierchia2001acquisition; @chierchia2004semantic], nuclear scope of the negative quantifier *none* [@gualminicrain2002], restriction and nuclear scope of *not every* [@notley2012notevery], and prepositional phrases headed by *before* [@notley2012children]. These studies almost unanimously claim that at least in declarative sentences, the inclusive interpretation of *or* emerges earlier than the exclusive interpretation.
 
-The findings of these studies as well as those of @morris2008logically give rise to what we call "the paradox of learning disjunction". Given @morris2008logically's finding that the majority of *or* examples children hear are exclusive, how can children learn to interpret it as inclusive? One way to addresses this paradox is logical nativism [@crain2008logic; @crain2010logic; @crain2012emergence]. This approach assumes that the language faculty contains information regarding what connective meanings are allowed for connective words crosslinguistically. @crain2012emergence considered it unlikely that children learn the meaning of *or* from the examples they hear in adult usage. Instead, he argued that children rely on an innate knowledge that the meaning of disjunction words in natural languages must be inclusive. In other words, upon hearing a connective word, children consider inclusive disjunction as a viable candidate for its meaning but not exclusive disjunction. In this account, the exclusive interpretation emerges as part of children's pragmatic development after they have mastered the inclusive semantics of disjunction.
+The findings of these studies as well as those of @morris2008logically give rise to what we call "the paradox of learning disjunction". Given @morris2008logically's finding that the majority of *or* examples children hear are exclusive, how can children learn to interpret it as inclusive? One way to addresses this paradox is logical nativism [@crain2008logic; @crain2010logic; @crain2012emergence]. It proposes that the language faculty constrains the connective meanings entertained by the learner to those used in classical logic: negation, conjunction, and inclusive disjunction. @crain2012emergence considered it unlikely that children learn the meaning of *or* from the examples they hear in adult usage. Instead, he argued that children rely on an innate knowledge that the meaning of disjunction words in natural languages must be inclusive. In other words, upon hearing a connective word, children consider inclusive disjunction as a viable candidate for its meaning but not exclusive disjunction. In this account, the exclusive interpretation emerges as part of children's pragmatic development after they have mastered the inclusive semantics of disjunction.
 
 While logical nativism addresses the paradox of learning disjunction, it does not provide an explanation for cases where children interpret disjunction as exclusive. @morris2008logically reported that in his study, the vast majority of children used *or* in its exclusive sense. This is not expected if preschool children consider disjunction to be inclusive. Second, other experimental studies, especially those testing disjunction in commands, find that preschool children interpret it as exclusive [@johansson1975preschool; @braine1981development]. For example, in response to a command such as "give me the doll or the dog", children as young as three- and four-years-old give one of the objects and not both. In its current version, the nativist account does not provide any explanation for such cases.
 
@@ -989,132 +983,47 @@ However, the study also found that the most likely interpretation of a disjuncti
 
 # Study 3: Computational Modeling Using Decision Trees
 
-<!--
-## Modeling Using Decision Tree Learning {#DecisionTrees}
--->
+A decision tree is a classification model structured as a hierarchical tree with an initial node, called the root, that branches into more nodes until it reaches the leaves [@breiman2017classification]. Each node represents a test on a feature, each branch represents an outcome of the test, and each leaf represents a classification label. Using a decision tree, observations can be classified or labeled based on a set of features. Decision trees have at least three advantages for modeling cue-based accounts of semantic acquisition. First, the features used in decision trees for classification can be the cues that help the acquisition and interpretation of a word or an utterance. Second, unlike many other machine learning techniques, decision trees result in models that are interpretable. Third, the order of decisions or features used for classification is determined based on information gain. Features that appear higher (earlier) in the tree are more informative and helpful for classification. Therefore, decision trees can help us understand which cues are more helpful for the acquisition and interpretation of words.
 
-A decision tree is a classification model structured as a hierarchical tree with nodes, branches, and leaves [@breiman2017classification]. The tree starts with an initial node, called the root, and branches into more nodes until it reaches the leaves. Each node represents the test on a feature, each branch represents an outcome of the test, and each leaf represents a classification label. Using a decision tree, observations can be classified or labeled based on a set of features. 
-
-Decision trees have several advantages for modeling cue-based accounts of semantic acquisition. First, decision trees use a set of features to predict the classification of observations. This is analogous to using cues to predict the correct interpretation of a word or an utterance. Second, unlike many other machine learning techniques, decision trees result in models that are interpretable. Third, the order of decisions or features used for classification is determined based on information gain. Features that appear higher (earlier) in the tree are more informative and helpful for classification. Therefore, decision trees can help us understand which cues are probably more helpful for the acquisition and interpretation of a word.
-
-Decision tree learning is the construction of a decision tree from labeled training data. This section applies decision tree learning to the annotated data of Study 3 by constructing random forests [@ho1995random; @breiman2001random]. In random forest classification, multiple decision trees are constructed on subsets of the data, and each tree predicts a classification. The ultimate outcome is a majority vote of each trees classification. Since decision trees tend to overfit data, random forests control for overfitting by building more trees and averaging their results. **(Citation)** Next section discusses the methods used in constrcting the random forests for interpreting connectives *or*/*and*.
+Decision tree learning is the construction of a decision tree from labeled training data. This section applies decision tree learning to the annotated data of Study 2 by constructing random forests [@ho1995random; @breiman2001random]. In random forest classification, multiple decision trees are constructed on subsets of the data, and each tree predicts a classification. The ultimate outcome is a majority vote of each tree's classification. Since decision trees tend to overfit data, random forests control for overfitting by building more trees and averaging their results. **(Citation)** In the context of semantic acquisition, the random forest can represent hypothetical variability in the learners. The next section discusses the methods used in constrcting the random forests for interpreting the connectives *or* and *and*.
 
 ## Methods
 
-The random forest models were constructed using python's Sci-kit Learn package [@pedregosa2011scikit]. The annotated data had a feature array and a connective interpretation label for each connective use. Connective interpretations included exclusive (XOR), inclusive (IOR), conjunctive (AND), negative inclusive (NOR), and NPQ which states that only the second proposition is true. The features or cues used included all other annotation categories: intonation, consistency, syntactic level, utterance type, and communicative function. All models were trained with stratified 10-Fold cross-validation to reduce overfitting. Stratified cross-validation maintains the distribution of the initial data in the random sampling to build cross validated models. Maintaining the data distribution ensures a more realistic learning environment for the forests. Tree success was measured with F1-Score, harmonic average of precision and recall **(Citation)**.
+The random forest models were constructed using python's Sci-kit Learn package [@pedregosa2011scikit]. The annotated data had a feature array and a connective interpretation label for each connective use. Connective interpretations included exclusive (XOR), inclusive (IOR), conjunctive (AND), negative inclusive (NOR), and NPQ which states that only the second proposition is true. The features or cues used included all other annotation categories: intonation, consistency, utterance type, syntactic level, negation, modals, and communicative function. All models were trained with stratified 10-Fold cross-validation to reduce overfitting. Stratified cross-validation maintains the distribution of the initial data in the random sampling to build cross validated models. Maintaining the data distribution ensures a more realistic learning environment for the forests. Tree success was measured with F1-Score, harmonic average of precision and recall [@Rijsbergen1979].
 
-First a grid search was run on the hyperparamter space to establish the number of trees in each forest and the maximum tree depth allowable. The grid search creates a grid of all combinations of forest size and tree depth and then trains each forest from this grid on the data. The forests with the best F1-score and lowest size/depth are reported. **(Citation*)**  The default number of trees for the forests was set to 20, with a max depth of eight and a minimum impurity decrease of 0. Impurity was measured with gini impurity, which states the odds that a random member of the subset would be mislabled if it were randomly labeled according to the distribution of labels in the subset. **(Citation)**
+First a grid search was run on the hyperparamter space to establish the number of trees in each forest and the maximum tree depth allowable. The grid search creates a grid of all combinations of forest size and tree depth and then trains each forest from this grid on the data. The forests with the best F1-score and lowest size/depth are reported. **(Citation*)**  The default number of trees for the forests was set to 20, with a max depth of eight and a minimum impurity decrease of 0. Impurity was measured with gini impurity, which states the odds that a random member of the subset would be mislabled if it were randomly labeled according to the distribution of labels in the subset. [@gini1912variabilita].
 
-Decision trees were fit with high and low minimum gini decrease values. High minimum gini decrease results in a tree that does not use any features for branching. Such a tree represents the baseline or traditional approach to mapping that directly maps a word to its most likely interpretation. Low minimum gini decrease allows for a less conservative tree that uses multiple cues/features to predict the interpretation of a disjunction. Such a tree represents the cue-based context-sensitive account of word learning discussed in the previous section. 
+Decision trees were fit with high and low minimum-gini-decrease values. High minimum-gini-decrease results in a tree that does not use any features for branching. Such a tree represents the baseline or traditional approach to mapping that directly maps a word to its most likely interpretation. Low minimum-gini-decrease allows for a less conservative tree that uses multiple cues or features to predict the interpretation of a disjunction. Such a tree represents the cue-based context-sensitive account of word learning.
 
 ## Results
 
-We first present the results of the random forests in the binary classification task. The models were trained to classify exclusive and inclusive interpretations of disjunction. For visualization of trees, we selected the highest performing tree in the forest by testing each tree and selecting for highest F1 score. While the forests performance is not identical to the highest performing tree, the best tree gives an illustrative example of how the tree performs. 
+We first present the results of the random forests in the binary classification task. The models were trained to classify exclusivity, e.i. whether an interpretation was exclusive or not. For visualization of trees, we selected the highest performing tree in the forest by testing each tree and selecting for highest F1 score. While the forests performance is not identical to the highest performing tree, the best tree gives an illustrative example of successful learning from data. Figure \@ref(fig:binaryBaseline) shows the best performing decision tree with high minimum gini decrease. As expected, a learner that does not use any cues would interpret *or* as exclusive all the time. This is the baseline model. Figure \@ref(fig:binaryCueBased) shows the best performing decision tree with low minimum gini decrease. The tree has learned to use intonation and consistency to classify disjunctions as exclusive or inclusive. As expected, if the intonation is rise-fall or the disjuncts are inconsistent, the interpretation is exclusive. Otherwise, the disjunction is classified as not exclusive. 
 
-Figure \@ref(fig:binaryBaseline) shows the best performing decision tree with high minimum gini decrease. As expected, a learner that does not use any cues would interpret *or* as exclusive all the time. This is the baseline model. Figure \@ref(fig:binaryCueBased) shows the best performing decision tree with low minimum gini decrease. The tree has learned to use intonation and consistency to classify disjunctions as exclusive or inclusive. As expected, if the intonation is rise-fall or the disjuncts are inconsistent, the interpretation is exclusive. Otherwise, the disjunction is classified as inclusive. 
-
-```{r binaryBaseline, fig.asp=0.4, fig.cap="Baseline tree grown with minimum impurity decrease of 0.2. The tree always classifies examples of disjunction as exclusive."}
+```{r binaryBaseline, fig.asp=0.4, fig.cap="A decision tree can determine exclusivity using intonation and consistency."}
 binaryBaseline <- readJPEG("connective_modeling/exin_baselineTree.jpg")
 grid::grid.raster(binaryBaseline)
 ```
 
-```{r binaryCueBased, fig.cap="Cue-based tree grown with minimum impurity decrease of 0.01. The tree classifies examples of disjunction with rise-fall intonation as exclusive (intonation > 1.5). If the intonation is not rise-fall but the disjuncts are inconsistent (consistency < 0.5), then the disjunction is still classified as exclusive. However, if neither of these two hold, the disjunction is classified as inclusive."}
+```{r binaryCueBased, fig.cap="A Decision Tree Can Distinguish XOR, IOR, AND, and NOR using context cues."}
 binaryCueBased <- readJPEG("connective_modeling/exin_cueBasedTree.jpg")
 grid::grid.raster(binaryCueBased)
 ```
 
 Figure \@ref(fig:XorBinary) shows the average F1 scores of the baseline and cue-based models in classifying exclusive examples. The models perform relatively well and similar to each other, but the cue-based model performs slightly better. The real difference between the baseline model and the cue-based model is in their performance on inclusive examples. Figure \@ref(fig:IorBinary) shows the F1 score of the forests as a function of the training size in classifying inclusive examples. As expected, the baseline model performs very poorly while the cue-based model does a relatively good job and improves with more examples.
 
-```{r XorBinary, fig.cap="The average F1 score for class XOR (exclusive) as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95% confidence intervals."}
-XorBinary <- readPNG("connective_modeling/ex-exin.png")
-grid::grid.raster(XorBinary)
-```
-
-```{r IorBinary, fig.cap="The average F1 score for class IOR (inclusive) as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95% confidence intervals."}
-IorBinary <- readPNG("connective_modeling/in-exin.png")
-grid::grid.raster(IorBinary)
-```
-
 Next, we use decision tree learning in a ternary classification task. The model uses features to interpret a coordination with *and* and *or* as inclusive (IOR), exclusive (XOR), or conjunctive (AND). Figure \@ref(fig:ternaryBaseline) shows the baseline decision tree with high minimum gini decrease, which only uses the presence of the words *or*/*and* to interpret conjunction and disjunction. As expected, the tree interprets a coordination with *and* as a conjunction and one with *or* as exclusive disjunction. Figure \@ref(fig:ternaryCueBased) shows the cue-based decision tree with low minimum gini decrease. In addition to the presence of *and* and *or*, the tree uses intonation, consistency, communicative function, and utterance type to distinguish exclusive, inclusive, and conjunctive uses of disjunction. In short, a disjunction that is rise-fall, inconsistent, or has a conditional communicative function is classified as exclusive. Otherwise the disjunction is classified as inclusive. The tree also finds conjunctive interpretations of disjunction more likely in declarative sentences than interrogatives.
-
-```{r ternaryBaseline, fig.asp=0.6, fig.cap="The baseline tree grown on conjunctions and disjunctions with minimum impurity decrease of 0.2. The tree uses the words \\textit{and/or} and classifies them as conjunction and exclusive disjunction respectively."}
-ternaryBaseline <- readPNG("connective_modeling/intermediate_baselineTree.png")
-grid::grid.raster(ternaryBaseline)
-```
-
-```{r ternaryCueBased, fig.asp=2.5, fig.cap="The cue-based tree grown on conjunctions and disjunctions with minimum impurity decrease of 0.01. After using the words \\textit{and/or}, the tree uses intonation, consistency, and the conditional communicative function to classify a large number of exclusive cases. Then it uses utterance type (interrogative) to label inclusive cases."}
-ternaryCueBased <- readPNG("connective_modeling/intermediate_cueBasedTree.png")
-grid::grid.raster(ternaryCueBased)
-```
 
 Figure \@ref(fig:ANDintermediate) shows the average F1 score of the conjunctive interpretations (AND) for the baseline and the cue-based models. Since the vast majority of the conjunctive interpretations are predicted by the presence of the word *and*, the baseline and cue-based models show similar performances. Setting aside conjunction examples, Figure \@ref(fig:ANDintermediateDis) shows the average F1 score of the AND interpretation of disjunction only. Here we see that the cue-based model performs better than the default model in guessing conjunctive interpretations of disjunction. The informal analysis of the trees suggest that the model does this by using the "speech act" cue. Figure \@ref(fig:XORintermediate) shows the average F1-score of the exclusive interpretations (XOR) for the baseline and the cue-based models. The cue-based model does slightly better than the baseline model. As before, the most important improvement comes in identifying inclusive examples. Figure \@ref(fig:IORintermediate) shows the average F1-score of the inclusive interpretations (IOR) for both baseline and cue-based models. The baseline model performs very poorly while the cue-based model is capable of classifying inclusive examples as well.
 
-```{r ANDintermediate, fig.cap="The average F1 score for class AND as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95% confidence intervals."}
-ANDintermediate <- readPNG("connective_modeling/and-intermediate.png")
-grid::grid.raster(ANDintermediate)
-```
+Finally, we look at decision trees trained on the annotation data to predict all the interpretation classes for disjunction: AND, XOR, IOR, NOR, and NPQ. Figure \@ref(fig:wholeBaseline) shows the baseline model that only uses the words *and* and *or* to classify. As expected, *and* receives a conjunctive interpretation (AND) and *or* receives an exclusive interpretation (XOR). Figure \@ref(fig:wholeCueBased) shows the best example tree of the cue-based model. The leaves of the tree show that it recognizes exclusive, inclusive, conjunctive, and even negative inclusive (NOR) interpretations of disjunction. How does the tree achieve that? Like the baseline model, the tree first asks about the connective used: *and* vs. *or*. Then like the previous models, it asks about intonation and consistency. If the intonation is rise-fall, or the disjuncts are inconsistent, the interpretation is exclusive. Then it asks whether the sentence is an interrogative or a declarative. If interrogative, it guesses an inclusive interpretation. This basically covers questions with a rising intonation. Then the tree picks declarative examples that have conditional speech act (e.g. "give me the toy or you're grounded") and labels them as exclusive. Finally, if negation is present in the sentence, the tree labels the disjunction as NOR. 
 
-```{r ANDintermediateDis, fig.cap="The average F1 score for class AND of disjunction examles as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95% confidence intervals."}
-ANDintermediateDis <- readPNG("connective_modeling/and-intermediate-disjunction.png")
-grid::grid.raster(ANDintermediateDis)
-```
-
-```{r XORintermediate, fig.cap="The average F1 score for class XOR as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95% confidence intervals."}
-XORintermediate <- readPNG("connective_modeling/xor-intermediate.png")
-grid::grid.raster(XORintermediate)
-```
-
-```{r IORintermediate, fig.cap="The average F1 score for class IOR as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95% confidence intervals."}
-IORintermediate <- readPNG("connective_modeling/ior-intermediate.png")
-grid::grid.raster(IORintermediate)
-```
-
-Finally, welook at decision trees trained on the annotation data to predict all the interpretation classes for disjunction: AND, XOR, IOR, NOR, and NPQ. Figure \@ref(fig:wholeBaseline) shows the baseline model that only uses the words *and* and *or* to classify. As expected, *and* receives a conjunctive interpretation (AND) and *or* receives an exclusive interpretation (XOR). Figure \@ref(fig:wholeCueBased) shows the best example tree of the cue-based model. The leaves of the tree show that it recognizes exclusive, inclusive, conjunctive, and even negative inclusive (NOR) interpretations of disjunction. How does the tree achieve that? Like the baseline model, the tree first asks about the connective used: *and* vs. *or*. Then like the previous models, it asks about intonation and consistency. If the intonation is rise-fall, or the disjuncts are inconsistent, the interpretation is exclusive. Then it asks whether the sentence is an interrogative or a declarative. If interrogative, it guesses an inclusive interpretation. This basically covers questions with a rising intonation. Then the tree picks declarative examples that have conditional speech act (e.g. "give me the toy or you're grounded") and labels them as exclusive. Finally, if negation is present in the sentence, the tree labels the disjunction as NOR. 
-
-```{r wholeBaseline, fig.cap="The baseline tree grown on conjunctions and disjunctions with minimum impurity decrease of 0.2. The tree uses the words \\textit{and/or} and classifies them as conjunction and exclusive disjunction."}
-wholeBaseline <- readPNG("connective_modeling/whole_baselineTree.png")
-grid::grid.raster(wholeBaseline)
-```
-
-```{r wholeCueBased, fig.asp=4, fig.cap="The cue-based tree grown on conjunctions and disjunctions with minimum impurity decrease of 0.01. After using the words \\textit{and/or}, the tree uses intonation and consistency to classify a large number of exclusive cases. Then it uses utterance type (interrogative) to label many inclusive cases, as well as the communicative function (conditional) to catch more exclusive examples. Finally, it asks whether the sentence has negation or not. If so, it classifies the negative inlusive examples as NOR."}
-wholeCueBased <- readPNG("connective_modeling/whole_cueBasedTree.png")
-grid::grid.raster(wholeCueBased)
-```
-
-Figures \@ref(fig:ANDWhole), \@ref(fig:XORWhole), and \@ref(fig:IORWhole) show the average F1-scores for the conjunctive (AND), exclusive (XOR), and inclusive (IOR) interpretations as a function of training size. The results are similar to what wereported before with the ternary classification. While the cue-based model generally performs better than the baseline model, it shows substantial improvement in classifying inclusive cases. 
-
-```{r ANDWhole, fig.cap="The average F1 score for class AND as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95% confidence intervals."}
-AndWhole <- readPNG("connective_modeling/and-whole.png")
-grid::grid.raster(AndWhole)
-```
-
-```{r XORWhole, fig.cap="The average F1 score for class XOR as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95% confidence intervals."}
-XorWhole <- readPNG("connective_modeling/xor-whole.png")
-grid::grid.raster(XorWhole)
-```
-
-```{r IORWhole, fig.cap="The average F1 score for class IOR as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95% confidence intervals."}
-IorWhole <- readPNG("connective_modeling/ior-whole.png")
-grid::grid.raster(IorWhole)
-```
-
-Figure \@ref(fig:NORWhole) shows the average F1-score for the negative inclusive interpretation as a function of training size. Compared to the baseline model, the cue-based model shows a substantially better performance in classifying negative sentences. The success of the model in classifying negative inclusive examples (NOR) suggests that the cue-based model offers a promising approach for capturing the scope relation of operators such as negation and disjunction. Here, the model learns that when negation and disjunction are present, the sentence receives a negative inclusive (NOR) interpretation. In other words, the model has learned the narrow-scope interpretation of negation and disjunction from the input data. In a language where negation and disjunction receive an XOR interpretation (not A or not B), the cue-based model can learn the wide-scope interpretation of disjunction. 
-
-```{r NORWhole, fig.cap="The average F1 score for class NOR as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95% confidence intervals."}
-NorWhole <- readPNG("connective_modeling/nor-whole.png")
-grid::grid.raster(NorWhole)
-```
+Figures \@ref(fig:ANDWhole), \@ref(fig:XORWhole), and \@ref(fig:IORWhole) show the average F1-scores for the conjunctive (AND), exclusive (XOR), and inclusive (IOR) interpretations as a function of training size. The results are similar to what wereported before with the ternary classification. While the cue-based model generally performs better than the baseline model, it shows substantial improvement in classifying inclusive cases. Figure \@ref(fig:NORWhole) shows the average F1-score for the negative inclusive interpretation as a function of training size. Compared to the baseline model, the cue-based model shows a substantially better performance in classifying negative sentences. The success of the model in classifying negative inclusive examples (NOR) suggests that the cue-based model offers a promising approach for capturing the scope relation of operators such as negation and disjunction. Here, the model learns that when negation and disjunction are present, the sentence receives a negative inclusive (NOR) interpretation. In other words, the model has learned the narrow-scope interpretation of negation and disjunction from the input data. In a language where negation and disjunction receive an XOR interpretation (not A or not B), the cue-based model can learn the wide-scope interpretation of disjunction. 
 
 Finally, Figure \@ref(fig:NPQWhole) shows the average F1 score for the class NPQ. This interpretation suggested that the first disjunct is false but the second true. It was seen in examples of repair most often and the most likely cue to it was also the communicative function or speech act of repair. The results show that even though there were improvements in the cue-based model, they were not stable as shown by the large confidence intervals. It is possible that with larger training samples, the cue-based model can reliably classify the NPQ interpretations as well.
 
-```{r NPQWhole, fig.cap="The average F1 score for class NPQ as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95% confidence intervals."}
-NpqWhole <- readPNG("connective_modeling/npq-whole.png")
-grid::grid.raster(NpqWhole)
-```
+## Conclusion
 
-## Discussion
-
-We considered two accounts for the acquisition of function words. The first account was a baseline (context-independent) account that is used in vanilla cross-situational word learning: words are isolated and directly mapped to their most frequent meanings. The second account is what I called the cue-based context-dependent mapping in which words are mapped to meanings conditional on a set of present cues in the context. I argued that the puzzle of learning disjunction arises because in the baseline account, forms are mapped directly to meanings without considering the context of use. Under this account, the input statistics supports an exclusive interpretation for *or*. However, comprehension studies show that children can interpret *or* as inclusive. I showed that the cue-based account resolves this problem by allowing *or* to be mapped to its interpretation according to the set of contextual cues that disambiguate it. The results of computational experiments with decision tree learning on data from child-directed speech suggested that such an approach can successfully learn to classify a disjunction is inclusive or exclusive. More broadly, cue-based context-dependent mapping is useful for the acquisition of ambiguous words and interpretations that are consistent but relatively infrequent in child-directed speech. 
+In this study, we used the annotation data from Study 2 to train and compare two random forest models, representing two accounts for the acquisition of disjunction. The first account was a baseline (context-independent) account in which words are isolated and directly mapped to their most likely meanings, disregarding available contextual cues. Random forest models with high minimum-gini-impurity-decrease represented this account. The second account was what we called the cue-based context-dependent mapping in which words are mapped to meanings using a set of cues available in the context. Random forest models with low minimum-gini-impurity-decrease represented this cue-based account. Comparison of the F1-Scores produced by models representing these two accounts showed that the cue-based models outperfromed the baseline models in every classification task. Most importantly, while the baseline models learned to always interpret a disjunction as exclusive, the cue-based models learned to interpret a disjunction as exclusive, inclusive, conjunctive, or negative inclusive (NOR), depending on the cues available in the input.
 
 <!--
 Research in Gricean semantics and pragmatics has shown that the word *or* is not the only factor relevant to the interpretation of a disjunction. It is not only the presence of the word *or* that leads us to interpret a disjunction as inclusive, exclusive, or conjunctive, but rather the presence of *or* along with several other factors such as intonation [@pruitt2013interpretation], the meaning of the disjuncts [@geurts2006exclusive], and the conversational principles governing communication [@grice1989studies]. The interpretation and acquisition of the word *or* cannot, therefore, be separated from all the factors that accompany it and shape its final interpretation. 
@@ -1156,6 +1065,8 @@ Finally, it is reasonable to assume that not all binary connective meanings show
 
 # General Discussion
 
+The goal of this paper was to explore and presented three studies. The first study showed that 
+
 The case of disjunction shows that word learning requires to systmatically take different aspects of the linguistic and non-linguistic context into account. The meaning of a word such as *or* cannot be learned independent of its context such as its intonation contour, the meaning of the coordinands it conjoins, or type of speech act it participates in.  
 
 <!--logical nativism vs. logical constructivism-->
@@ -1190,38 +1101,38 @@ r_refs(file = "r-references.bib")
 
 # Appendix
 
-```{r corpusDensityPlot, fig.width=6, fig.height=2.5, fig.align="center", fig.env="figure", fig.cap="Frequency for all the words in the North America and UK corpora of CHILDES."}
-corpus_density %>%
-  ggplot(aes(x=target_child_age_months, y=word_count, color=speaker_role)) +
-  geom_line(stat="identity") +
-  facet_grid(.~collection_name) +
-  labs(x="age (months)", y="word count") +
-  theme_few() +
-  theme(text = element_text(size=11, family="Times")) +
-  scale_color_discrete(name = "Speaker Role")
-```
+<!-- ```{r corpusDensityPlot, fig.width=6, fig.height=2.5, fig.align="center", fig.env="figure", fig.cap="Frequency for all the words in the North America and UK corpora of CHILDES."} -->
+<!-- corpus_density %>% -->
+<!--   ggplot(aes(x=target_child_age_months, y=word_count, color=speaker_role)) + -->
+<!--   geom_line(stat="identity") + -->
+<!--   facet_grid(.~collection_name) + -->
+<!--   labs(x="age (months)", y="word count") + -->
+<!--   theme_few() + -->
+<!--   theme(text = element_text(size=11, family="Times")) + -->
+<!--   scale_color_discrete(name = "Speaker Role") -->
+<!-- ``` -->
 
-## Properties of CHILDES Corpora
+<!-- ## Properties of CHILDES Corpora -->
 
-```{r wordCountt}
-count_table <-
-  wordCounts %>%
-  select(-X1) %>%
-  spread(word, counts) %>%
-  mutate(total = and + or + other) %>%
-  select(-other)
+<!-- ```{r wordCountt} -->
+<!-- count_table <- -->
+<!--   wordCounts %>% -->
+<!--   select(-X1) %>% -->
+<!--   spread(word, counts) %>% -->
+<!--   mutate(total = and + or + other) %>% -->
+<!--   select(-other) -->
 
-total_words <- sum(count_table$total)
-```
+<!-- total_words <- sum(count_table$total) -->
+<!-- ``` -->
 
-In this section, I report some results on the distribution of words and utterances among the speakers in our collection of corpora. The collection contained `r format(total_words, big.mark = ",")` words. Table (\@ref(tab:countTable)) shows the total number of *and*'s, *or*'s, and words in the speech of children, fathers, and mothers. The collection contains  `r round(count_table$total[2]/count_table$total[1])` times more words for mothers compared to fathers and `r round(count_table$total[2]/count_table$total[3])` more words for mothers compared to children. Therefore, the collection is more representative of the mother-child interactions than father-child interactions. Compared to *or*, the word *and* is `r round(count_table$and[2]/count_table$or[2],1)` times more likely in the speech of mothers, `r round(count_table$and[1]/count_table$or[1],1)` times more likely in the speech of fathers, and `r round(count_table$and[3]/count_table$or[3],1)` times more likely in the speech of children. Overall, *and* is `r round(sum(count_table$and)/sum(count_table$or),2)` times more likely than *or* in this collection which is close to the rate reported by @morris2008logically who used a smaller subset of CHILDES. He extracted 5,994 instances of *and* and 465 instances of *or* and found that overall, *and* was 12.89 times more frequent than *or* in parent-child interactions.
+<!-- In this section, I report some results on the distribution of words and utterances among the speakers in our collection of corpora. The collection contained `r format(total_words, big.mark = ",")` words. Table (\@ref(tab:countTable)) shows the total number of *and*'s, *or*'s, and words in the speech of children, fathers, and mothers. The collection contains  `r round(count_table$total[2]/count_table$total[1])` times more words for mothers compared to fathers and `r round(count_table$total[2]/count_table$total[3])` more words for mothers compared to children. Therefore, the collection is more representative of the mother-child interactions than father-child interactions. Compared to *or*, the word *and* is `r round(count_table$and[2]/count_table$or[2],1)` times more likely in the speech of mothers, `r round(count_table$and[1]/count_table$or[1],1)` times more likely in the speech of fathers, and `r round(count_table$and[3]/count_table$or[3],1)` times more likely in the speech of children. Overall, *and* is `r round(sum(count_table$and)/sum(count_table$or),2)` times more likely than *or* in this collection which is close to the rate reported by @morris2008logically who used a smaller subset of CHILDES. He extracted 5,994 instances of *and* and 465 instances of *or* and found that overall, *and* was 12.89 times more frequent than *or* in parent-child interactions. -->
 
-```{r countTable}
-kable(count_table, caption = "Number of \\textit{and}'s, \\textit{or}'s, and the total number of words in the speech of children and their parents in English-North America and English-UK collections after exclusions.", format.args = list(big.mark = ','), col.names = c("Speaker Role", "and", "or", "total"))
-```
+<!-- ```{r countTable} -->
+<!-- kable(count_table, caption = "Number of \\textit{and}'s, \\textit{or}'s, and the total number of words in the speech of children and their parents in English-North America and English-UK collections after exclusions.", format.args = list(big.mark = ','), col.names = c("Speaker Role", "and", "or", "total")) -->
+<!-- ``` -->
 
-Figure \@ref(fig:wordsByAge) shows the number of words spoken by parents and children at each month of the child's development. The words in the collection are not distributed uniformly and there is a high concentration of data between the ages of 20 and 40 months (around 2 to 3 years of age). There is also a high concentration around 60 months (5 years of age). The speech of fathers shows a relatively low word-count across all ages. Therefore, in our analyses we should be more cautious in drawing conclusions about the speech of fathers generally, and the speech of mothers and children after age 5.
-<!--
+<!-- Figure \@ref(fig:wordsByAge) shows the number of words spoken by parents and children at each month of the child's development. The words in the collection are not distributed uniformly and there is a high concentration of data between the ages of 20 and 40 months (around 2 to 3 years of age). There is also a high concentration around 60 months (5 years of age). The speech of fathers shows a relatively low word-count across all ages. Therefore, in our analyses we should be more cautious in drawing conclusions about the speech of fathers generally, and the speech of mothers and children after age 5.
+
 ```{r wordsByAge, fig.env="figure", fig.align="center", fig.width=5, fig.height=2.5, fig.cap="The number of words in the corpora for parents and children in each month of children's development."}
 wordCounts_byAge %>%
   ggplot(aes(x=target_child_age_months, y=count, color=speaker_role)) +
@@ -1232,7 +1143,7 @@ wordCounts_byAge %>%
   theme(text = element_text(size=11, family="Times")) +
   scale_color_discrete(name = "Speaker Role")
 ```
--->
+
 The distribution of function words is sensitive to the type of utterance or more broadly the type of speech act produced by speakers. Therefore, it is important to check the distribution of speech acts in corpora when studying different function words. Since it is hard to classify and quantify speech acts automatically, here I use utterance type as a proxy for speech acts. I investigate the distribution of declaratives, questions, and imperatives in this collection of corpora on parent-child interactions. Figure \@ref(fig:totalUtteranceTypePlot) shows the distribution of different utterance types in the speech of parents and children. Overall, most utterances are either declaratives or questions, and there are more declaratives than questions in this collection. While mothers and fathers show similar proportions of declaratives and questions in their speech, children produce a lower proportion of questions and higher proportion of declaratives than their parents.
 
 ```{r totalUtteranceTypePlot, fig.env="figure", fig.align="center", fig.cap="The proportion of declaratives and questions in children's and parents' utterances."}
@@ -1282,25 +1193,7 @@ utteranceType_byAge %>%
 The frequency of function words such as *and* and *or* may be affected by such conversational asymmetries if they are more likely to appear in some utterance types than others. Figure \@ref(fig:CnctPropbySpeechAct) shows the proportion of *and*'s and *or*'s that appear in different utterance types in parents' and children's speech. In parents' speech, *and* appears more often in declaratives (around 60% in declaratives and 20% in questions). On the other hand, *or* appears  more often in questions than declaratives, although this difference is small in mothers. In children's speech, both *and* and *or* appear most often in declaratives. However, children have a higher proportion of *or* in questions than *and* in questions. 
 
 The differences in the distribution of utterance types can affect our interpretation of the corpus data on function words such as *and* and *or* in three ways. First, since the collection contains more declaratives than questions, it may reflect the frequency and diversity of function words like *and* that appear in declaratives better. Second, since children produce more declaratives and fewer questions than parents, we may underestimate children's knowledge of function words like *or* that are frequent in questions. Third, given that the percentage of questions in the speech of children increases as they get older, function words like *or* that are more likely to appear in questions may appear infrequent in the early stages and more frequent in the later stages of children's development. In other words, function words like *or* that are common in questions may show a seeming delay in production which is possibly due to the development of questions in children's speech. Therefore, in studying children's productions of function words, it is important to look at their relative frequencies in different utterance types as well as the overall trends. This is the approach I pursue in the next section.
-
-```{r CnctPropbySpeechAct, fig.env="figure", fig.align="center", fig.width= 6, fig.height=3, fig.cap="The proportion of \\textit{and} and \\textit{or} in different utterance types in the speech of parents and children."}
-cnctv_prop_bySpeechAct %>%
-  filter(word != "other") %>%
-  ggplot(aes(x=speech_act, y=connective_pct, fill=speech_act)) + 
-  geom_bar(stat="identity") + 
-  facet_grid(word~speaker) + 
-  theme_few() +
-  geom_errorbar(aes(ymin=lower_pct, ymax=upper_pct), width=0.1) + 
-  labs(x="", y="Proportion (%)") + 
-#  scale_fill_manual(values = c("seagreen3","seagreen", "darkblue", "gray")) + 
-  theme(axis.text.x = element_text(angle=45, hjust=1, vjust=1), text = element_text(size=11, family="Times")) +
-  guides(fill=FALSE)
-```
-
-<!--
-### Properties of the Switchboard Corpus
 -->
-
 |Name	| Age Range |	Sessions |
 |:-----:|:-----:|:----------:|
 |Alex|1;04.28-3;05.16 |51|
