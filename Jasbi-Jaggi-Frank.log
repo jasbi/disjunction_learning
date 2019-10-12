@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  12 OCT 2019 10:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  12 OCT 2019 11:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1285,111 +1285,115 @@ Underfull \vbox (badness 3428) has occurred while \output is active []
  260.975pt x 188.705pt>
 File: figs/binaryBaseline-1.pdf Graphic file (type pdf)
 <use figs/binaryBaseline-1.pdf>
-Package pdftex.def Info: figs/binaryBaseline-1.pdf used on input line 514.
+Package pdftex.def Info: figs/binaryBaseline-1.pdf used on input line 512.
 (pdftex.def)             Requested size: 260.97437pt x 188.70453pt.
 <figs/binaryCueBased-1.pdf, id=395, 371.3875pt x 325.215pt>
 File: figs/binaryCueBased-1.pdf Graphic file (type pdf)
 <use figs/binaryCueBased-1.pdf>
-Package pdftex.def Info: figs/binaryCueBased-1.pdf used on input line 520.
+Package pdftex.def Info: figs/binaryCueBased-1.pdf used on input line 518.
 (pdftex.def)             Requested size: 371.3979pt x 325.22412pt.
 
-LaTeX Warning: Reference `fig:XorBinary' on page 35 undefined on input line 524
+LaTeX Warning: Reference `fig:XorBinary' on page 35 undefined on input line 522
 .
 
 
-LaTeX Warning: Reference `fig:IorBinary' on page 35 undefined on input line 524
+LaTeX Warning: Reference `fig:IorBinary' on page 35 undefined on input line 522
 .
 
 [35]
 
 LaTeX Warning: Reference `fig:ternaryBaseline' on page 36 undefined on input li
-ne 526.
+ne 524.
 
 
 LaTeX Warning: Reference `fig:ternaryCueBased' on page 36 undefined on input li
-ne 526.
+ne 524.
 
 
 LaTeX Warning: Reference `fig:ANDintermediate' on page 36 undefined on input li
-ne 528.
+ne 526.
 
 
 LaTeX Warning: Reference `fig:ANDintermediateDis' on page 36 undefined on input
- line 528.
+ line 526.
 
 
 LaTeX Warning: Reference `fig:XORintermediate' on page 36 undefined on input li
-ne 528.
+ne 526.
 
 
 LaTeX Warning: Reference `fig:IORintermediate' on page 36 undefined on input li
-ne 528.
+ne 526.
 
 [36 <./figs/binaryBaseline-1.pdf>]
+
+LaTeX Warning: Reference `fig:wholeBaseline' on page 37 undefined on input line
+ 528.
+
+
+LaTeX Warning: Reference `fig:wholeCueBased' on page 37 undefined on input line
+ 528.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [37 <./figs/binaryCueBased-1.pdf>]
 
-LaTeX Warning: Reference `fig:wholeBaseline' on page 38 undefined on input line
- 530.
-
-
-LaTeX Warning: Reference `fig:wholeCueBased' on page 38 undefined on input line
- 530.
-
-
-LaTeX Warning: Reference `fig:ANDWhole' on page 38 undefined on input line 532.
+LaTeX Warning: Reference `fig:ANDWhole' on page 38 undefined on input line 530.
 
 
 
-LaTeX Warning: Reference `fig:XORWhole' on page 38 undefined on input line 532.
+LaTeX Warning: Reference `fig:XORWhole' on page 38 undefined on input line 530.
 
 
 
-LaTeX Warning: Reference `fig:IORWhole' on page 38 undefined on input line 532.
+LaTeX Warning: Reference `fig:IORWhole' on page 38 undefined on input line 530.
 
 
 
-LaTeX Warning: Reference `fig:NORWhole' on page 38 undefined on input line 534.
+LaTeX Warning: Reference `fig:NORWhole' on page 38 undefined on input line 530.
 
 
 [38]
 
-LaTeX Warning: Reference `fig:NPQWhole' on page 39 undefined on input line 536.
+LaTeX Warning: Reference `fig:NPQWhole' on page 39 undefined on input line 532.
 
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [39] [40] [41]
-Overfull \hbox (0.77386pt too wide) in paragraph at lines 671--672
+Overfull \hbox (0.77386pt too wide) in paragraph at lines 667--668
 []\T1/lmr/m/n/12 (-20) Intonation|  
  []
 
 
-Overfull \hbox (0.77386pt too wide) in paragraph at lines 681--682
+Overfull \hbox (0.77386pt too wide) in paragraph at lines 677--678
 []\T1/lmr/m/n/12 (-20) Intonation|  
  []
 
 [42] [43]
-Overfull \hbox (0.9488pt too wide) in paragraph at lines 860--861
+Overfull \hbox (0.9488pt too wide) in paragraph at lines 856--857
 []\T1/lmr/m/n/12 (-20) Descriptions|  
  []
 
 
-Overfull \hbox (9.99246pt too wide) in paragraph at lines 867--868
+Overfull \hbox (9.99246pt too wide) in paragraph at lines 863--864
 []\T1/lmr/m/n/12 (-20) Identifications|  
  []
 
 
-Overfull \hbox (5.52472pt too wide) in paragraph at lines 902--903
+Overfull \hbox (5.52472pt too wide) in paragraph at lines 898--899
 []\T1/lmr/m/n/12 (-20) Clarifications|  
  []
 
 
-Overfull \hbox (2.32666pt too wide) in paragraph at lines 916--917
+Overfull \hbox (2.32666pt too wide) in paragraph at lines 912--913
 []\T1/lmr/m/n/12 (-20) Conditionals|  
  []
 
 
-Overfull \hbox (14.15721pt too wide) in paragraph at lines 923--924
+Overfull \hbox (14.15721pt too wide) in paragraph at lines 919--920
 []\T1/lmr/m/n/12 (-20) Unconditionals|  
  []
 
@@ -1399,13 +1403,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [46] <figs/oReliabilityPlot-1.png, id=471, 1656.1875pt x 1355.0625pt>
 File: figs/oReliabilityPlot-1.png Graphic file (type png)
 <use figs/oReliabilityPlot-1.png>
-Package pdftex.def Info: figs/oReliabilityPlot-1.png used on input line 985.
+Package pdftex.def Info: figs/oReliabilityPlot-1.png used on input line 981.
 (pdftex.def)             Requested size: 469.74393pt x 384.33594pt.
 [47 <./figs/oReliabilityPlot-1.png>] <figs/andReliabilityPlot-1.png, id=481, 16
 56.1875pt x 1355.0625pt>
 File: figs/andReliabilityPlot-1.png Graphic file (type png)
 <use figs/andReliabilityPlot-1.png>
-Package pdftex.def Info: figs/andReliabilityPlot-1.png used on input line 998.
+Package pdftex.def Info: figs/andReliabilityPlot-1.png used on input line 994.
 (pdftex.def)             Requested size: 469.74393pt x 384.33594pt.
 
 Underfull \vbox (badness 4752) has occurred while \output is active []
@@ -1415,11 +1419,11 @@ Underfull \vbox (badness 6675) has occurred while \output is active []
 
 [49 <./figs/andReliabilityPlot-1.png>] [50] [51] [52] [53] AED endfloat: Proces
 sing end Figures and Tables [54]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1175.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1175.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1171.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1171.
 (./Jasbi-Jaggi-Frank.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1175.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1175.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1171.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1171.
 
 Package rerunfilecheck Info: File `Jasbi-Jaggi-Frank.out' has not changed.
 (rerunfilecheck)             Checksum: 6A38AAB627470AC3B7102686B0BD7BA5;4117.
@@ -1430,7 +1434,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  16104 strings out of 493014
  238236 string characters out of 6133351
- 357224 words of memory out of 5000000
+ 357297 words of memory out of 5000000
  19048 multiletter control sequences out of 15000+600000
  98600 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1450,7 +1454,7 @@ m/lmri10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri12.p
 fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/lo
 cal/texlive/2016/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Jasbi-Jaggi-Frank.pdf (54 pages, 2219983 bytes).
+Output written on Jasbi-Jaggi-Frank.pdf (54 pages, 2219288 bytes).
 PDF statistics:
  658 PDF objects out of 1000 (max. 8388607)
  543 compressed objects within 6 object streams
