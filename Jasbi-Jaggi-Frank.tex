@@ -23,7 +23,7 @@
 }{}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
-            pdftitle={Learning to Interpret a Disjunction},
+            pdftitle={Learning Linguistic Disjunction},
             pdfauthor={Masoud Jasbi, Akshay Jaggi, \& Michael C. Frank},
             pdfkeywords={keywords},
             pdfborder={0 0 0},
@@ -64,11 +64,11 @@
 \def\footnote{\protect\rmarkdownfootnote}
 
 
-  \title{Learning to Interpret a Disjunction}
+  \title{Learning Linguistic Disjunction}
     \author{Masoud Jasbi\textsuperscript{1}, Akshay Jaggi\textsuperscript{2}, \& Michael C. Frank\textsuperscript{2}}
     \date{}
   
-\shorttitle{Learning Disjunction}
+\shorttitle{Learning Linguistic Disjunction}
 \affiliation{
 \vspace{0.5cm}
 \textsuperscript{1} Harvard University\\\textsuperscript{2} Stanford University}
@@ -104,7 +104,7 @@ Enter author note here.
 Correspondence concerning this article should be addressed to Masoud Jasbi, Postal address. E-mail: \href{mailto:masoud_jasbi@fas.harvard.edu}{\nolinkurl{masoud\_jasbi@fas.harvard.edu}}}
 
 \abstract{
-At first glance, children's word learning appears to be mostly a problem of learning words like \emph{dog} and \emph{run}. However, it is small words like \emph{and} and \emph{or} that enable the construction of complex combinatorial language. How do children learn the meaning of these function words? Using transcripts of parent-child interactions, we investigate the cues in child-directed speech that can inform the interpretation and acquisition of the connective \emph{or} which has a particularly challenging semantics. Study 1 finds that, despite its low overall frequency, children can use \emph{or} close to parents' rate by age 4, in some speech acts. Study 2 uses annotations of a subset of parent-child interactions to show that disjunctions in child-directed speech are accompanied by reliable cues to the correct interpretation (exclusive vs.~inclusive). We present a decision-tree model that learns from a handful of annotated examples to correctly predict the interpretation of a disjunction. These studies suggest that conceptual and prosodic cues in child-directed speech can provide information for the acquisition of functional categories like disjunction.
+Research on word learning has discovered constraints, cues, and mechanisms that can help a language learner create successful word-meaning mappings. So far, the literature has mainly focused on the acqusition of content words such as nominals and verbs, leaving functional elements largely understudied. The current study fills this gap by investigating the constraints, cues, and mechanisms that can aid the acqusition of disjunction. Based on naturalistic recordings of parent-child interactions, we argue that children may learn to interpret a disjunction by partition their form-meaning mappings based on salient cues that accompany it in child-directed speech. We first show that children start producing \emph{or} between 18-30 months and by 42 months their productions plateau at a constant rate. We also find that the most likely interpretation of \emph{or} in child-directed speech is exclusive disjunction. However, exclusive interpretations correlated with a rise-fall intonation, and logically inconsistent propositions. In the absence of these two cues, \emph{or} was commonly not exclusive. Our computational modeling shows that a hypothetical learner can successfully interpret an English disjunction by mapping forms to meanings after partitioning the input using the set of salient cues (cue-based) in the context of the utterance (context-depenent). We discuss the implications of our work for current theories of word learning.
 
 
 }
@@ -115,26 +115,30 @@ At first glance, children's word learning appears to be mostly a problem of lear
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Word learning is commonly construed as the process of detecting a word form, hypothesizing candidate meanings for that word form, and mapping it to the right meaning (Clark, 1993). For example, a father holding a baby may point to a squirrel and say \enquote{look at the squirrel!} Assuming that the baby understands the phrase \enquote{look at the}, she needs to detect the novel word \emph{squirrel}, consider some potential referents for it (e.g tree, chair, leaf, squirrel, etc.) and select the right referent among them. The problem of finding the right meaning among a set of candidate word meanings is called \enquote{the mapping problem}. and plays a central role in using the available cues, in this case the father's pointing. While there has been a lot of research on cues and mechanisms that help children's acquisition of content words such as \emph{squirrel}, \emph{red}, and \emph{run},
+Word learning is the process of detecting a word form, hypothesizing candidate meanings, and mapping the word to its correct meaning (Clark, 1993). As Quine (1960) explained, this process is theoretically complex. Consider a child seeing her father pointing to a fish tank and saying: \enquote{\emph{mahi}}! As you probably noticed, \emph{mahi} can mean many things in this context. From \enquote{water}, \enquote{fish}, \enquote{tail}, \enquote{smelly}, and \enquote{look} to \enquote{no touching}, \enquote{few bubbles}, and even more complex concepts like \enquote{fish-during-the-day} or \enquote{fish-water-bubble}. Quine argued that the meanings of linguistic utterances are always underdetermined by the behavioral data available to the learner. This problem is known as \enquote{the mapping problem}, \enquote{the gavagai problem}, or \enquote{indeterminacy of reference}.
 
-cues and mechanisms involved in learning function words such as \emph{and} and \emph{or} have remained a major challenge. In this study, we focus on the disjunction word \emph{or} and provide a novel learning account that uses salient cues to learn the interpretations of disjunction in English.
+There are three general ways of tackling this problem. First, word learning may place a priori \textbf{constraints} or biases on the hypothesis space (Markman, 1990; Markman \& Hutchinson, 1984; Markman \& Wachtel, 1988). For example, children may initially assume that words refer to the whole object rather than its parts. Such a constraint would avoid mapping \emph{mahi} to concepts like \enquote{tail} or \enquote{eye}. In addition, children may assume that new words extend to taxonimically related objects and not thematically related ones, therefore avoiding mapping to a concept like \enquote{fish-water-bubble}. Finally, if the child already knows the word for \enquote{water}, they may assume that \emph{mahi} cannot be the word for the same concept.
 
-How do children learn the meaning of disjunction
+Second, linguistic or sociopragmatic \textbf{cues} can add bias for or against some hypotheses. Suppose instead of just saying \enquote{\emph{mahi}}, the father said \enquote{\emph{mahi ro bebin!}}. If the child knows \enquote{\emph{\_\_\_ + ro + bebin}} as a noun + article + verb combination, then she can analyze \emph{mahi} as a noun and limit its candidate meanings to nominal concepts. If she also knows that \enquote{\emph{bebin}} means \enquote{look at}, she can further limit the candidate meanings to things she can actually look at in the scene. Therefore, prior syntactic or semantic knowledge can cue the meaning of an unknown word (Brown, 1957; Gleitman, 1990). Prior knowledge of communicative acts or human social interaction can also inform word learning. For example, the father's pointing to a fish or looking at it while saying \emph{mahi} can also inform the child of what needs to be attended to for understanding the utterance (Baldwin, 1993; Clark, 2009; Tomasello, 2003).
+
+Third, while each learning instance of a word in isolation may be compatible with innumerable candidate meanings, taken together and aggregating \textbf{across situations}, a learner may be able to reduce the indeterminacy substantially (Siskind, 1996; Smith, Smith, \& Blythe, 2011; Yu \& Smith, 2007). For example, the father may later point to the picture of a fish in a story book and say \enquote{\emph{mahi}!} This time there is no \enquote{tank} or \enquote{bubbles}, and the reading may be happening during the night. Therefore, the new observation makes hypotheses like \enquote{tank}, \enquote{few bubbles}, or \enquote{fish-during-the-day} less plausible. If children track which hypotheses fair best across several naming instances, they have a better chance of narrowing down the hypothesis space to the correct meaning.
+
+Constraints, cues, and cross-situational learning can also operate in conjunction in language acquisition (Hollich et al., 2000). Furthermore, the role and prominence of each factor may vary for different classes of words. So far, nominals have received most of the attention in research on cues and constraints that aid word learning. Function words, on the other hand, have remained largely understudied. In this study, we focus on the role of constraints, cues, and cross-situational word learning on the acquistiion of the disjunction word \emph{or}. In the next two parts of this section, we first summarize previous work on the acquisition of disjunction, and second, summarize our account based on the data presented in the current study.
 
 \hypertarget{previous-studies}{%
 \subsection{Previous Studies}\label{previous-studies}}
 
 To our knowledge, only one study has looked at spontaneous productions of \emph{and} and \emph{or} in parents' and children's speech. Morris (2008) investigated children between the ages of 2;0 and 5;0, using 240 transcriptions of audiotaped exchanges obtained from the CHILDES database. Each connective was analyzed with respect to its frequency, sentence type, and meaning (or use). The study found that overall, \emph{and} was approximately 12.8 times more likely to be produced than \emph{or}. The connective \emph{and} appeared predominantly in statements (more than 90\% of the time) while \emph{or} was most common in questions (more than 85\% of the time). Children started producing \emph{and} at 2 years and \emph{or} at 2.5 years of age.
 
-Regarding the meaning of the connectives, Morris (2008) adopted a usage-based (item-based) approach (Levy \& Nelson, 1994; Tomasello, 2003) and predicted that children start producing connectives with a single \enquote{core meaning} (also referred to as \enquote{use} or \enquote{communicative function}). He predicted that the core meaning mirrors the most frequent usage/meaning of the connective in child-directed speech. Children acquire the less frequent meanings of the connectives as they grow older. He found that children started producing \emph{and} as conjunction at 2, and \emph{or} as exclusive disjunction at 2.5 years of age. In line with the predictions of the usage-based account, he found that these two meanings are the most frequent meanings in parents' speech. For disjunction, 75-80\% of the \emph{or}-examples children heard recevied an exclusive interpretation. Finally, as children grew older, they started using connectives to convey additional meanings such as inclusive disjunction for \emph{or} and temporal conjunction for \emph{and}. However, the inclusive use of \emph{or} was extremely rare in adults, and children barely produced it even at age 5. Morris (2008) argued that the development of connectives conforms to the predictions of a usage-based account and that in the first five years of children's development, the (core) meaning of disjunction is exclusive.
+Regarding the meaning of the connectives, Morris (2008) adopted a usage-based (item-based) approach (Levy \& Nelson, 1994; Tomasello, 2003) and predicted that children start producing connectives with a single \enquote{core meaning} (also referred to as \enquote{use} or \enquote{communicative function}). He predicted that the core meaning mirrors the most frequent meaning of the connective in child-directed speech. Children acquire the less frequent meanings of the connectives as they grow older. He found that children started producing \emph{and} as conjunction at 2, and \emph{or} as exclusive disjunction at 2.5 years of age. In line with the predictions of the usage-based account, he found that these two meanings are the most frequent meanings in parents' speech. For disjunction, 75-80\% of the \emph{or}-examples children heard recevied an exclusive interpretation. Finally, as children grew older, they started using connectives to convey additional meanings such as inclusive disjunction for \emph{or} and temporal conjunction for \emph{and}. Overall in adult speech, the inclusive use of \emph{or} was extremely rare, and children barely produced it even at age 5. Morris (2008) argued that the development of connectives conforms to the predictions of a usage-based account and that in the first five years of children's development, the (core) meaning of disjunction is exclusive.
 
 However, a series of experimental studies have found that preschool children are more likely to interpret \emph{or} as inclusive in a variety of linguistic contexts such as negative sentences (Crain, Gualmini, \& Meroni, 2000), conditional sentences (Gualmini, Crain, \& Meroni, 2000), restriction and nuclear scope of the universal quantifier \emph{every} (Chierchia, Crain, Guasti, Gualmini, \& Meroni, 2001; Chierchia et al., 2004), nuclear scope of the negative quantifier \emph{none} (Gualmini \& Crain, 2002), restriction and nuclear scope of \emph{not every} (Notley et al., 2012a), and prepositional phrases headed by \emph{before} (Notley et al., 2012b). These studies almost unanimously claim that at least in declarative sentences, the inclusive interpretation of \emph{or} emerges earlier than the exclusive interpretation.
 
-The findings of these studies as well as those of Morris (2008) give rise to what we call \enquote{the paradox of learning disjunction}. Given Morris (2008)'s finding that the majority of \emph{or} examples children hear are exclusive, how can children learn to interpret it as inclusive? One way to addresses this paradox is logical nativism (Crain, 2012; Crain \& Khlentzos, 2008, 2010). This approach assumes that the language faculty contains information regarding what connective meanings are allowed for connective words crosslinguistically. Crain (2012) considered it unlikely that children learn the meaning of \emph{or} from the examples they hear in adult usage. Instead, he argued that children rely on an innate knowledge that the meaning of disjunction words in natural languages must be inclusive. In other words, upon hearing a connective word, children consider inclusive disjunction as a viable candidate for its meaning but not exclusive disjunction. In this account, the exclusive interpretation emerges as part of children's pragmatic development after they have mastered the inclusive semantics of disjunction.
+The findings of these studies and Morris (2008) give rise to a paradox: how can children learn to interpret linguistic disjunction as inclusive, if they rarely hear it as inclusive? One way to addresses this paradox is logical nativism (Crain, 2012; Crain \& Khlentzos, 2008, 2010). It proposes that the language faculty constrains the connective meanings entertained by the learner to those used in classical logic: negation, conjunction, and inclusive disjunction. Crain (2012) considered it unlikely that children learn the meaning of \emph{or} from the examples they hear in adult usage. Instead, he argued that children rely on an innate knowledge that the meaning of disjunction words in natural languages must be inclusive. In other words, upon hearing a connective word, children consider inclusive disjunction as a viable candidate for its meaning but not exclusive disjunction. In this account, the exclusive interpretation emerges as part of children's pragmatic development after they have mastered the inclusive semantics of disjunction.
 
-While logical nativism addresses the paradox of learning disjunction, it does not provide an explanation for cases where children interpret disjunction as exclusive. Morris (2008) reported that in his study, the vast majority of children used \emph{or} in its exclusive sense. This is not expected if preschool children consider disjunction to be inclusive. Second, other experimental studies, especially those testing disjunction in commands, find that preschool children interpret it as exclusive (Braine \& Rumain, 1981; Johansson \& Sjolin, 1975). For example, in response to a command such as \enquote{give me the doll or the dog}, children as young as three- and four-years-old give one of the objects and not both. In its current version, the nativist account does not provide any explanation for such cases.
+While logical nativism addresses the paradox of learning disjunction, it does not provide an explanation for cases where children interpret disjunction as exclusive. Morris (2008) reported that in his study, the vast majority of children used \emph{or} in its exclusive sense. This is not expected if preschool children consider disjunction to be inclusive. Second, other experimental studies, especially those testing disjunction in commands, find that preschool children interpret it as exclusive (Braine \& Rumain, 1981; Johansson \& Sjolin, 1975). For example, in response to a command such as \enquote{give me the doll or the dog}, children as young as three- and four-years-old give one of the objects and not both. In its current version, the nativist account does not explain such cases.
 
-Figure \ref{fig:theories} summarizes the usage-based and nativist approaches to the acquisition of disjunction. The major difference between them is their assumptions on the learners' semantic hypothesis space for \emph{or}. The usage-based account considers a wide array of meanings to be available for mapping, including different flavors of conjunction such as \enquote{temporal conjunction} (e.g.~Bob pressed the key and (then) the door opened) and \enquote{explanatory conjunction}. The nativist account limits the hypothesis space to binary logical connectives, more specifically to those commonly used in standard propositional logic: inclusive disjunction, conjunction, and material implication. Both accounts agree that the input favors the exclusive interpretation of disjunction. The usage-based account concludes that children's early mappings mirror this input. The nativist account suggests that innate biases towards the inclusive meaning and against the exclusive interpretation result in an inclusive semantics for \emph{or} in children's early mappings.
+Figure \ref{fig:theories} summarizes the usage-based and nativist approaches to the acquisition of disjunction. The major difference between them is their assumptions on the learners' semantic hypothesis space for \emph{or}. The usage-based account considers a wide array of meanings to be available for mapping, including different flavors of conjunction such as \enquote{temporal conjunction} (e.g.~Bob pressed the key and (then) the door opened) and \enquote{explanatory conjunction}. The nativist account places more constraints ont the hypothesis space and limits it to binary logical connectives of standard propositional logic: inclusive disjunction, conjunction, and material implication. Both accounts agree that the input favors the exclusive interpretation of disjunction. The usage-based account concludes that children's early mappings mirror this input. The nativist account suggests that innate biases towards the inclusive meaning and against the exclusive interpretation result in an inclusive semantics for \emph{or} in children's early mappings.
 
 \begin{figure}[tb]
 
@@ -148,9 +152,9 @@ Figure \ref{fig:theories} summarizes the usage-based and nativist approaches to 
 \hypertarget{current-study}{%
 \subsection{Current Study}\label{current-study}}
 
-In this study, we provide an alternative solution to the paradox of learning disjunction. The main claim of this paper is that children may learn to interpret \emph{or}-- for example as exclusive or inclusive -- using the salient cues that accompany it in the input. We support this hypothesis using three studies. In the first study, we investigate the distribution of \emph{and} and \emph{or} in parent-child interactions to address the following basic questions: how often do children hear or produce \emph{or}? when do they start producing it? Using a large corpus of parent-child interactions, we found that children hear 1-2 examples of \emph{or} in every thousand words parents produce. They start producing it themselves between 18-30 months, and by 42 months they reach a rate of one \emph{or} per thousand words. In study 2, we ask: what interpretations can \emph{or} have in child-directed speech? We annotated examples of \emph{or} and found that its most likely interpretation is exclusive disjunction, as Morris (2008) had concluded. However, we also found that exclusive interpretations correlated strongly with two cues: rise-fall prosody, and logically inconsistent propositions connected by \emph{or}. In the absence of these cues, \emph{or} was most likely inclusive. In our third study, we ask if it is possible to learn the interpreation of \emph{or} from these cues. Using the annotation data of study 2 and a supervised learning task, we showed that a decision-tree classifer can use prosody and consistency of propositions to predict its interpretation with high accuracy.
+In this study, we provide an alternative solution to the paradox of learning disjunction. The main claim of this paper is that child-directed speech contains salient cues that accompany a linguistic disjunction and can help a learner successfully interpret it -- for example as exclusive or inclusive. We support this hypothesis using three studies. Study 1 does not directly support our main claim but provides the necessary basic information. It investigates the distribution of \emph{and} and \emph{or} in parent-child interactions to address the following basic questions: how often do children hear or produce \emph{or}? and when do they start producing it? Using a large corpus of parent-child interactions, we found that children hear 1-2 examples of \emph{or} in every thousand words parents produce. They start producing it themselves between 18-30 months, and by 42 months they reach a rate of one \emph{or} per thousand words. Studies 2 and 3 provide support for the two parts of our main claim: presence of cues, and their utility in learning. In study 2, we ask: what interpretations can \emph{or} have in child-directed speech? We annotated examples of \emph{or} and found that its most likely interpretation is exclusive disjunction, as Morris (2008) had concluded. However, we also found that exclusive interpretations correlated strongly with two cues: rise-fall prosody, and logically inconsistent propositions connected by \emph{or}. In the absence of these cues, \emph{or} was most likely non-exclusive. In our third study, we asked if it is possible to learn the interpreations of \emph{or} from these cues. Using the annotation data of study 2 and a supervised learning task, we showed that a decision-tree classifer can use prosody and consistency of propositions to predict its interpretation with high accuracy.
 
-Based on the results of our studies, we propose a new account for children's acquisition of disjunction. Figure \ref{fig:cueBasedAccount} shows the summary of this account which we call cue-based context-dependent mapping. It is inspired by the usage-based and nativist accounts of disjunction and shares many of their insights. Similar to the nativist account, we assume that the semantic hypothesis space includes binary logical relations. However, we do not limit the hypothesis space further and do not bias the learning towards the inclusive meaning. We will show that the input can achieve this. Similar to usage based proposals, our account relies on the structure of the input to distinguish between exclusive and inclusive uses of disjunction. We also map more complex constructions to meanings rather than the word \emph{or} directly. The learner can later extract commonalities across these mappings and extract a core semantics for a particular word. However, the early mappings do not have any core meaning as opposed to what the usage-based account of Morris (2008) proposes. The major point of departure from previous accounts is the mechanism of learning. While in pervious accounts the most frequent meaning in the input was mapped to the connective word directly, in our account the input is partitioned or broken down by a set of salient cues that designate the context of use. Mapping is done based on the cues that accompany the connective word.
+Based on the results of our studies, we propose a new account for children's acquisition of disjunction. Figure \ref{fig:cueBasedAccount} shows the summary of this account which we call \enquote{cue-based context-dependent mapping} of disjunction. It is inspired by the usage-based and nativist accounts of disjunction and shares many of their insights. Similar to the nativist account, we assume that the semantic hypothesis space includes binary logical relations. However, we do not limit the hypothesis space further and do not bias the learning towards the inclusive meaning. We will show that the linguistic input can achieve this. Similar to usage based proposals, our account relies on the structure of the input to distinguish between exclusive and inclusive uses of disjunction. We also map more complex constructions to meanings rather than the word \emph{or} directly. The learner can later extract commonalities across mappings to complex forms and extract a core semantics for a particular word like \emph{or}. The major point of departure from previous accounts is the mechanism of learning. While in pervious accounts the most frequent meaning in the input was mapped to the connective word directly, in our account the input is partitioned or broken down by a set of salient cues that designate the context of use. Mapping is done based on the cues that accompany the connective word.
 
 \begin{figure}[tb]
 
@@ -223,12 +227,12 @@ First, we found that \emph{or} was more likely to occur in questions than in dec
 
 Figure \ref{fig:ageSpeechActPlot} shows the developmental trends for the relative frequencies of \emph{and} and \emph{or} in questions and declaratives. Comparing \emph{and} in declaratives and questions, we see that the onset of \emph{and} productions were slightly delayed for questions. But in both declaratives and questions, \emph{and} productions reached the parent level around 30 months (2.5 years). For \emph{or}, we see a similar delay in questions compared to declaratives. Children started producing \emph{or} in declaratives at around 18 months but they started producing \emph{or} in questions at 24 months. Production of \emph{or} increased in both declaratives and questions until it reached a constant rate in declaratives between 48 and 72 months. The relative frequency of \emph{or} in questions continued to rise until 60 months. Comparing Figure \ref{fig:freqPlots} and \ref{fig:ageSpeechActPlot}, children were closer to the adult rate of production in declaratives than questions.
 
-\begin{table}
+\begin{table}[t]
 
 \caption{\label{tab:study1coeftable}Estimated cofficients for the linear model with children's age, speaker (child vs. parent), utterance type (declarative vs. question), and their interactions as predictors. Relative frequency of disjunction produciton was the dependent variable.}
 \centering
 \fontsize{9}{11}\selectfont
-\begin{tabular}[t]{l|r|r|r|r}
+\begin{tabular}{l|r|r|r|r}
 \hline
 Coefficients & Estimate & Std. Error & t value & Pr(>|t|)\\
 \hline
@@ -481,37 +485,52 @@ However, the study also found that the most likely interpretation of a disjuncti
 \hypertarget{study-3-computational-modeling-using-decision-trees}{%
 \section{Study 3: Computational Modeling Using Decision Trees}\label{study-3-computational-modeling-using-decision-trees}}
 
-A decision tree is a classification model structured as a hierarchical tree with nodes, branches, and leaves (Breiman, 2017). The tree starts with an initial node, called the root, and branches into more nodes until it reaches the leaves. Each node represents the test on a feature, each branch represents an outcome of the test, and each leaf represents a classification label. Using a decision tree, observations can be classified or labeled based on a set of features.
+A decision tree is a classification model structured as a hierarchical tree with an initial node, called the root, that branches into more nodes until it reaches the leaves (Breiman, 2017). Each node represents a test on a feature, each branch represents an outcome of the test, and each leaf represents a classification label. Using a decision tree, observations can be classified or labeled based on a set of features. Decision trees have at least three advantages for modeling cue-based accounts of semantic acquisition. First, the features used in decision trees for classification can be the cues that help the acquisition and interpretation of a word or an utterance. Second, unlike many other machine learning techniques, decision trees result in models that are interpretable. Third, the order of decisions or features used for classification is determined based on information gain. Features that appear higher (earlier) in the tree are more informative and helpful for classification. Therefore, decision trees can help us understand which cues are more helpful for the acquisition and interpretation of words.
 
-Decision trees have several advantages for modeling cue-based accounts of semantic acquisition. First, decision trees use a set of features to predict the classification of observations. This is analogous to using cues to predict the correct interpretation of a word or an utterance. Second, unlike many other machine learning techniques, decision trees result in models that are interpretable. Third, the order of decisions or features used for classification is determined based on information gain. Features that appear higher (earlier) in the tree are more informative and helpful for classification. Therefore, decision trees can help us understand which cues are probably more helpful for the acquisition and interpretation of a word.
-
+<<<<<<< HEAD
 Decision tree learning is the construction of a decision tree from labeled training data. This section applies decision tree learning to the annotated data of Study 2 by constructing random forests (Breiman, 2001; Ho, 1995). In random forest classification, multiple decision trees are constructed on subsets of the data, and each tree predicts a classification. The ultimate outcome is a majority vote of each trees classification. Since decision trees tend to overfit data, random forests control for overfitting by building more trees and averaging their results. (Breiman, 2001) Next section discusses the methods used in constrcting the random forests for interpreting connectives \emph{or}/\emph{and}.
+=======
+Decision tree learning is the construction of a decision tree from labeled training data. This section applies decision tree learning to the annotated data of Study 2 by constructing random forests (Breiman, 2001; Ho, 1995). In random forest classification, multiple decision trees are constructed on subsets of the data, and each tree predicts a classification. The ultimate outcome is a majority vote of each tree's classification. Since decision trees tend to overfit data, random forests control for overfitting by building more trees and averaging their results. \textbf{(Citation)} In the context of semantic acquisition, the random forest can represent hypothetical variability in the learners. The next section discusses the methods used in constrcting the random forests for interpreting the connectives \emph{or} and \emph{and}.
+>>>>>>> master
 
 \hypertarget{methods-2}{%
 \subsection{Methods}\label{methods-2}}
 
+<<<<<<< HEAD
 The random forest models were constructed using python's Sci-kit Learn package (Pedregosa et al., 2011). The annotated data had a feature array (see Study 2) and a connective interpretation label for each connective use. Connective interpretations included exclusive (XOR), inclusive (IOR), conjunctive (AND), negative inclusive (NOR), and NPQ which states that only the second proposition is true. The features (or \enquote{cues}) included all other annotation categories: intonation, consistency, syntactic level, utterance type, and communicative function. All models were trained with stratified 10-Fold cross-validation to reduce overfitting. Stratified cross-validation maintains the distribution of the initial data in the random sampling to build cross validated models. Maintaining the data distribution ensures a more realistic learning environment for the forests. Tree success was measured with F1-Score, harmonic average of precision and recall.
 
 First a grid search was run on the hyperparamter space to establish the number of trees in each forest and the maximum tree depth allowable. The grid search creates a grid of all combinations of forest size and tree depth and then trains each forest from this grid on the data (Pedregosa et al., 2011). The forests with the best F1-score and lowest size/depth are reported. The default number of trees for the forests was set to 20, with a max depth of eight and a minimum impurity decrease of 0. Impurity was measured with gini impurity, which states the odds that a random member of the subset would be mislabled if it were randomly labeled according to the distribution of labels in the subset. \textbf{(Citation)}
 
 Decision trees were fit with high and low minimum gini decrease values. High minimum gini decrease results in a tree that does not use any features for branching. Such a tree represents the baseline or frequentist approach to mapping that directly maps a word to its most frequent interpretation. Low minimum gini decrease allows for a less conservative tree that uses multiple cues/features to predict the interpretation of a disjunction. Such a tree represents the cue-based context-sensitive account of word learning discussed in the previous section.
+=======
+The random forest models were constructed using python's Sci-kit Learn package (Pedregosa et al., 2011). The annotated data had a feature array and a connective interpretation label for each connective use. Connective interpretations included exclusive (XOR), inclusive (IOR), conjunctive (AND), negative inclusive (NOR), and NPQ which states that only the second proposition is true. The features or cues used included all other annotation categories: intonation, consistency, utterance type, syntactic level, negation, modals, and communicative function. All models were trained with stratified 10-Fold cross-validation to reduce overfitting. Stratified cross-validation maintains the distribution of the initial data in the random sampling to build cross validated models. Maintaining the data distribution ensures a more realistic learning environment for the forests. Tree success was measured with F1-Score, harmonic average of precision and recall (Rijsbergen, 1979).
+
+First a grid search was run on the hyperparamter space to establish the number of trees in each forest and the maximum tree depth allowable. The grid search creates a grid of all combinations of forest size and tree depth and then trains each forest from this grid on the data. The forests with the best F1-score and lowest size/depth are reported. **(Citation*)** The default number of trees for the forests was set to 20, with a max depth of eight and a minimum impurity decrease of 0. Impurity was measured with gini impurity, which states the odds that a random member of the subset would be mislabled if it were randomly labeled according to the distribution of labels in the subset. (Gini, 1912).
+
+Decision trees were fit with high and low minimum-gini-decrease values. High minimum-gini-decrease results in a tree that does not use any features for branching. Such a tree represents the baseline or traditional approach to mapping that directly maps a word to its most likely interpretation. Low minimum-gini-decrease allows for a less conservative tree that uses multiple cues or features to predict the interpretation of a disjunction. Such a tree represents the cue-based context-sensitive account of word learning.
+>>>>>>> master
 
 \hypertarget{results-1}{%
 \subsection{Results}\label{results-1}}
 
+<<<<<<< HEAD
 We first present the results of the random forests in a binary classification task. The models were trained to classify exclusive (XOR, NPQ) and inclusive (AND, IOR, NOR) interpretations of disjunction. For visualization of trees, we selected the highest performing tree in the forest by testing each tree and selecting for highest F1 score. While the forests performance is not identical to the highest performing tree, the best tree gives an illustrative example of how the tree performs.
 
 Figure \ref{fig:binaryBaseline} shows the best performing decision tree with high minimum gini decrease. As expected, a learner that does not use any cues would interpret \emph{or} as exclusive all the time. This is the baseline model. Figure \ref{fig:binaryCueBased} shows the best performing decision tree with low minimum gini decrease. The tree has learned to use intonation and consistency to classify disjunctions as exclusive or inclusive. As expected, if the intonation is rise-fall or the disjuncts are inconsistent, the interpretation is exclusive. Otherwise, the disjunction is classified as inclusive.
+=======
+We first present the results of the random forests in the binary classification task. The models were trained to classify exclusivity, e.i. whether an interpretation was exclusive or not. For visualization of trees, we selected the highest performing tree in the forest by testing each tree and selecting for highest F1 score. While the forests performance is not identical to the highest performing tree, the best tree gives an illustrative example of successful learning from data. Figure \ref{fig:binaryBaseline} shows the best performing decision tree with high minimum gini decrease. As expected, a learner that does not use any cues would interpret \emph{or} as exclusive all the time. This is the baseline model. Figure \ref{fig:binaryCueBased} shows the best performing decision tree with low minimum gini decrease. The tree has learned to use intonation and consistency to classify disjunctions as exclusive or inclusive. As expected, if the intonation is rise-fall or the disjuncts are inconsistent, the interpretation is exclusive. Otherwise, the disjunction is classified as not exclusive.
+>>>>>>> master
 
 \begin{figure}
 \centering
 \includegraphics{figs/binaryBaseline-1.pdf}
-\caption{\label{fig:binaryBaseline}Baseline tree grown with minimum impurity decrease of 0.2. The tree always classifies examples of disjunction as exclusive.}
+\caption{\label{fig:binaryBaseline}(A) The structure for the baseline (highest gini threshold, 0.2) decision tree trained on examples with exclusive (EX) and non-exclusive (IN) interpretations. (B) The structure for the cue-based decision tree (low gini threshold of 0.01). The average F1 score with 95\% confidence intervals as a function of the number of training examples in the baseline and cue-based model when treating as positive (C) EX and (D) IN respectively.}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics{figs/binaryCueBased-1.pdf}
+<<<<<<< HEAD
 \caption{\label{fig:binaryCueBased}Cue-based tree grown with minimum impurity decrease of 0.01. The tree classifies examples of disjunction with rise-fall intonation as exclusive (intonation \textgreater{} 1.5). If the intonation is not rise-fall but the disjuncts are inconsistent (consistency \textless{} 0.5), then the disjunction is still classified as exclusive. However, if neither of these two hold, the disjunction is classified as inclusive.}
 \end{figure}
 
@@ -521,16 +540,16 @@ Figure \ref{fig:XorBinary} shows the average F1 scores of the baseline and cue-b
 \centering
 \includegraphics{figs/XorBinary-1.pdf}
 \caption{\label{fig:XorBinary}The average F1 score for class XOR (exclusive) as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95\% confidence intervals.}
+=======
+\caption{\label{fig:binaryCueBased}(A) The structure for the baseline (highest gini threshold, 0.2) decision tree trained on examples with XOR, IOR, AND, and NOR interpretations. (B) The structure for the cue-based decision tree (low gini threshold of 0.01). The average F1 score with 95\% confidence intervals as a function of the number of training examples in the baseline and cue-based model when treating as positive (C) AND, (D) XOR, (E) IOR, (F) NOR respectively.}
+>>>>>>> master
 \end{figure}
 
-\begin{figure}
-\centering
-\includegraphics{figs/IorBinary-1.pdf}
-\caption{\label{fig:IorBinary}The average F1 score for class IOR (inclusive) as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95\% confidence intervals.}
-\end{figure}
+Figure \ref{fig:XorBinary} shows the average F1 scores of the baseline and cue-based models in classifying exclusive examples as the number of training examples increases. The models perform similarly, but the cue-based model performs slightly better (no significant difference). The real difference between the baseline model and the cue-based model is in their performance on inclusive examples. Figure \ref{fig:IorBinary} shows the F1 score of the forests as a function of the training size in classifying inclusive examples. As expected, the baseline model performs very poorly while the cue-based model improves with more examples and performs significantly better than the baseline tree.
 
 Next, we use decision tree learning in a ternary classification task. The model uses features to interpret a coordination with \emph{and} and \emph{or} as inclusive (IOR), exclusive (XOR), or conjunctive (AND). Figure \ref{fig:ternaryBaseline} shows the baseline decision tree with high minimum gini decrease, which only uses the presence of the words \emph{or}/\emph{and} to interpret conjunction and disjunction. As expected, the tree interprets a coordination with \emph{and} as a conjunction and one with \emph{or} as exclusive disjunction. Figure \ref{fig:ternaryCueBased} shows the cue-based decision tree with low minimum gini decrease. In addition to the presence of \emph{and} and \emph{or}, the tree uses intonation, consistency, communicative function, and sentence type to distinguish exclusive, inclusive, and conjunctive uses of disjunction. In short, a disjunction that is rise-fall, inconsistent, or has a conditional communicative function is classified as exclusive. Otherwise the disjunction is classified as inclusive. The tree also finds conjunctive interpretations of disjunction more likely in declarative sentences than interrogatives.
 
+<<<<<<< HEAD
 \begin{figure}
 \centering
 \includegraphics{figs/ternaryBaseline-1.pdf}
@@ -544,25 +563,15 @@ Next, we use decision tree learning in a ternary classification task. The model 
 \end{figure}
 
 Figure \ref{fig:ANDintermediate} shows the average F1 score of the conjunctive interpretations (AND) for the baseline and the cue-based models. Since the vast majority of the conjunctive interpretations are predicted by the presence of the word \emph{and}, the baseline and cue-based models show similar performances. Setting aside conjunction examples, Figure \ref{fig:ANDintermediateDis} shows the average F1 score of the AND interpretation of disjunction only. Here we see that the cue-based model performs better than the default model in predictiving conjunctive interpretations of OR utterances. The informal analysis of the trees suggest that the model does this by using the \enquote{speech act} cue. Figure \ref{fig:XORintermediate} shows the average F1-score of the exclusive interpretations (XOR) for the baseline and the cue-based models. The cue-based model does slightly better than the baseline model. As before, the most important improvement comes in identifying inclusive examples. Figure \ref{fig:IORintermediate} shows the average F1-score of the inclusive interpretations (IOR) for both baseline and cue-based models. The baseline model performs very poorly while the cue-based model is capable of classifying inclusive examples as well.
+=======
+Figure \ref{fig:ANDintermediate} shows the average F1 score of the conjunctive interpretations (AND) for the baseline and the cue-based models. Since the vast majority of the conjunctive interpretations are predicted by the presence of the word \emph{and}, the baseline and cue-based models show similar performances. Setting aside conjunction examples, Figure \ref{fig:ANDintermediateDis} shows the average F1 score of the AND interpretation of disjunction only. Here we see that the cue-based model performs better than the default model in guessing conjunctive interpretations of disjunction. The informal analysis of the trees suggest that the model does this by using the \enquote{speech act} cue. Figure \ref{fig:XORintermediate} shows the average F1-score of the exclusive interpretations (XOR) for the baseline and the cue-based models. The cue-based model does slightly better than the baseline model. As before, the most important improvement comes in identifying inclusive examples. Figure \ref{fig:IORintermediate} shows the average F1-score of the inclusive interpretations (IOR) for both baseline and cue-based models. The baseline model performs very poorly while the cue-based model is capable of classifying inclusive examples as well.
+>>>>>>> master
 
-\begin{figure}
-\centering
-\includegraphics{figs/ANDintermediate-1.pdf}
-\caption{\label{fig:ANDintermediate}The average F1 score for class AND as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95\% confidence intervals.}
-\end{figure}
+Finally, we look at decision trees trained on the annotation data to predict all the interpretation classes for disjunction: AND, XOR, IOR, NOR, and NPQ. Figure \ref{fig:wholeBaseline} shows the baseline model that only uses the words \emph{and} and \emph{or} to classify. As expected, \emph{and} receives a conjunctive interpretation (AND) and \emph{or} receives an exclusive interpretation (XOR). Figure \ref{fig:wholeCueBased} shows the best example tree of the cue-based model. The leaves of the tree show that it recognizes exclusive, inclusive, conjunctive, and even negative inclusive (NOR) interpretations of disjunction. How does the tree achieve that? Like the baseline model, the tree first asks about the connective used: \emph{and} vs. \emph{or}. Then like the previous models, it asks about intonation and consistency. If the intonation is rise-fall, or the disjuncts are inconsistent, the interpretation is exclusive. Then it asks whether the sentence is an interrogative or a declarative. If interrogative, it guesses an inclusive interpretation. This basically covers questions with a rising intonation. Then the tree picks declarative examples that have conditional speech act (e.g. \enquote{give me the toy or you're grounded}) and labels them as exclusive. Finally, if negation is present in the sentence, the tree labels the disjunction as NOR.
 
-\begin{figure}
-\centering
-\includegraphics{figs/ANDintermediateDis-1.pdf}
-\caption{\label{fig:ANDintermediateDis}The average F1 score for class AND of disjunction examles as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95\% confidence intervals.}
-\end{figure}
+Figures \ref{fig:ANDWhole}, \ref{fig:XORWhole}, and \ref{fig:IORWhole} show the average F1-scores for the conjunctive (AND), exclusive (XOR), and inclusive (IOR) interpretations as a function of training size. The results are similar to what wereported before with the ternary classification. While the cue-based model generally performs better than the baseline model, it shows substantial improvement in classifying inclusive cases. Figure \ref{fig:NORWhole} shows the average F1-score for the negative inclusive interpretation as a function of training size. Compared to the baseline model, the cue-based model shows a substantially better performance in classifying negative sentences. The success of the model in classifying negative inclusive examples (NOR) suggests that the cue-based model offers a promising approach for capturing the scope relation of operators such as negation and disjunction. Here, the model learns that when negation and disjunction are present, the sentence receives a negative inclusive (NOR) interpretation. In other words, the model has learned the narrow-scope interpretation of negation and disjunction from the input data. In a language where negation and disjunction receive an XOR interpretation (not A or not B), the cue-based model can learn the wide-scope interpretation of disjunction.
 
-\begin{figure}
-\centering
-\includegraphics{figs/XORintermediate-1.pdf}
-\caption{\label{fig:XORintermediate}The average F1 score for class XOR as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95\% confidence intervals.}
-\end{figure}
-
+<<<<<<< HEAD
 \begin{figure}
 \centering
 \includegraphics{figs/IORintermediate-1.pdf}
@@ -584,50 +593,29 @@ Finally, we look at decision trees trained on the annotation data to predict all
 \end{figure}
 
 Figures \ref{fig:ANDWhole}, \ref{fig:XORWhole}, and \ref{fig:IORWhole} show the average F1-scores for the conjunctive (AND), exclusive (XOR), and inclusive (IOR) interpretations as a function of training size. The results are similar to what we reported before with the ternary classification. While the cue-based model generally performs better than the baseline model, it shows substantial improvement in classifying inclusive cases.
-
-\begin{figure}
-\centering
-\includegraphics{figs/ANDWhole-1.pdf}
-\caption{\label{fig:ANDWhole}The average F1 score for class AND as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95\% confidence intervals.}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics{figs/XORWhole-1.pdf}
-\caption{\label{fig:XORWhole}The average F1 score for class XOR as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95\% confidence intervals.}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics{figs/IORWhole-1.pdf}
-\caption{\label{fig:IORWhole}The average F1 score for class IOR as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95\% confidence intervals.}
-\end{figure}
-
-Figure \ref{fig:NORWhole} shows the average F1-score for the negative inclusive interpretation as a function of training size. Compared to the baseline model, the cue-based model shows a substantially better performance in classifying negative sentences. The success of the model in classifying negative inclusive examples (NOR) suggests that the cue-based model offers a promising approach for capturing the scope relation of operators such as negation and disjunction. Here, the model learns that when negation and disjunction are present, the sentence receives a negative inclusive (NOR) interpretation. In other words, the model has learned the narrow-scope interpretation of negation and disjunction from the input data. In a language where negation and disjunction receive an XOR interpretation (not A or not B), the cue-based model can learn the wide-scope interpretation of disjunction.
-
-\begin{figure}
-\centering
-\includegraphics{figs/NORWhole-1.pdf}
-\caption{\label{fig:NORWhole}The average F1 score for class NOR as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95\% confidence intervals.}
-\end{figure}
-
+=======
 Finally, Figure \ref{fig:NPQWhole} shows the average F1 score for the class NPQ. This interpretation suggested that the first disjunct is false but the second true. It was seen in examples of repair most often and the most likely cue to it was also the communicative function or speech act of repair. The results show that even though there were improvements in the cue-based model, they were not stable as shown by the large confidence intervals. It is possible that with larger training samples, the cue-based model can reliably classify the NPQ interpretations as well.
 
-\begin{figure}
-\centering
-\includegraphics{figs/NPQWhole-1.pdf}
-\caption{\label{fig:NPQWhole}The average F1 score for class NPQ as a function of the number of training examples in the baseline and cue-based models. The colored shades show the 95\% confidence intervals.}
-\end{figure}
-
-\hypertarget{discussion}{%
-\subsection{Discussion}\label{discussion}}
-
-We considered two accounts for the acquisition of function words. The first account was a baseline (context-independent) account that is used in vanilla cross-situational word learning: words are isolated and directly mapped to their most frequent meanings. The second account is what I called the cue-based context-dependent mapping in which words are mapped to meanings conditional on a set of present cues in the context. I argued that the puzzle of learning disjunction arises because in the baseline account, forms are mapped directly to meanings without considering the context of use. Under this account, the input statistics supports an exclusive interpretation for \emph{or}. However, comprehension studies show that children can interpret \emph{or} as inclusive. I showed that the cue-based account resolves this problem by allowing \emph{or} to be mapped to its interpretation according to the set of contextual cues that disambiguate it. The results of computational experiments with decision tree learning on data from child-directed speech suggested that such an approach can successfully learn to classify a disjunction is inclusive or exclusive. More broadly, cue-based context-dependent mapping is useful for the acquisition of ambiguous words and interpretations that are consistent but relatively infrequent in child-directed speech.
-
 \hypertarget{conclusion-1}{%
-\section{Conclusion}\label{conclusion-1}}
+\subsection{Conclusion}\label{conclusion-1}}
+>>>>>>> master
 
-The case of disjunction shows that word learning requires to systmatically take different aspects of the linguistic and non-linguistic context into account. The meaning of a word such as \emph{or} cannot be learned independent of its context such as its intonation contour, the meaning of the coordinands it conjoins, or type of speech act it participates in.
+In this study, we used the annotation data from Study 2 to train and compare two random forest models, representing two accounts for the acquisition of disjunction. The first account was a baseline (context-independent) account in which words are isolated and directly mapped to their most likely meanings, disregarding available contextual cues. Random forest models with high minimum-gini-impurity-decrease represented this account. The second account was what we called the cue-based context-dependent mapping in which words are mapped to meanings using a set of cues available in the context. Random forest models with low minimum-gini-impurity-decrease represented this cue-based account. Comparison of the F1-Scores produced by models representing these two accounts showed that the cue-based models outperfromed the baseline models in every classification task. Most importantly, while the baseline models learned to always interpret a disjunction as exclusive, the cue-based models learned to interpret a disjunction as exclusive, inclusive, conjunctive, or negative inclusive (NOR), depending on the cues available in the input.
+
+\hypertarget{general-discussion}{%
+\section{General Discussion}\label{general-discussion}}
+
+This paper presented three studies to support the claim that child-directed speech contains prosodic, conceptual, and linguistic cues that can aid the acquisition of linguistic disjunction. Study 1 presented the overall distribution of \emph{or} and \emph{and} in parents' and children's speech in CHILDES corpora. We found that children heared 1-2 examples of \emph{or} in every thousand words parents produced. Children started producing \emph{or} themselves between 18-30 months, and by 42 months they reached a rate of one \emph{or} per thousand words. Study 2 showed that as Morris (2008) had found, the most common interpretation of \emph{or} in child-directed speech is exclusive disjunction. However, we also found that exclusive interpretations were cued by prosodic and conceptual cues. In the absence of prosodic and conceptual cues to exclusivity, the interpretation of a disjunction was most likely non-exclusive. Finally, study 3 used decision-tree learning to show that a hypothetical learner can use prosodic, conceptual, and linguistic cues to predict the interpretation of a disjunction. It is importnat to note that while this study has shown the \textbf{potential utility} of conceptual, prosodic, and linguistic cues present in child-directed speech for the acquisition of disjunction, it has not actually established that children learning disjunction are sensitive to these cues, or that use them for learning. It is important for future experimental research to follow up and show that these cues are actually used by langauge learners in their acquisition of disjunction.
+
+In what follows in this section, we place our findings and main claim in the bigger context of word learning. As we mentioned at the beginning, theories of word learning have been heavily influenced by Quine's Gavagai thought experiment; however, his specific views on word learning are not as widely discussed. Quine (1960) pinpointed several dimensions of word learning where theories can differ in their approach. First, Quine considered form-meaning mapping to occur at all levels of linguistic structure: words, phrases, and sentences. In other words, the learner could map any recognizable chunk or construction to candidate meanings, and store it in memory. This is in contrast to a view where only morphemes (smallest units) are mapped and stored, while larger units are derived compositionally. We call this dimension the \textbf{mapping unit}. Second, Quine considered three different ways of mapping words to meanings: isolated, context-dependent, and described. \enquote{Isolated mapping} refers to the case of hearing a word such as \enquote{chair}, \enquote{red}, or \enquote{run} and mapping it to the percieved object, property, or action isolated from its linguistic or communicative context. It is the classic Gavagai example. On the other hand, \enquote{context-dependent mapping} is learning a word \enquote{contextually, or by abstraction, as a fragment of sentences learned as wholes}. He suggested that \enquote{prepositions, conjunctions, and many other words, are bound to have been learned only contextually; we get on to using them by analogy with the ways in which they have been seen to turn up in past sentences}. According to Quine, learning such words requires attention to the linguistic context of use. \enquote{Description mapping} is the extreme case in which a word is defined using other words only, similar to a dictionary entry. Quine points out that the meaning of a word such as \enquote{molecule} is mapped to a linguistic description (i.e.~definition). We can call these three ways \textbf{mapping types}.
+
+We add three more dimensions to the ones dicussed by Quine. Theories of form-meanign mapping may or may not rely on cues, and when they do, they may consider different roles for the cues. We call this dimension \textbf{cue status}. For example, substantitive nominals (to use Quine's terminology) are hypothesized to benefit from social cues such as eye gaze and pointing. Verbs are hypothesized to benefit from syntactic cues, and in this paper we argued for conceptual and linguistic cues for the acquisition of disjunction. However, the role of these cues are not the same. For example, in mapping nominals, eye gaze and pointing act as cues that enhance the odds of a particular mapping. However, in the research presented here, conceptual and linguistic cues help to partition the input and better specify the context of use.
+
+Theories of form-meaning mapping also differ in their coneptual-representational \textbf{primitives}, e.i. the units that linguistic forms are mapped to. For exmaple, in Morris (2008)'s account, the semantic space for connectives included temporal and causal conjunction, as well as exclusive disjunction. The nativist account, on the other hand, does not assume these primitives (Crain, 2012). The choice of primitives has a crucial role in word learning. For example, the nativist account resolves the puzzle of learning disjunction by positing primitives that exclude exclusive disjunction. This way, a word like \emph{or} can only be mapped to inclusive disjunction and the exclusive interpretations are byproducts of pragmatic computations. In the account presented in this paper, we constrained our semantic primitives to the 16 logical (truth-functional) connectives, and argued that conceptual and linguistic cues can help a learner learn both exclusive and inclusive disjunction using the input data. Is there any reason to believe that learners can constrain the hypothesis space to connective meanings while mapping a word like \emph{or}? We believe so. Connectives have a very specific syntactic distribution, and in our data, majority of \emph{and} and \emph{or} examples were used to connect clauses. However, we leave the precise mechanism of selecting specific functional domains in the hypothesis space such as connective meanings using syntactic information for future work.
+
+Finally, theories of form-meaning mapping may differ on their assumptions on \textbf{conceptual continuity}. Constructivist accounts emphasize conceptual development and construction of thought from a non-adult-like early stage. Many nativist accounts, on the other hand, assume that concepts used in early form-meaning mapping are similar to those used by adults. An important step in providing evidence for such conceptual continuity has been to show that children's early interpretations correspond to adult semantics in other languages. In its current version, our account of disjunction assumes continuity. However, it is possible to develop a version in which the primitive concepts in this model are developed from other social or perceptual primitives. A possible social primitive for the concept of disjunction is \enquote{choice between two or more alternatives} (Braine \& Rumain, 1981). However, a concrete proposal with specific predictions for the developmental stages has not been developed yet.
+
+To summarize, the account presented in this paper for the acquisition of disjunciton is cue-based and context-dependent. It assumes that the learner has the 16 binary logical connective concepts available for mapping to linguistic forms. For its mapping units, it goes beyond mapping the word \emph{or} in isolation to a hypothesized meaning, and stores information about the conceptual and linguistic context of the word as well. However, it does not record all the information content of an utterance either. Finally, in its current format, our account assumes conceptual continuity. Most importantly, our study shows that such an account resolves the puzzle of learning disjunction and obviates the need for a more constrained hypothesis space that excludes exclusive disjunction.
 
 \newpage
 
@@ -637,6 +625,7 @@ The case of disjunction shows that word learning requires to systmatically take 
 \hypertarget{appendix}{%
 \section{Appendix}\label{appendix}}
 
+<<<<<<< HEAD
 \begin{figure}[tb]
 
 {\centering \includegraphics{figs/corpusDensityPlot-1} 
@@ -701,6 +690,8 @@ The differences in the distribution of utterance types can affect our interpreta
 \caption{The proportion of \textit{and} and \textit{or} in different utterance types in the speech of parents and children.}\label{fig:CnctPropbySpeechAct}
 \end{figure}
 
+=======
+>>>>>>> master
 \begin{longtable}[]{@{}ccc@{}}
 \caption{\label{tab:providence} Information on the participants in the Providence Corpus. Ethan was diagnosed with Asperger's syndrome and therefore was excluded from this study.}\tabularnewline
 \toprule
@@ -1159,6 +1150,9 @@ consistency & consistent & 0.99 & 1.00 & 0.50\\
 \setlength{\leftskip}{0.5in}
 
 \hypertarget{refs}{}
+\leavevmode\hypertarget{ref-baldwin1993infants}{}%
+Baldwin, D. (1993). Infants' ability to consult the speaker for clues to word reference. \emph{Journal of Child Language}, \emph{20}(2), 395--418.
+
 \leavevmode\hypertarget{ref-braine1981development}{}%
 Braine, M. D., \& Rumain, B. (1981). Development of comprehension of ``or'': Evidence for a sequence of competencies. \emph{Journal of Experimental Child Psychology}, \emph{31}(1), 46--70.
 
@@ -1167,6 +1161,9 @@ Breiman, L. (2001). Random forests. \emph{Machine Learning}, \emph{45}(1), 5--32
 
 \leavevmode\hypertarget{ref-breiman2017classification}{}%
 Breiman, L. (2017). \emph{Classification and regression trees}. London: Routledge.
+
+\leavevmode\hypertarget{ref-brown1957linguistic}{}%
+Brown, R. W. (1957). Linguistic determinism and the part of speech. \emph{The Journal of Abnormal and Social Psychology}, \emph{55}(1), 1.
 
 \leavevmode\hypertarget{ref-chierchia2001acquisition}{}%
 Chierchia, G., Crain, S., Guasti, M. T., Gualmini, A., \& Meroni, L. (2001). The acquisition of disjunction: Evidence for a grammatical view of scalar implicatures. In \emph{Proceedings of the 25th Boston University conference on language development} (pp. 157--168). Somerville, MA: Cascadilla Press.
@@ -1179,6 +1176,9 @@ Cicchetti, D. V., \& Feinstein, A. R. (1990). High agreement but low kappa: II. 
 
 \leavevmode\hypertarget{ref-clark1993lexicon}{}%
 Clark, E. V. (1993). \emph{The lexicon in acquisition}. Cambridge University Press.
+
+\leavevmode\hypertarget{ref-clark2009first}{}%
+Clark, E. V. (2009). \emph{First language acquisition} (2nd ed.). Cambridge: Cambridge University Press.
 
 \leavevmode\hypertarget{ref-crain2012emergence}{}%
 Crain, S. (2012). \emph{The emergence of meaning}. Cambridge: Cambridge University Press.
@@ -1204,6 +1204,12 @@ Fleiss, J. L., Levin, B., \& Paik, M. C. (2013). \emph{Statistical methods for r
 \leavevmode\hypertarget{ref-geurts2006exclusive}{}%
 Geurts, B. (2006). Exclusive disjunction without implicatures. \emph{Ms., University of Nijmegen}.
 
+\leavevmode\hypertarget{ref-gini1912variabilita}{}%
+Gini, C. (1912). Variabilità e mutabilità. \emph{Reprinted in Memorie Di Metodologica Statistica (Ed. Pizetti E, Salvemini, T). Rome: Libreria Eredi Virgilio Veschi}.
+
+\leavevmode\hypertarget{ref-gleitman1990structural}{}%
+Gleitman, L. (1990). The structural sources of verb meanings. \emph{Language Acquisition}, \emph{1}(1), 3--55.
+
 \leavevmode\hypertarget{ref-goodman2008does}{}%
 Goodman, J. C., Dale, P. S., \& Li, P. (2008). Does frequency count? Parental input and the acquisition of vocabulary. \emph{Journal of Child Language}, \emph{35}(3), 515--531.
 
@@ -1222,6 +1228,9 @@ Haspelmath, M. (2007). Coordination. In T. Shopen (Ed.), \emph{Language typology
 \leavevmode\hypertarget{ref-ho1995random}{}%
 Ho, T. K. (1995). Random decision forests. In \emph{Proceedings of the third international conference on document analysis and recognition} (Vol. 1, pp. 278--282). Washington, DC, USA: IEEE Computer Society.
 
+\leavevmode\hypertarget{ref-hollich2000breaking}{}%
+Hollich, G. J., Hirsh-Pasek, K., Golinkoff, R. M., Brand, R., Brown, E., Chung, H. L., \ldots{} Rocroi, C. (2000). Breaking the language barrier: An emergentist coalition model for the origins of word learning. \emph{Monographs of the Society for Research in Child Development}, \emph{65}(3), 1--123.
+
 \leavevmode\hypertarget{ref-johansson1975preschool}{}%
 Johansson, B. S., \& Sjolin, B. (1975). Preschool children's understanding of the coordinators ``and'' and ``or''. \emph{Journal of Experimental Child Psychology}, \emph{19}(2), 233--240.
 
@@ -1233,6 +1242,15 @@ Levy, E., \& Nelson, K. (1994). Words in discourse: A dialectical approach to th
 
 \leavevmode\hypertarget{ref-macwhinney2000childes}{}%
 MacWhinney, B. (2000). \emph{The CHILDES project: The database} (Vol. 2). Mahwah, NJ: Erlbaum.
+
+\leavevmode\hypertarget{ref-markman1990constraints}{}%
+Markman, E. M. (1990). Constraints children place on word meanings. \emph{Cognitive Science}, \emph{14}(1), 57--77.
+
+\leavevmode\hypertarget{ref-markman1984children}{}%
+Markman, E. M., \& Hutchinson, J. E. (1984). Children's sensitivity to constraints on word meaning: Taxonomic versus thematic relations. \emph{Cognitive Psychology}, \emph{16}(1), 1--27.
+
+\leavevmode\hypertarget{ref-markman1988children}{}%
+Markman, E. M., \& Wachtel, G. F. (1988). Children's use of mutual exclusivity to constrain the meanings of words. \emph{Cognitive Psychology}, \emph{20}(2), 121--157.
 
 \leavevmode\hypertarget{ref-morris2008logically}{}%
 Morris, B. J. (2008). Logically speaking: Evidence for item-based acquisition of the connectives ``and'' and ``or''. \emph{Journal of Cognition and Development}, \emph{9}(1), 67--88.
@@ -1252,11 +1270,23 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O.,
 \leavevmode\hypertarget{ref-pruitt2013interpretation}{}%
 Pruitt, K., \& Roelofsen, F. (2013). The interpretation of prosody in disjunctive questions. \emph{Linguistic Inquiry}, \emph{44}(4), 632--650.
 
+\leavevmode\hypertarget{ref-quine1960word}{}%
+Quine, W. V. O. (1960). \emph{Word and object}. Cambridge, MA: MIT press.
+
+\leavevmode\hypertarget{ref-Rijsbergen1979}{}%
+Rijsbergen, C. J. V. (1979). \emph{Information retrieval} (2nd ed.). Newton, MA, USA: Butterworth-Heinemann.
+
 \leavevmode\hypertarget{ref-sanchez2018childes}{}%
 Sanchez, A., Meylan, S., Braginsky, M., MacDonald, K., Yurovsky, D., \& Frank, M. C. (2018). Childes-db: A flexible and reproducible interface to the child language data exchange system. PsyArXiv. Retrieved from \url{psyarxiv.com/93mwx}
 
+\leavevmode\hypertarget{ref-siskind1996computational}{}%
+Siskind, J. M. (1996). A computational study of cross-situational techniques for learning word-to-meaning mappings. \emph{Cognition}, \emph{61}(1-2), 39--91.
+
 \leavevmode\hypertarget{ref-sison1995simultaneous}{}%
 Sison, C. P., \& Glaz, J. (1995). Simultaneous confidence intervals and sample size determination for multinomial proportions. \emph{Journal of the American Statistical Association}, \emph{90}(429), 366--369.
+
+\leavevmode\hypertarget{ref-smith2011cross}{}%
+Smith, K., Smith, A. D., \& Blythe, R. A. (2011). Cross-situational learning: An experimental study of word-learning mechanisms. \emph{Cognitive Science}, \emph{35}(3), 480--498.
 
 \leavevmode\hypertarget{ref-tomasello2003constructing}{}%
 Tomasello, M. (2003). \emph{Constructing a language: A usage-based theory of language acquisition}. Harvard University Press.
@@ -1266,6 +1296,9 @@ Ubersax, J. (2009). Retrieved from \url{http://www.john-uebersax.com/stat/raw.ht
 
 \leavevmode\hypertarget{ref-von1968essay}{}%
 Von Wright, G. H. (1968). An essay in deontic logic and the general theory of action.
+
+\leavevmode\hypertarget{ref-yu2007rapid}{}%
+Yu, C., \& Smith, L. B. (2007). Rapid word learning under uncertainty via cross-situational statistics. \emph{Psychological Science}, \emph{18}(5), 414--420.
 
 
 \end{document}
