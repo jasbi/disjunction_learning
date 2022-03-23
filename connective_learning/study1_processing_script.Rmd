@@ -1,5 +1,5 @@
 ---
-title: "Study1_processing"
+title: "Study1 Processing of Corpus Data"
 author: "Masoud Jasbi"
 date: "2/21/2018"
 output: html_document
@@ -339,5 +339,14 @@ write.csv(utteranceType_bySpeaker,"2_processed_data/utteranceType_bySpeaker.csv"
 write.csv(utteranceType_byAge,"2_processed_data/utteranceType_byAge.csv", row.names=FALSE)
 ```
 
+```{r Study1RandomEffectsModel}
+freqTable_byChildCorpusAgeSpeechAct <-
+  english_tokens %>%
+  group_by(speaker, word, target_child_age_months, speech_act, corpus_id, target_child_id) %>%
+  summarize(count = n()) %>%
+  group_by(speaker, target_child_age_months, speech_act, corpus_id, target_child_id) %>%
+  mutate(total = sum(count), rel_freq = count / total, ppt = rel_freq * 1000)
 
+write.csv(freqTable_byChildCorpusAgeSpeechAct, "2_processed_data/freqTable_byChildCorpusAgeSpeechAct.csv", row.names=FALSE)
+```
 
