@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  21 MAR 2022 15:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  25 MAR 2022 15:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -757,6 +757,9 @@ File: figs/speechActPlots-1.pdf Graphic file (type pdf)
 <use figs/speechActPlots-1.pdf>
 Package pdftex.def Info: figs/speechActPlots-1.pdf  used on input line 282.
 (pdftex.def)             Requested size: 462.73466pt x 164.6171pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [12]
 <figs/ageSpeechActPlot-1.pdf, id=105, 348.30125pt x 200.75pt>
 File: figs/ageSpeechActPlot-1.pdf Graphic file (type pdf)
@@ -767,211 +770,214 @@ Package pdftex.def Info: figs/ageSpeechActPlot-1.pdf  used on input line 293.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [13 <./figs/speechActPlots-1.pdf>]
-Underfull \vbox (badness 6157) has occurred while \output is active []
+Underfull \vbox (badness 1082) has occurred while \output is active []
 
 [14 <./figs/ageSpeechActPlot-1.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 311.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 311.
-<figs/disjunctionPrediction-1.pdf, id=147, 1081.03876pt x 908.39375pt>
+<figs/disjunctionPrediction-1.pdf, id=145, 1081.03876pt x 908.39375pt>
 File: figs/disjunctionPrediction-1.pdf Graphic file (type pdf)
 <use figs/disjunctionPrediction-1.pdf>
 Package pdftex.def Info: figs/disjunctionPrediction-1.pdf  used on input line 3
 36.
 (pdftex.def)             Requested size: 469.7532pt x 394.73227pt.
+[15]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 343.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 343.
-[15]
+[16 <./figs/disjunctionPrediction-1.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[16] [17]
-Underfull \vbox (badness 1360) has occurred while \output is active []
-
-[18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[19] [20]
-Underfull \vbox (badness 1852) has occurred while \output is active []
-
-[21]
-Underfull \vbox (badness 4752) has occurred while \output is active []
-
-[22]
-Underfull \vbox (badness 1360) has occurred while \output is active []
-
-[23]
-<figs/answerPlot-1.pdf, id=235, 452.69125pt x 134.5025pt>
-File: figs/answerPlot-1.pdf Graphic file (type pdf)
-<use figs/answerPlot-1.pdf>
-Package pdftex.def Info: figs/answerPlot-1.pdf  used on input line 477.
-(pdftex.def)             Requested size: 452.69014pt x 134.50215pt.
-<figs/interpretationPlot-1.pdf, id=236, 387.4475pt x 113.42375pt>
-File: figs/interpretationPlot-1.pdf Graphic file (type pdf)
-<use figs/interpretationPlot-1.pdf>
-Package pdftex.def Info: figs/interpretationPlot-1.pdf  used on input line 489.
-
-(pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[24]
-<figs/consistencyPlot-1.pdf, id=249, 387.4475pt x 113.42375pt>
-File: figs/consistencyPlot-1.pdf Graphic file (type pdf)
-<use figs/consistencyPlot-1.pdf>
-Package pdftex.def Info: figs/consistencyPlot-1.pdf  used on input line 503.
-(pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
-
-Underfull \vbox (badness 1762) has occurred while \output is active []
-
-[25]
-<figs/utterancePlot-1.pdf, id=264, 387.4475pt x 113.42375pt>
-File: figs/utterancePlot-1.pdf Graphic file (type pdf)
-<use figs/utterancePlot-1.pdf>
-Package pdftex.def Info: figs/utterancePlot-1.pdf  used on input line 514.
-(pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
-<figs/intonationPlot-1.pdf, id=266, 387.4475pt x 113.42375pt>
-File: figs/intonationPlot-1.pdf Graphic file (type pdf)
-<use figs/intonationPlot-1.pdf>
-Package pdftex.def Info: figs/intonationPlot-1.pdf  used on input line 525.
-(pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
-<figs/negModalPlot-1.pdf, id=268, 309.155pt x 257.96375pt>
-File: figs/negModalPlot-1.pdf Graphic file (type pdf)
-<use figs/negModalPlot-1.pdf>
-Package pdftex.def Info: figs/negModalPlot-1.pdf  used on input line 536.
-(pdftex.def)             Requested size: 309.18253pt x 257.98671pt.
-[26]
-<figs/syntaxPlot-1.pdf, id=278, 387.4475pt x 113.42375pt>
-File: figs/syntaxPlot-1.pdf Graphic file (type pdf)
-<use figs/syntaxPlot-1.pdf>
-Package pdftex.def Info: figs/syntaxPlot-1.pdf  used on input line 547.
-(pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
-<figs/speechActPlot-1.pdf, id=282, 423.5825pt x 331.2375pt>
-File: figs/speechActPlot-1.pdf Graphic file (type pdf)
-<use figs/speechActPlot-1.pdf>
-Package pdftex.def Info: figs/speechActPlot-1.pdf  used on input line 558.
-(pdftex.def)             Requested size: 423.59439pt x 331.24678pt.
-
-Underfull \vbox (badness 4752) has occurred while \output is active []
-
-[27]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[28] [29] [30] [31] [32]
-<figs/binaryFigure-1.pdf, id=325, 361.35pt x 234.8775pt>
-File: figs/binaryFigure-1.pdf Graphic file (type pdf)
-<use figs/binaryFigure-1.pdf>
-Package pdftex.def Info: figs/binaryFigure-1.pdf  used on input line 612.
-(pdftex.def)             Requested size: 361.34912pt x 234.87692pt.
-[33]
-<figs/wholeFigure-1.pdf, id=343, 381.425pt x 516.93124pt>
-File: figs/wholeFigure-1.pdf Graphic file (type pdf)
-<use figs/wholeFigure-1.pdf>
-Package pdftex.def Info: figs/wholeFigure-1.pdf  used on input line 627.
-(pdftex.def)             Requested size: 381.44151pt x 516.95363pt.
-
-LaTeX Warning: Float too large for page by 20.5085pt on input line 629.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[34] [35]
-Underfull \vbox (badness 4752) has occurred while \output is active []
-
-[36] [37] [38] [39] [40]
-Overfull \hbox (7.94583pt too wide) in paragraph at lines 702--702
+[17] [18] [19] [20]
+Overfull \hbox (7.94583pt too wide) in paragraph at lines 419--419
 []|\T1/lmr/m/n/12 (-20) NAND|  
  []
 
-[41] [42]
-Overfull \hbox (4.46188pt too wide) in alignment at lines 749--754
+[21] [22] [23] [24]
+Overfull \hbox (4.46188pt too wide) in alignment at lines 526--531
  [] [] [] 
  []
 
 
-Overfull \hbox (4.46188pt too wide) in alignment at lines 754--758
+Overfull \hbox (4.46188pt too wide) in alignment at lines 531--535
  [] [] [] 
  []
 
 
-Overfull \hbox (4.46188pt too wide) in alignment at lines 758--762
+Overfull \hbox (4.46188pt too wide) in alignment at lines 535--539
  [] [] [] 
  []
 
-[43]
-Overfull \hbox (8.65747pt too wide) in paragraph at lines 796--796
+[25]
+Overfull \hbox (8.65747pt too wide) in paragraph at lines 565--565
 []|\T1/lmr/m/n/12 (-20) Identifications|  
  []
 
 
-Overfull \hbox (4.18973pt too wide) in paragraph at lines 801--801
+Overfull \hbox (4.18973pt too wide) in paragraph at lines 570--570
 []|\T1/lmr/m/n/12 (-20) Clarifications|  
  []
 
 
-Overfull \hbox (0.99167pt too wide) in paragraph at lines 803--803
+Overfull \hbox (0.99167pt too wide) in paragraph at lines 572--572
 []|\T1/lmr/m/n/12 (-20) Conditionals|  
  []
 
 
-Overfull \hbox (12.82222pt too wide) in paragraph at lines 804--804
+Overfull \hbox (12.82222pt too wide) in paragraph at lines 573--573
 []|\T1/lmr/m/n/12 (-20) Unconditionals|  
  []
 
-[44] [45]
-Overfull \hbox (4.46188pt too wide) in alignment at lines 811--816
+[26] [27]
+Overfull \hbox (4.46188pt too wide) in alignment at lines 590--595
  [] [] [] 
  []
 
 
-Overfull \hbox (4.46188pt too wide) in alignment at lines 816--820
+Overfull \hbox (4.46188pt too wide) in alignment at lines 595--599
  [] [] [] 
  []
 
 
-Overfull \hbox (4.46188pt too wide) in alignment at lines 820--825
+Overfull \hbox (4.46188pt too wide) in alignment at lines 599--604
  [] [] [] 
  []
 
+[28] [29] [30]
+<figs/answerPlot-1.pdf, id=284, 452.69125pt x 134.5025pt>
+File: figs/answerPlot-1.pdf Graphic file (type pdf)
+<use figs/answerPlot-1.pdf>
+Package pdftex.def Info: figs/answerPlot-1.pdf  used on input line 638.
+(pdftex.def)             Requested size: 452.69014pt x 134.50215pt.
+<figs/interpretationPlot-1.pdf, id=285, 387.4475pt x 113.42375pt>
+File: figs/interpretationPlot-1.pdf Graphic file (type pdf)
+<use figs/interpretationPlot-1.pdf>
+Package pdftex.def Info: figs/interpretationPlot-1.pdf  used on input line 650.
+
+(pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[46]
-<figs/oReliabilityPlot-1.pdf, id=412, 380.42125pt x 312.16624pt>
+[31 <./figs/answerPlot-1.pdf> <./figs/interpretationPlot-1.pdf>]
+<figs/consistencyPlot-1.pdf, id=309, 387.4475pt x 113.42375pt>
+File: figs/consistencyPlot-1.pdf Graphic file (type pdf)
+<use figs/consistencyPlot-1.pdf>
+Package pdftex.def Info: figs/consistencyPlot-1.pdf  used on input line 664.
+(pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
+[32 <./figs/consistencyPlot-1.pdf>]
+<figs/utterancePlot-1.pdf, id=328, 387.4475pt x 113.42375pt>
+File: figs/utterancePlot-1.pdf Graphic file (type pdf)
+<use figs/utterancePlot-1.pdf>
+Package pdftex.def Info: figs/utterancePlot-1.pdf  used on input line 675.
+(pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
+[33 <./figs/utterancePlot-1.pdf>]
+<figs/intonationPlot-1.pdf, id=345, 387.4475pt x 113.42375pt>
+File: figs/intonationPlot-1.pdf Graphic file (type pdf)
+<use figs/intonationPlot-1.pdf>
+Package pdftex.def Info: figs/intonationPlot-1.pdf  used on input line 686.
+(pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
+<figs/negModalPlot-1.pdf, id=347, 309.155pt x 257.96375pt>
+File: figs/negModalPlot-1.pdf Graphic file (type pdf)
+<use figs/negModalPlot-1.pdf>
+Package pdftex.def Info: figs/negModalPlot-1.pdf  used on input line 697.
+(pdftex.def)             Requested size: 309.18253pt x 257.98671pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[34 <./figs/intonationPlot-1.pdf>] [35 <./figs/negModalPlot-1.pdf>]
+<figs/syntaxPlot-1.pdf, id=373, 387.4475pt x 113.42375pt>
+File: figs/syntaxPlot-1.pdf Graphic file (type pdf)
+<use figs/syntaxPlot-1.pdf>
+Package pdftex.def Info: figs/syntaxPlot-1.pdf  used on input line 708.
+(pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
+<figs/speechActPlot-1.pdf, id=377, 423.5825pt x 331.2375pt>
+File: figs/speechActPlot-1.pdf Graphic file (type pdf)
+<use figs/speechActPlot-1.pdf>
+Package pdftex.def Info: figs/speechActPlot-1.pdf  used on input line 719.
+(pdftex.def)             Requested size: 423.59439pt x 331.24678pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[36 <./figs/syntaxPlot-1.pdf>]
+Underfull \vbox (badness 3281) has occurred while \output is active []
+
+[37 <./figs/speechActPlot-1.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[38]
+Underfull \vbox (badness 4954) has occurred while \output is active []
+
+[39] [40] [41]
+Underfull \vbox (badness 1831) has occurred while \output is active []
+
+[42]
+<figs/binaryFigure-1.pdf, id=440, 361.35pt x 234.8775pt>
+File: figs/binaryFigure-1.pdf Graphic file (type pdf)
+<use figs/binaryFigure-1.pdf>
+Package pdftex.def Info: figs/binaryFigure-1.pdf  used on input line 773.
+(pdftex.def)             Requested size: 361.34912pt x 234.87692pt.
+[43 <./figs/binaryFigure-1.pdf>]
+Underfull \vbox (badness 4752) has occurred while \output is active []
+
+[44]
+<figs/wholeFigure-1.pdf, id=466, 381.425pt x 516.93124pt>
+File: figs/wholeFigure-1.pdf Graphic file (type pdf)
+<use figs/wholeFigure-1.pdf>
+Package pdftex.def Info: figs/wholeFigure-1.pdf  used on input line 788.
+(pdftex.def)             Requested size: 381.44151pt x 516.95363pt.
+
+LaTeX Warning: Float too large for page by 20.5085pt on input line 790.
+
+[45] [46 <./figs/wholeFigure-1.pdf>]
+Underfull \vbox (badness 4752) has occurred while \output is active []
+
+[47]
+Underfull \vbox (badness 4752) has occurred while \output is active []
+
+[48] [49] [50]
+<figs/oReliabilityPlot-1.pdf, id=503, 380.42125pt x 312.16624pt>
 File: figs/oReliabilityPlot-1.pdf Graphic file (type pdf)
 <use figs/oReliabilityPlot-1.pdf>
-Package pdftex.def Info: figs/oReliabilityPlot-1.pdf  used on input line 834.
+Package pdftex.def Info: figs/oReliabilityPlot-1.pdf  used on input line 823.
 (pdftex.def)             Requested size: 380.4261pt x 312.17024pt.
-[47]
-<figs/andReliabilityPlot-1.pdf, id=423, 380.42125pt x 312.16624pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[51]
+Underfull \vbox (badness 1348) has occurred while \output is active []
+
+[52 <./figs/oReliabilityPlot-1.pdf>]
+<figs/andReliabilityPlot-1.pdf, id=524, 380.42125pt x 312.16624pt>
 File: figs/andReliabilityPlot-1.pdf Graphic file (type pdf)
 <use figs/andReliabilityPlot-1.pdf>
-Package pdftex.def Info: figs/andReliabilityPlot-1.pdf  used on input line 847.
+Package pdftex.def Info: figs/andReliabilityPlot-1.pdf  used on input line 836.
 
 (pdftex.def)             Requested size: 380.4261pt x 312.17024pt.
-[48] [49] [50] [51] [52] [53] [54] [55] AED endfloat: Processing end Figures an
-d Tables [56] [57 <./figs/disjunctionPrediction-1.pdf>] [58 <./figs/answerPlot-
-1.pdf> <./figs/interpretationPlot-1.pdf> <./figs/consistencyPlot-1.pdf>] [59 <.
-/figs/utterancePlot-1.pdf> <./figs/intonationPlot-1.pdf>] [60 <./figs/negModalP
-lot-1.pdf> <./figs/syntaxPlot-1.pdf>] [61 <./figs/speechActPlot-1.pdf>] [62 <./
-figs/binaryFigure-1.pdf>] [63 <./figs/wholeFigure-1.pdf>] [64 <./figs/oReliabil
-ityPlot-1.pdf>] [65 <./figs/andReliabilityPlot-1.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1123.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1123.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[53]
+Underfull \vbox (badness 1348) has occurred while \output is active []
+
+[54 <./figs/andReliabilityPlot-1.pdf>] [55] [56] [57] [58] [59] [60] [61] [62] 
+AED endfloat: Processing end Figures and Tables [63]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1115.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1115.
 (./Jasbi-Jaggi-Clark-Frank.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1123.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1123.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1115.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1115.
  ) 
 Here is how much of TeX's memory you used:
- 17493 strings out of 480608
- 262069 string characters out of 5903631
- 584679 words of memory out of 5000000
- 32663 multiletter control sequences out of 15000+600000
- 626117 words of font info for 151 fonts, out of 8000000 for 9000
+ 17486 strings out of 480608
+ 261953 string characters out of 5903631
+ 576519 words of memory out of 5000000
+ 32660 multiletter control sequences out of 15000+600000
+ 626246 words of font info for 152 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,11n,51p,2262b,547s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,11n,51p,2262b,543s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
 20/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2020/texmf-dist/
@@ -988,10 +994,10 @@ fb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/lo
 cal/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texliv
 e/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2020/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on Jasbi-Jaggi-Clark-Frank.pdf (65 pages, 1303541 bytes).
+Output written on Jasbi-Jaggi-Clark-Frank.pdf (63 pages, 1305029 bytes).
 PDF statistics:
- 880 PDF objects out of 1000 (max. 8388607)
- 740 compressed objects within 8 object streams
- 247 named destinations out of 1000 (max. 500000)
- 12617 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 861 PDF objects out of 1000 (max. 8388607)
+ 723 compressed objects within 8 object streams
+ 241 named destinations out of 1000 (max. 500000)
+ 12601 words of extra memory for PDF output out of 14400 (max. 10000000)
 
