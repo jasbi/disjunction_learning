@@ -39,14 +39,20 @@ rsconnect/
 
 # Mac file
 .DS_Store
+**/.DS_Store
 
 # Tex files
 *.fff
 *.ttt
+*.log
 
 # Heavy files
 connective_learning/1_raw_data/All_Eng_Utterances.csv
 connective_learning/1_raw_data/All_Eng_Utterances.feather
 connective_learning/1_raw_data/english_tokens.csv
 connective_learning/1_raw_data/english_tokens.feather
+
+# submission files
+JCL
+
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  25 MAR 2022 15:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  3 MAY 2022 10:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -264,11 +264,7 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifxetex.sty
-Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifluatex.sty
-Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
+)) (/usr/local/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
@@ -467,7 +463,38 @@ LaTeX Info: Redefining \addtolength on input line 81.
 Package: footnotehyper 2019/11/07 v1.1a hyperref aware footnote.sty (JFB)
 \FNH@notes=\box57
 \FNH@width=\dimen184
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/was/upgreek.sty
+)
+\cslhangindent=\skip85
+\csllabelwidth=\skip86
+\cslentryspacingunit=\skip87
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2020/03/22 3.42 The Babel package
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2020/03/22 3.42 Babel switching mechanism
+)
+Package babel Info: You haven't specified a language. I'll use 'nil'
+(babel)             as the main language. Reported on input line 573.
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/nil.ldf
+Language: nil 2020/03/22 3.42 Nil language
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2020/03/22 3.42 Babel common definitions
+\babel@savecnt=\count291
+\U@D=\dimen185
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count292
+)
+\l@nil=\language86
+))
+\everypar=\toks29
+
+(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/locale/en/babel-english.t
+ex)
+Package babel Info: Importing data for english
+(babel)             from babel-en.ini. Reported on input line 110.
+Package babel Info: \l@english = using hyphenrules for english
+(babel)             (\language0) on input line 110.
+(/usr/local/texlive/2020/texmf-dist/tex/latex/was/upgreek.sty
 Package: upgreek 2003/02/12 v2.0 (WaS)
 Package upgreek Info: Using Euler Roman for upright Greek on input line 31.
 \symugrf@m=\mathgroup9
@@ -477,19 +504,19 @@ LaTeX Font Info:    Overwriting symbol font `ugrf@m' in version `bold'
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
-\multirow@colwidth=\skip85
-\multirow@cntb=\count291
-\multirow@dima=\skip86
-\bigstrutjot=\dimen185
+\multirow@colwidth=\skip88
+\multirow@cntb=\count293
+\multirow@dima=\skip89
+\bigstrutjot=\dimen186
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
-\TX@col@width=\dimen186
-\TX@old@table=\dimen187
-\TX@old@col=\dimen188
-\TX@target=\dimen189
-\TX@delta=\dimen190
-\TX@cols=\count292
-\TX@ftn=\toks29
+\TX@col@width=\dimen187
+\TX@old@table=\dimen188
+\TX@old@col=\dimen189
+\TX@target=\dimen190
+\TX@delta=\dimen191
+\TX@cols=\count294
+\TX@ftn=\toks30
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/threeparttablex/threeparttablex.s
 ty
@@ -499,35 +526,50 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 (/usr/local/texlive/2020/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\TPTL@width=\skip87
+\TPTL@width=\skip90
 )
-\longtablewidth=\skip88
-(/usr/local/texlive/2020/texmf-dist/tex/latex/lineno/lineno.sty
+\longtablewidth=\skip91
+(/usr/local/texlive/2020/texmf-dist/tex/latex/xpatch/xpatch.sty (/usr/local/tex
+live/2020/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2020-03-06 L3 programming layer (loader) 
+(/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count295
+\l__pdf_internal_box=\box58
+))
+Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
+(/usr/local/texlive/2020/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2020-03-06 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count296
+\g__xparse_grabber_int=\count297
+\l__xparse_m_args_int=\count298
+\l__xparse_v_nesting_int=\count299
+)) (/usr/local/texlive/2020/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count293
-\output=\toks30
-\linenoprevgraf=\count294
-\linenumbersep=\dimen191
-\linenumberwidth=\dimen192
-\c@linenumber=\count295
-\c@pagewiselinenumber=\count296
-\c@LN@truepage=\count297
-\c@internallinenumber=\count298
-\c@internallinenumbers=\count299
-\quotelinenumbersep=\dimen193
-\bframerule=\dimen194
-\bframesep=\dimen195
-\bframebox=\box58
+\linenopenalty=\count300
+\output=\toks31
+\linenoprevgraf=\count301
+\linenumbersep=\dimen192
+\linenumberwidth=\dimen193
+\c@linenumber=\count302
+\c@pagewiselinenumber=\count303
+\c@LN@truepage=\count304
+\c@internallinenumber=\count305
+\c@internallinenumbers=\count306
+\quotelinenumbersep=\dimen194
+\bframerule=\dimen195
+\bframesep=\dimen196
+\bframebox=\box59
 LaTeX Info: Redefining \\ on input line 3056.
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2019-12-06 v5.2j context-sensitive quotations (JAW)
-\csq@reset=\count300
-\csq@gtype=\count301
-\csq@glevel=\count302
-\csq@qlevel=\count303
-\csq@maxlvl=\count304
-\csq@tshold=\count305
-\csq@ltx@everypar=\toks31
+\csq@reset=\count307
+\csq@gtype=\count308
+\csq@glevel=\count309
+\csq@qlevel=\count310
+\csq@maxlvl=\count311
+\csq@tshold=\count312
+\csq@ltx@everypar=\toks32
 (/usr/local/texlive/2020/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2019-12-06 v5.2j csquotes generic definitions (JAW)
 )
@@ -535,60 +577,32 @@ Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/csquotes/csquotes.cfg
 File: csquotes.cfg 
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2020/03/22 3.42 The Babel package
-(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/switch.def
-File: switch.def 2020/03/22 3.42 Babel switching mechanism
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/babel-english/english.ldf
-Language: english 2017/06/06 v3.3r English support from the babel system
-(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2020/03/22 3.42 Babel common definitions
-\babel@savecnt=\count306
-\U@D=\dimen196
-(/usr/local/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@readstream=\read2
-\bbl@dirlevel=\count307
-)
-Package babel Info: \l@canadian = using hyphenrules for english
-(babel)             (\language0) on input line 102.
-Package babel Info: \l@australian = using hyphenrules for ukenglish
-(babel)             (\language21) on input line 105.
-Package babel Info: \l@newzealand = using hyphenrules for ukenglish
-(babel)             (\language21) on input line 108.
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/babel-english/english.ldf
-Language: english 2017/06/06 v3.3r English support from the babel system
 ))
-\cslhangindent=\skip89
-\csllabelwidth=\skip90
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
-(/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
-File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count308
-\l__pdf_internal_box=\box59
-) (./Jasbi-Jaggi-Clark-Frank.aux)
+(./Jasbi-Jaggi-Clark-Frank.aux)
 \openout1 = `Jasbi-Jaggi-Clark-Frank.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 186.
-LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 211.
+LaTeX Font Info:    ... okay on input line 211.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -625,28 +639,21 @@ LaTeX Font Info:    ... okay on input line 186.
 
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count309
+\scratchcounter=\count313
 \scratchdimen=\dimen197
 \scratchbox=\box60
-\nofMPsegments=\count310
-\nofMParguments=\count311
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count312
+\nofMPsegments=\count314
+\nofMParguments=\count315
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count316
 \MPscratchDim=\dimen198
-\MPnumerator=\count313
-\makeMPintoPDFobject=\count314
-\everyMPtoPDFconversion=\toks33
+\MPnumerator=\count317
+\makeMPintoPDFobject=\count318
+\everyMPtoPDFconversion=\toks34
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-(/usr/local/texlive/2020/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
@@ -661,14 +668,14 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 186.
+LaTeX Info: Redefining \microtypecontext on input line 211.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 186.
+LaTeX Info: Redefining \showhyphens on input line 211.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -677,7 +684,7 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 \AtBeginShipoutBox=\box61
-Package hyperref Info: Link coloring OFF on input line 186.
+Package hyperref Info: Link coloring OFF on input line 211.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (/usr/local/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
@@ -687,50 +694,50 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count315
+\c@section@level=\count319
 )
-LaTeX Info: Redefining \ref on input line 186.
-LaTeX Info: Redefining \pageref on input line 186.
-LaTeX Info: Redefining \nameref on input line 186.
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
-88.
+LaTeX Info: Redefining \ref on input line 211.
+LaTeX Info: Redefining \pageref on input line 211.
+LaTeX Info: Redefining \nameref on input line 211.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 2
+13.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-88.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
+13.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-88.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
+13.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-188.
+213.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-188.
+213.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 188.
+(Font)              <12> on input line 213.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 188.
+(Font)              <8> on input line 213.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 188.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 188
+(Font)              <6> on input line 213.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 213
 .
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 188
+LaTeX Font Info:    Trying to load font information for U+msb on input line 213
 .
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -742,20 +749,20 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 
 ] [2] [3] [4] [5] [6] [7] [8] [9]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-48.
+85.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [10]
 <figs/freqPlots-1.pdf, id=79, 456.70625pt x 170.6375pt>
 File: figs/freqPlots-1.pdf Graphic file (type pdf)
 <use figs/freqPlots-1.pdf>
-Package pdftex.def Info: figs/freqPlots-1.pdf  used on input line 267.
+Package pdftex.def Info: figs/freqPlots-1.pdf  used on input line 304.
 (pdftex.def)             Requested size: 456.71906pt x 170.64227pt.
 [11 <./figs/freqPlots-1.pdf>]
 <figs/speechActPlots-1.pdf, id=98, 462.72874pt x 164.615pt>
 File: figs/speechActPlots-1.pdf Graphic file (type pdf)
 <use figs/speechActPlots-1.pdf>
-Package pdftex.def Info: figs/speechActPlots-1.pdf  used on input line 282.
+Package pdftex.def Info: figs/speechActPlots-1.pdf  used on input line 319.
 (pdftex.def)             Requested size: 462.73466pt x 164.6171pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -764,7 +771,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <figs/ageSpeechActPlot-1.pdf, id=105, 348.30125pt x 200.75pt>
 File: figs/ageSpeechActPlot-1.pdf Graphic file (type pdf)
 <use figs/ageSpeechActPlot-1.pdf>
-Package pdftex.def Info: figs/ageSpeechActPlot-1.pdf  used on input line 293.
+Package pdftex.def Info: figs/ageSpeechActPlot-1.pdf  used on input line 330.
 (pdftex.def)             Requested size: 348.31633pt x 200.75868pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -774,129 +781,97 @@ Underfull \vbox (badness 1082) has occurred while \output is active []
 
 [14 <./figs/ageSpeechActPlot-1.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 311.
+(Font)              <9> on input line 348.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 311.
-<figs/disjunctionPrediction-1.pdf, id=145, 1081.03876pt x 908.39375pt>
+(Font)              <5> on input line 348.
+<figs/disjunctionPrediction-1.pdf, id=145, 415.5525pt x 199.74625pt>
 File: figs/disjunctionPrediction-1.pdf Graphic file (type pdf)
 <use figs/disjunctionPrediction-1.pdf>
 Package pdftex.def Info: figs/disjunctionPrediction-1.pdf  used on input line 3
-36.
-(pdftex.def)             Requested size: 469.7532pt x 394.73227pt.
+73.
+(pdftex.def)             Requested size: 415.5705pt x 199.7549pt.
 [15]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 343.
+(Font)              <10> on input line 380.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 343.
-[16 <./figs/disjunctionPrediction-1.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[17] [18] [19] [20]
-Overfull \hbox (7.94583pt too wide) in paragraph at lines 419--419
+(Font)              <7> on input line 380.
+[16 <./figs/disjunctionPrediction-1.pdf>] [17] [18] [19] [20]
+Overfull \hbox (6.11618pt too wide) in paragraph at lines 470--470
 []|\T1/lmr/m/n/12 (-20) NAND|  
  []
 
-[21] [22] [23] [24]
-Overfull \hbox (4.46188pt too wide) in alignment at lines 526--531
- [] [] [] 
- []
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Overfull \hbox (4.46188pt too wide) in alignment at lines 531--535
- [] [] [] 
- []
+[21] [22]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Overfull \hbox (4.46188pt too wide) in alignment at lines 535--539
- [] [] [] 
- []
-
-[25]
-Overfull \hbox (8.65747pt too wide) in paragraph at lines 565--565
+[23] [24] [25]
+Overfull \hbox (6.6986pt too wide) in paragraph at lines 676--676
 []|\T1/lmr/m/n/12 (-20) Identifications|  
  []
 
 
-Overfull \hbox (4.18973pt too wide) in paragraph at lines 570--570
+Overfull \hbox (2.23085pt too wide) in paragraph at lines 681--681
 []|\T1/lmr/m/n/12 (-20) Clarifications|  
  []
 
 
-Overfull \hbox (0.99167pt too wide) in paragraph at lines 572--572
-[]|\T1/lmr/m/n/12 (-20) Conditionals|  
- []
-
-
-Overfull \hbox (12.82222pt too wide) in paragraph at lines 573--573
+Overfull \hbox (10.86334pt too wide) in paragraph at lines 684--684
 []|\T1/lmr/m/n/12 (-20) Unconditionals|  
  []
 
-[26] [27]
-Overfull \hbox (4.46188pt too wide) in alignment at lines 590--595
- [] [] [] 
- []
-
-
-Overfull \hbox (4.46188pt too wide) in alignment at lines 595--599
- [] [] [] 
- []
-
-
-Overfull \hbox (4.46188pt too wide) in alignment at lines 599--604
- [] [] [] 
- []
-
-[28] [29] [30]
-<figs/answerPlot-1.pdf, id=284, 452.69125pt x 134.5025pt>
+[26] [27] [28] [29] [30]
+<figs/answerPlot-1.pdf, id=282, 452.69125pt x 134.5025pt>
 File: figs/answerPlot-1.pdf Graphic file (type pdf)
 <use figs/answerPlot-1.pdf>
-Package pdftex.def Info: figs/answerPlot-1.pdf  used on input line 638.
+Package pdftex.def Info: figs/answerPlot-1.pdf  used on input line 761.
 (pdftex.def)             Requested size: 452.69014pt x 134.50215pt.
-<figs/interpretationPlot-1.pdf, id=285, 387.4475pt x 113.42375pt>
+<figs/interpretationPlot-1.pdf, id=283, 387.4475pt x 113.42375pt>
 File: figs/interpretationPlot-1.pdf Graphic file (type pdf)
 <use figs/interpretationPlot-1.pdf>
-Package pdftex.def Info: figs/interpretationPlot-1.pdf  used on input line 650.
+Package pdftex.def Info: figs/interpretationPlot-1.pdf  used on input line 773.
 
 (pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [31 <./figs/answerPlot-1.pdf> <./figs/interpretationPlot-1.pdf>]
-<figs/consistencyPlot-1.pdf, id=309, 387.4475pt x 113.42375pt>
+<figs/consistencyPlot-1.pdf, id=307, 387.4475pt x 113.42375pt>
 File: figs/consistencyPlot-1.pdf Graphic file (type pdf)
 <use figs/consistencyPlot-1.pdf>
-Package pdftex.def Info: figs/consistencyPlot-1.pdf  used on input line 664.
+Package pdftex.def Info: figs/consistencyPlot-1.pdf  used on input line 787.
 (pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
 [32 <./figs/consistencyPlot-1.pdf>]
-<figs/utterancePlot-1.pdf, id=328, 387.4475pt x 113.42375pt>
+<figs/utterancePlot-1.pdf, id=326, 387.4475pt x 113.42375pt>
 File: figs/utterancePlot-1.pdf Graphic file (type pdf)
 <use figs/utterancePlot-1.pdf>
-Package pdftex.def Info: figs/utterancePlot-1.pdf  used on input line 675.
+Package pdftex.def Info: figs/utterancePlot-1.pdf  used on input line 798.
 (pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
 [33 <./figs/utterancePlot-1.pdf>]
-<figs/intonationPlot-1.pdf, id=345, 387.4475pt x 113.42375pt>
+<figs/intonationPlot-1.pdf, id=343, 387.4475pt x 113.42375pt>
 File: figs/intonationPlot-1.pdf Graphic file (type pdf)
 <use figs/intonationPlot-1.pdf>
-Package pdftex.def Info: figs/intonationPlot-1.pdf  used on input line 686.
+Package pdftex.def Info: figs/intonationPlot-1.pdf  used on input line 809.
 (pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
-<figs/negModalPlot-1.pdf, id=347, 309.155pt x 257.96375pt>
+<figs/negModalPlot-1.pdf, id=345, 309.155pt x 257.96375pt>
 File: figs/negModalPlot-1.pdf Graphic file (type pdf)
 <use figs/negModalPlot-1.pdf>
-Package pdftex.def Info: figs/negModalPlot-1.pdf  used on input line 697.
+Package pdftex.def Info: figs/negModalPlot-1.pdf  used on input line 820.
 (pdftex.def)             Requested size: 309.18253pt x 257.98671pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [34 <./figs/intonationPlot-1.pdf>] [35 <./figs/negModalPlot-1.pdf>]
-<figs/syntaxPlot-1.pdf, id=373, 387.4475pt x 113.42375pt>
+<figs/syntaxPlot-1.pdf, id=371, 387.4475pt x 113.42375pt>
 File: figs/syntaxPlot-1.pdf Graphic file (type pdf)
 <use figs/syntaxPlot-1.pdf>
-Package pdftex.def Info: figs/syntaxPlot-1.pdf  used on input line 708.
+Package pdftex.def Info: figs/syntaxPlot-1.pdf  used on input line 831.
 (pdftex.def)             Requested size: 387.44655pt x 113.42346pt.
-<figs/speechActPlot-1.pdf, id=377, 423.5825pt x 331.2375pt>
+<figs/speechActPlot-1.pdf, id=375, 423.5825pt x 331.2375pt>
 File: figs/speechActPlot-1.pdf Graphic file (type pdf)
 <use figs/speechActPlot-1.pdf>
-Package pdftex.def Info: figs/speechActPlot-1.pdf  used on input line 719.
+Package pdftex.def Info: figs/speechActPlot-1.pdf  used on input line 842.
 (pdftex.def)             Requested size: 423.59439pt x 331.24678pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -914,22 +889,22 @@ Underfull \vbox (badness 4954) has occurred while \output is active []
 Underfull \vbox (badness 1831) has occurred while \output is active []
 
 [42]
-<figs/binaryFigure-1.pdf, id=440, 361.35pt x 234.8775pt>
+<figs/binaryFigure-1.pdf, id=438, 361.35pt x 234.8775pt>
 File: figs/binaryFigure-1.pdf Graphic file (type pdf)
 <use figs/binaryFigure-1.pdf>
-Package pdftex.def Info: figs/binaryFigure-1.pdf  used on input line 773.
+Package pdftex.def Info: figs/binaryFigure-1.pdf  used on input line 896.
 (pdftex.def)             Requested size: 361.34912pt x 234.87692pt.
 [43 <./figs/binaryFigure-1.pdf>]
 Underfull \vbox (badness 4752) has occurred while \output is active []
 
 [44]
-<figs/wholeFigure-1.pdf, id=466, 381.425pt x 516.93124pt>
+<figs/wholeFigure-1.pdf, id=464, 381.425pt x 516.93124pt>
 File: figs/wholeFigure-1.pdf Graphic file (type pdf)
 <use figs/wholeFigure-1.pdf>
-Package pdftex.def Info: figs/wholeFigure-1.pdf  used on input line 788.
+Package pdftex.def Info: figs/wholeFigure-1.pdf  used on input line 911.
 (pdftex.def)             Requested size: 381.44151pt x 516.95363pt.
 
-LaTeX Warning: Float too large for page by 20.5085pt on input line 790.
+LaTeX Warning: Float too large for page by 20.5085pt on input line 913.
 
 [45] [46 <./figs/wholeFigure-1.pdf>]
 Underfull \vbox (badness 4752) has occurred while \output is active []
@@ -938,10 +913,10 @@ Underfull \vbox (badness 4752) has occurred while \output is active []
 Underfull \vbox (badness 4752) has occurred while \output is active []
 
 [48] [49] [50]
-<figs/oReliabilityPlot-1.pdf, id=503, 380.42125pt x 312.16624pt>
+<figs/oReliabilityPlot-1.pdf, id=501, 380.42125pt x 312.16624pt>
 File: figs/oReliabilityPlot-1.pdf Graphic file (type pdf)
 <use figs/oReliabilityPlot-1.pdf>
-Package pdftex.def Info: figs/oReliabilityPlot-1.pdf  used on input line 823.
+Package pdftex.def Info: figs/oReliabilityPlot-1.pdf  used on input line 946.
 (pdftex.def)             Requested size: 380.4261pt x 312.17024pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -950,10 +925,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 1348) has occurred while \output is active []
 
 [52 <./figs/oReliabilityPlot-1.pdf>]
-<figs/andReliabilityPlot-1.pdf, id=524, 380.42125pt x 312.16624pt>
+<figs/andReliabilityPlot-1.pdf, id=522, 380.42125pt x 312.16624pt>
 File: figs/andReliabilityPlot-1.pdf Graphic file (type pdf)
 <use figs/andReliabilityPlot-1.pdf>
-Package pdftex.def Info: figs/andReliabilityPlot-1.pdf  used on input line 836.
+Package pdftex.def Info: figs/andReliabilityPlot-1.pdf  used on input line 959.
 
 (pdftex.def)             Requested size: 380.4261pt x 312.17024pt.
 
@@ -962,19 +937,36 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [53]
 Underfull \vbox (badness 1348) has occurred while \output is active []
 
-[54 <./figs/andReliabilityPlot-1.pdf>] [55] [56] [57] [58] [59] [60] [61] [62] 
-AED endfloat: Processing end Figures and Tables [63]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1115.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1115.
+[54 <./figs/andReliabilityPlot-1.pdf>] [55]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[56]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[57]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[58]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[59]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[60]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[61] AED endfloat: Processing end Figures and Tables [62]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1238.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1238.
 (./Jasbi-Jaggi-Clark-Frank.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1115.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1115.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1238.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1238.
  ) 
 Here is how much of TeX's memory you used:
- 17486 strings out of 480608
- 261953 string characters out of 5903631
- 576519 words of memory out of 5000000
- 32660 multiletter control sequences out of 15000+600000
+ 18141 strings out of 480608
+ 278583 string characters out of 5903631
+ 597011 words of memory out of 5000000
+ 33312 multiletter control sequences out of 15000+600000
  626246 words of font info for 152 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,11n,51p,2262b,543s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -994,10 +986,10 @@ fb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmss8.pfb></usr/lo
 cal/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texliv
 e/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2020/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on Jasbi-Jaggi-Clark-Frank.pdf (63 pages, 1305029 bytes).
+Output written on Jasbi-Jaggi-Clark-Frank.pdf (62 pages, 1278988 bytes).
 PDF statistics:
- 861 PDF objects out of 1000 (max. 8388607)
- 723 compressed objects within 8 object streams
- 241 named destinations out of 1000 (max. 500000)
+ 854 PDF objects out of 1000 (max. 8388607)
+ 718 compressed objects within 8 object streams
+ 240 named destinations out of 1000 (max. 500000)
  12601 words of extra memory for PDF output out of 14400 (max. 10000000)
 
