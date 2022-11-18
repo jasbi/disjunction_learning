@@ -33,16 +33,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Context-Dependent Learning of Linguistic Disjunction},
-  pdfauthor={Masoud Jasbi1, Akshay Jaggi2, Eve V. Clark3, \& Michael C. Frank3},
-  pdflang={en-EN},
-  pdfkeywords={Disjunction, Logical Words, Language Acquisition, Language Development},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -176,14 +166,21 @@
   }
 {}{\PatchFailed}
 \keywords{Disjunction, Logical Words, Language Acquisition, Language Development}
-\usepackage{lineno}
-
-\linenumbers
 \usepackage{csquotes}
 \usepackage{xcolor}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Context-Dependent Learning of Linguistic Disjunction},
+  pdfauthor={Masoud Jasbi1, Akshay Jaggi2, Eve V. Clark3, \& Michael C. Frank3},
+  pdflang={en-EN},
+  pdfkeywords={Disjunction, Logical Words, Language Acquisition, Language Development},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Context-Dependent Learning of Linguistic Disjunction}
 \author{Masoud Jasbi\textsuperscript{1}, Akshay Jaggi\textsuperscript{2}, Eve V. Clark\textsuperscript{3}, \& Michael C. Frank\textsuperscript{3}}
@@ -203,7 +200,7 @@ Correspondence concerning this article should be addressed to Masoud Jasbi, Depa
 \affiliation{\vspace{0.5cm}\textsuperscript{1} University of California, Davis\\\textsuperscript{2} Harvard Medical School\\\textsuperscript{3} Stanford University}
 
 \abstract{%
-What are the constraints, cues, and mechanisms that that help learners create successful word-meaning mappings? This study takes up linguistic disjunction and looks at cues and mechanisms that can help children learn the meaning of \emph{or}. We first used a large corpus of parent-child interactions to collect statistics on \emph{or} uses. Children started producing \emph{or} between 18-30 months and by 42 months, their rate of production reached a plateau. Second, we annotated for the interpretation of disjunction in child-directed speech. Parents used \emph{or} mostly as exclusive disjunction, typically accompanied by rise-fall intonation and logically inconsistent disjuncts. But when these two cues were absent, disjunction was generally not exclusive. Our computational modeling suggests that an ideal learner could successfully interpret an English disjunction (as exclusive or not) by mapping forms to meanings after partitioning the input according to the intonational and logical cues available in child-directed speech.
+What are the constraints, cues, and mechanisms that help learners create successful word-meaning mappings? This study takes up linguistic disjunction and looks at cues and mechanisms that can help children learn the meaning of \emph{or}. We first used a large corpus of parent-child interactions to collect statistics on \emph{or} uses. Children started producing \emph{or} between 18-30 months and by 42 months, their rate of production reached a plateau. Second, we annotated for the interpretation of disjunction in child-directed speech. Parents used \emph{or} mostly as exclusive disjunction, typically accompanied by rise-fall intonation and logically inconsistent disjuncts. But when these two cues were absent, disjunction was generally not exclusive. Our computational modeling suggests that an ideal learner could successfully interpret an English disjunction (as exclusive or not) by mapping forms to meanings after partitioning the input according to the intonational and logical cues available in child-directed speech.
 }
 
 
@@ -216,7 +213,7 @@ What are the constraints, cues, and mechanisms that that help learners create su
 
 Word learning is commonly construed as the process of detecting a word form, hypothesizing about candidate meanings, and mapping the form to the intended meaning (Clark, 1993, p. 43). While this might sound straightforward, it represents a challenging problem because each word is in theory compatible with a variety of meanings (Quine, 1960). Imagine someone pointing to a fish tank and saying \emph{mahi} in a foreign language. What could \emph{mahi} mean? Maybe ``look'', ``pretty'', ``fish'', ``swim'', or one of many other possible meanings. However, research suggests that children solve the mapping problem by relying on a variety of conceptual preferences, cues, and learning mechanisms. For example, studies of early word learning have shown that children favor whole objects as referents over object parts, taxonomic relations over thematic ones, and one-to-one mappings over one-to-many mappings (Clark, 1987, 1993; Markman, 1990; Markman \& Hutchinson, 1984; Markman \& Wachtel, 1988). In addition, social cues like pointing and eye gaze help direct learners' attention to the relevant referents in context (Baldwin, 1993; Tomasello, 2003), and morphosyntactic cues that distinguish nouns, adjectives, and verbs help learners restrict their hypotheses to the domain of objects, properties, and actions respectively (Brown, 1957; Gleitman, 1990; Mintz, 2003). Finally, the mapping mechanism can be part of the solution too. While each instance of hearing a word in isolation could be compatible with a range of different meanings, any mapping mechanism that aggregates candidate meanings across multiple contexts will reduce this indeterminacy substantially (Siskind, 1996; Smith, Smith, \& Blythe, 2011; Yu \& Smith, 2007). So if \emph{mahi} is uttered in the context of a fish tank, of drawing a fish, and of eating fish, learners can become more confident about its possible meaning. The set of preferences, cues, and mechanisms that result in the successful acquisition of a word like \emph{mahi} constitute a word learning strategy.
 
-Since the lexicon consists of diverse elements, children may need different strategies for assigning meanings to different word classes. In short, the combination of preferences, cues, and mapping mechanism that works for one class, might not work so well for another. Consider a basic and broad distinction in the lexicon: that of content versus function words. Content words consist of nouns, verbs, adjectives, and some adverbs. They often refer to everyday aspects of experience - objects, properties, and actions- and encode an extensive range of meanings. But function words like \emph{or}, \emph{not}, \emph{can}, and \emph{the} have small and often subtle meanings that link content words within an utterance. Their meanings are best understood in terms of the combinatorial role they play in building the overall interpretation of the utterance. While there has been considerable research on the learning of content words, there has been much less on the learning of function words. Many of the preferences, cues, and mechanisms identified so far apply more directly to content words, and social cues such as pointing and eye gaze that play a role in mapping words to concrete referents appear less helpful when it comes to words like \emph{or} and \emph{not}. Similarly, whole-object and taxonomic constraints do not extend to function words in any straightforward manner. In order to arrive at a more general solution of the mapping problem, we therefore need to look at preferences, cues, and mechanisms for function words as well.
+Since the lexicon consists of diverse elements, children may need different strategies for assigning meanings to different word classes. In short, the combination of preferences, cues, and mapping mechanism that works for one class, might not work so well for another. Consider a basic and broad distinction in the lexicon: that of content versus function words. Content words consist of nouns, verbs, adjectives, and some adverbs. They often refer to everyday aspects of experience - objects, properties, and actions- and encode an extensive range of meanings. But function words like \emph{or}, \emph{not}, \emph{can}, and \emph{the} have small and often subtle meanings that link content words within an utterance. Their meanings are best understood in terms of the combinatorial role they play in building the overall interpretation of the utterance. While there has been considerable research on the learning of content words, there has been much less on the learning of function words. Many of the preferences, cues, and mechanisms that apply more directly to content words, and social cues such as pointing and eye gaze that play a role in mapping words to concrete referents appear less helpful when it comes to words like \emph{or} and \emph{not}. Similarly, whole-object and taxonomic constraints do not extend to function words in any straightforward manner. In order to arrive at a more general solution of the mapping problem, we therefore need to look at preferences, cues, and mechanisms for function words as well.
 
 Quine (1960, p. 12) proposed three form-to-meaning mapping strategies for different words and word classes. Following Quine, we call them ``isolated'' mapping, ``context-dependent'' mapping, and ``description'' mapping. Isolated mapping involves hearing a word (a linguistic form) and mapping it to a possible meaning in isolation from any linguistic context. For instance, hearing \emph{mahi} (as an utterance or part of an utterance) and mapping it to the concept ``fish''. Concrete nouns are prototypical examples of isolated mapping. Context-dependent mapping is learning a word ``contextually, or by abstraction, as a fragment of sentences learned as wholes''. Note that context here is the linguistic context. Quine suggested that all words are to some degree learned in a context-dependent way, but, he noted ``prepositions, conjunctions, and many other words, are bound to have been learned only contextually; we get on to using them by analogy with the ways in which they have been seen to turn up in past sentences''. Finally, ``description mapping'' refers to cases where the word is defined explicitly using other words, as in a dictionary entry. Quine gives ``molecule'' as an example of a word whose meaning is given via a description or definition. In Quine's account, word learning starts with isolated mapping and slowly increases its dependence on context-dependent mappings until finally many words may be learned via linguistic descriptions or definitions (see Gleitman, Cassidy, Nappa, Papafragou, \& Trueswell, 2005 for a similar view emphasizing the role of syntax in word learning). Function words, therefore, are assumed to be learned using the context-dependent strategy.
 
@@ -227,7 +224,7 @@ This paper focuses on the acquisition of linguistic disjunction, and proposes a 
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4231}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1538}}@{}}
 \caption{\label{tab:orexamples} Examples of implications commonly conveyed by the use of linguistic disjunction.}\tabularnewline
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Example
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -235,9 +232,9 @@ Implication
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Label
 \end{minipage} \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Example
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -245,13 +242,13 @@ Implication
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Label
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Those above 65 or with symptoms are eligible. & \(\rightsquigarrow\) including those above 65 and with symptoms. & Inclusivity \\
 Abe plays basketball or soccer & \(\rightsquigarrow\) he does not play both. & Exclusivity \\
 I left the keys on the table or the counter. & \(\rightsquigarrow\) The speaker does not know which. & Ignorance \\
 You can use a pen or a pencil. & \(\rightsquigarrow\) You can use a pen and you can use a pencil. & Free Choice \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{previous-studies}{%
@@ -270,9 +267,9 @@ While logical nativism can address the puzzle of learning disjunction, it does n
 \hypertarget{current-study}{%
 \subsection{Current Study}\label{current-study}}
 
-In this study, we offer an alternative solution to the puzzle of learning disjunction. The main claim of this paper is that child-directed speech contains cues that allow children relying on a context-dependent mapping strategy to successfully interpret a disjunction as either exclusive or inclusive. We support this proposal with three studies. Study 1 presents the distribution of disjunction and conjunction in parents' and children's speech and addresses the following questions: (a) how often do children hear and produce \emph{or}? (b) when do children start to produce \emph{or}? In a large corpus of parent-child interactions, we found that children heard 1-2 examples of \emph{or} per 1000 words. They started producing \emph{or} themselves between 18 and 30 months, and by 42 months reached the rate of one \emph{or} per 1000 words. Studies 2 and 3 provide support both for the presence of cues to the relevant interpretation and for their usefulness in learning. In Study 2, we asked what interpretations \emph{or} had in child-directed speech. We annotated examples of \emph{or} uses, and found that its most frequent interpretation was exclusive, as Morris (2008) had found. We also found that exclusive interpretations were often accompanied by two cues: rise-fall prosody, and logically inconsistent propositions connected by \emph{or}. When these cues were absent, \emph{or} was generally non-exclusive. In Study 3, we asked if it was possible to learn the relevant interpretations of a disjunction from these cues. We used the annotation data from Study 2 and a supervised learning task that quantified cue relationship and reliability, to show that a decision-tree classifier could use prosody and consistency of disjuncts to predict interpretation (exclusive vs.~non-exclusive disjunction) with high accuracy.
+In this study, we offer an alternative solution to the puzzle of learning disjunction. The main claim of this paper is that child-directed speech contains cues that allow children relying on a context-dependent mapping strategy to successfully interpret a disjunction as either exclusive or inclusive. We support this claim with three studies. Study 1 presents the distribution of disjunction and conjunction in parents' and children's speech and addresses the following questions: (a) how often do children hear and produce \emph{or}? (b) when do children start to produce \emph{or}? In a large corpus of parent-child interactions, we found that children heard 1-2 examples of \emph{or} per 1000 words. They started producing \emph{or} themselves between 18 and 30 months, and by 42 months reached the rate of one \emph{or} per 1000 words. Studies 2 and 3 provide support both for the presence of cues to the relevant interpretation and for their usefulness in learning. In Study 2, we asked what interpretations \emph{or} had in child-directed speech. We annotated examples of \emph{or} uses, and found that its most frequent interpretation was exclusive, as Morris (2008) had found. We also found that exclusive interpretations were often accompanied by two cues: rise-fall prosody, and logically inconsistent propositions connected by \emph{or}. When these cues were absent, \emph{or} was generally non-exclusive. In Study 3, we asked if it was possible to learn the relevant interpretations of a disjunction from these cues. We used the annotation data from Study 2 and a supervised learning task that quantified cue relationship and reliability, to show that a decision-tree classifier could use prosody and consistency of disjuncts to predict interpretation (exclusive vs.~non-exclusive disjunction) with high accuracy.
 
-Based on our results, we propose a new account we call cue-based context-dependent mapping of disjunction. This is inspired by prior usage-based and nativist accounts as well as Quine's approach to word learning. Like the nativist account, our account assumes that the semantic hypothesis space includes binary logical relations. But we do not constrain the hypothesis space further and do not bias the learning towards any particular binary meaning. Instead, we show that the cues available in the linguistic input do that for us. Like the usage-based proposals, we rely on information in adult input to distinguish between exclusive and inclusive uses of disjunction. And following Quine's suggestions for mapping the meanings of function words, we rely on a mechanism that takes into account the linguistic contexts of \emph{or}. Instead of assuming that the acquisition of \emph{or} depends directly on the most frequent interpretation in the input, we assume that a context-dependent mapping mechanism partitions the adult input using various cues to distinguish different contexts of use. We take up this account in the broader context of current word learning theories in the General Discussion.
+Based on our results, we propose a new account we call cue-based context-dependent mapping of disjunction. This is inspired by prior usage-based and nativist accounts as well as Quine's approach to word learning. Like the nativist account, our account assumes that the semantic hypothesis space includes binary logical relations. But we do not constrain the hypothesis space further and do not bias the learning towards any particular binary meaning. Instead, we show that the cues available in the linguistic input do that for us. Like the usage-based proposals, we rely on information in adult input to distinguish between exclusive and inclusive uses of disjunction. And following Quine's suggestions for mapping the meanings of function words, we rely on a mechanism that takes into account the linguistic context of \emph{or}. Instead of assuming that the acquisition of \emph{or} depends directly on the most frequent interpretation in the input, we assume that a context-dependent mapping mechanism partitions the adult input using various cues to distinguish different contexts of use. We take up this account in the broader context of current word learning theories in the General Discussion.
 
 \hypertarget{study-1-production-analysis}{%
 \section{Study 1: Production Analysis}\label{study-1-production-analysis}}
@@ -305,10 +302,10 @@ Overall, \emph{and} was about 10 times more likely to occur in parents' speech t
 
 }
 
-\caption{Left: The relative frequency of \textit{and/or} (per mille) in the speech of parents and children. 95\% binomial proportion confidence intervals calculated using Agresti-Coull's approximate method. Right: The monthly relative frequency of \textit{and/or} in parents and children's speech between 12 and 72 months (1-6 years).}\label{fig:freqPlots}
+\caption{Left: The relative frequency of \textit{and/or} (permil) in the speech of parents and children. 95\% binomial proportion confidence intervals calculated using Agresti-Coull's approximate method. Right: The monthly relative frequency of \textit{and/or} (permil) in parents and children's speech between 12 and 72 months (1-6 years).}\label{fig:freqPlots}
 \end{figure}
 
-The production trends over child age varied between 10 and 20 uses per 1000 words (Figure \ref{fig:freqPlots}, Right). Children started to produce \emph{and} between 12 and 18 months, with a sharp increase in production until they reached the parent level between 30 to 36 months of age. Child production levels stayed close to their parental levels between 36 and 72 months, possibly even surpassing them at 60 months but the data from 60 months on are sparse.
+Parental production trends over child age for \emph{and} varied between 10 and 20 uses per 1000 words (Figure \ref{fig:freqPlots}, Right). Children started to produce \emph{and} between 12 and 18 months, with a sharp increase in production until they reached the parent level between 30 to 36 months of age. Child production levels stayed close to their parental levels between 36 and 72 months, possibly even surpassing them at 60 months but the data from 60 months on are sparse.
 
 Parental production of \emph{or} was 1 to 2 per 1000 words. Children started to produce \emph{or} between 18 to 30 months, with increasing uses until they approached 1 use per 1000 words at 48 months (4 years). At this point, their productions plateaued and stayed at this rate through 72 months (6 years). Children started producing \emph{or} about six months later than \emph{and}. While their uses of \emph{and} reached parental levels by around 30 months, their uses of \emph{or} rose more slowly and did not reach the parental level even at age 6.
 
@@ -320,10 +317,10 @@ What factors account for this difference? Previous research has focused on the r
 
 }
 
-\caption{Left: Relative frequency of \textit{and/or} (per mille) in declaratives, imperatives, and interrogatives for parents (green) and children (blue). Right: Percentage of declaratives to questions in parent-child interactions by age.}\label{fig:speechActPlots}
+\caption{Left: Relative frequency of \textit{and/or} (permil) in declaratives, imperatives, and interrogatives for parents (green) and children (blue). Right: Proportion of declaratives to questions (percent) in parent-child interactions by child-age.}\label{fig:speechActPlots}
 \end{figure}
 
-Here we consider a third option: the difference in production between \emph{and} and \emph{or} may be partly due to different patterns in usage. Parent-child interactions are not symmetrical, so the speech acts most favored by parents do not match those favored by young children. This also results in asymmetries in the functional elements used by parents versus children. Child uses of \emph{or} seem to be affected here. First, \emph{or} was more likely to occur in questions than in declaratives (Figure \ref{fig:speechActPlots}, Left). But \emph{and}, in contrast, was more likely to occur in declaratives (Figure \ref{fig:speechActPlots}, Right). Second, parents asked more questions from children than children did from parents. Questions had their own developmental trajectory, emerging in the second year of children's lives and rising to a relatively constant rate of about 15\% of children's utterances in their fourth year. Parents, in comparison, produced questions in about 25\% of their utterances (see also Cameron-Faulkner, Lieven, \& Tomasello, 2003). Therefore, parent-child interaction offer more opportunities for parents to ask questions (and consequently produce \emph{or}), than for children to do so.
+Here we consider a third option: the difference in production between \emph{and} and \emph{or} may be partly due to different patterns in usage. Parent-child interactions are not symmetrical, so the speech acts most favored by parents do not match those favored by young children. This also results in asymmetries in the functional elements used by parents versus children. Child uses of \emph{or} seem to be affected here. First, \emph{or} was more likely to occur in questions than in declaratives (Figure \ref{fig:speechActPlots}, Left). But \emph{and}, in contrast, was more likely to occur in declaratives (Figure \ref{fig:speechActPlots}, Right). Second, parents asked more questions from children than children did from parents. Questions had their own developmental trajectory, emerging in the second year of children's lives and rising to a relatively constant rate of about 15\% of children's utterances in their fourth year. Parents, in comparison, produced questions in about 25\% of their utterances (see also Cameron-Faulkner, Lieven, \& Tomasello, 2003). Therefore, parent-child interaction offers more opportunities for parents to ask questions (and consequently produce \emph{or}), than for children to do so.
 
 \begin{figure}[H]
 
@@ -331,7 +328,7 @@ Here we consider a third option: the difference in production between \emph{and}
 
 }
 
-\caption{Relative frequency of \textit{and/or} (per mille) in declaratives and questions for parents and childern between the child-age of 12 and 72 months (1-6 years).}\label{fig:ageSpeechActPlot}
+\caption{Relative frequency of \textit{and/or} (permil) in declaratives and questions for parents and childern between the child-age of 12 and 72 months (1-6 years).}\label{fig:ageSpeechActPlot}
 \end{figure}
 
 Figure \ref{fig:ageSpeechActPlot} shows the developmental trends for the relative frequencies of \emph{and} and \emph{or} in questions and declaratives. When uses of \emph{and} in these two speech acts are compared, it is clear that the onset of \emph{and} was slightly delayed in questions, but in both utterance types, children reached the parental level by around 30 months (2.5 years). There is a similar delay for \emph{or}: children began producing it in declaratives at around 18 months but not until 24 months in questions. Their production of \emph{or} increased in both declaratives and questions until it reached a constant rate in declaratives between 48 and 72 months. The relative frequency of \emph{or} in questions continued to rise until 60 months. Comparing Figure \ref{fig:freqPlots} and Figure \ref{fig:ageSpeechActPlot}, children were closer to the adult rate of production in declaratives than questions.
@@ -374,10 +371,10 @@ age*question*parent & -0.0131 & 0.0101 & -1.2993 & 0.1952\\
 
 }
 
-\caption{Linear model predictions and the relative frequency of \textit{and/or} (per mille) in declaratives and questions for parents and childern between the child-age of 12 (represented as 0 on the x-axis) and 72 months (represented as 60 on the x-axis).}\label{fig:disjunctionPrediction}
+\caption{Linear model predictions and the relative frequency of \textit{and/or} (permil) in declaratives and questions for parents and childern between the child-age of 12 (represented as 0 on the x-axis) and 72 months (represented as 60 on the x-axis).}\label{fig:disjunctionPrediction}
 \end{figure}
 
-However, there may be considerable variation among children in disjunction production and the model described above does not take this variation into account\footnote{We are indebted to the editor for this comment}. To account for such variation, we fit a separate linear mixed-effects regression model with the relative frequency of \emph{or} in each monthly bin computed separately per child and corpora and used as the dependent variable. The model included random intercepts for corpora and children (nested within corpora), as well as random slopes for age and utterance type (declarative vs.~question). Like the previous model, children's age, speaker (child vs.~parent), utterance type (declarative vs.~question), and their interactions served as predictors and the intercept was set to children's productions of \emph{or} in declaratives.
+However, there may be considerable variation among children in disjunction production and the model described above does not take this variation into account\footnote{We would like to thank the editor for this comment}. To account for such variation, we fit a separate linear mixed-effects regression model with the relative frequency of \emph{or} in each monthly bin computed separately per child and corpora and used as the dependent variable. The model included random intercepts for corpora and children (nested within corpora), as well as random slopes for age and utterance type (declarative vs.~question). Like the previous model, children's age, speaker (child vs.~parent), utterance type (declarative vs.~question), and their interactions served as predictors and the intercept was set to children's productions of \emph{or} in declaratives.
 
 This mixed-effects model also shows a significant interaction of age and utterance type in children's production of \emph{or} (age*question row), suggesting again that children produce more instances of \emph{or} in questions as they get older compared to declaratives (b = 0.05, t= 2.72, p= 0.01). The model reports the effect of age on children's production of \emph{or} in declaratives is not significant (b = 0.02, t= 1.90, p= 0.06). It also estimated a positive intercept for children's production of \emph{or} in questions compared to declaratives (b = 2.08, t= 2.64, p= 0.01), suggesting that children may start by producing more instances of \emph{or} in questions too. No other effects were significant in this model. Taking both models into account, there is evidence that children's production of disjunction is affected by utterance-type and specifically production of questions in early parent-child interactions.
 
@@ -400,13 +397,13 @@ This study used \href{https://phonbank.talkbank.org/browser/index.php?url=Eng-NA
 
 \begin{longtable}[]{@{}ccc@{}}
 \caption{\label{tab:providence} Information on the participants in the Providence Corpus. Ethan was diagnosed with Asperger's syndrome and therefore was excluded from this study.}\tabularnewline
-\toprule
+\toprule()
 Name & Age Range & Sessions \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 Name & Age Range & Sessions \\
-\midrule
+\midrule()
 \endhead
 Alex & 1;04.28-3;05.16 & 51 \\
 Ethan & 0;11.04-2;11.01 & 50 \\
@@ -414,7 +411,7 @@ Lily & 1;01.02-4;00.02 & 80 \\
 Naima & 0;11.27-3;10.10 & 88 \\
 Violet & 1;02.00-3;11.24 & 51 \\
 William & 1;04.12-3;04.18 & 44 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{procedure-1}{%
@@ -443,7 +440,7 @@ In a different sentence like ``Bob drank coffee or tea this morning'', the domin
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3974}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5385}}@{}}
 \caption{\label{tab:connectiveInterpretaion} Annotation classes for connective interpretation}\tabularnewline
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Class
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -451,9 +448,9 @@ Meaning
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Class
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -461,7 +458,7 @@ Meaning
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 AND & Both propositions are true & \emph{``I'm just gonna empty this and then I'll be out of the kitchen.'' -- ``I'll mix them together or I could mix it with carrot, too.''} \\
 IOR & One or both propositions are true & \emph{``You should use a spoon or a fork.'' -- ``Ask a grownup for some juice or water or soy milk.''} \\
@@ -470,7 +467,7 @@ NOR & Neither proposition is true & \emph{``I wouldn't say boo to one goose or t
 NAND & It's not the case that both propositions are true. & \emph{I do not like green eggs and ham -- you don't swing that in the house and hit things with it} \\
 IFF & Either both propositions are true or both are false & \emph{``Put them {[}crayons{]} up here and you can get down. -- Come over here and I'll show you.''} \\
 NAB & The first proposition is false, the second is true. & \emph{``There's an Oatio here, or actually, there's a wheat here.''} \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{enumerate}
@@ -481,7 +478,7 @@ NAB & The first proposition is false, the second is true. & \emph{``There's an O
   \emph{Logical Consistency}
 \end{enumerate}
 
-Propositions can have logical, temporal, or causal relations with each other. For logical consistency, annotators decided whether the propositions in each coordination could be true at the same time or not. If they could not, because that would result in a contradiction, they were marked as inconsistent. The annotations used the following diagnostic here: Two disjuncts were inconsistent if replacing the word \emph{or} with \emph{and} resulted in a contradiction. For example, changing ``the ball is in my room \emph{or} your room'' to ``the ball is in my room \emph{and} your room'' produces a contradiction because a ball cannot be in two rooms at once.
+Propositions can have logical, temporal, or causal relations with each other. For logical consistency, annotators decided whether the propositions in each coordination could be true at the same time or not. If they could not, because that would result in a contradiction, they were marked as inconsistent (Table \ref{tab:consistencyType}). The annotations used the following diagnostic here: Two disjuncts were inconsistent if replacing the word \emph{or} with \emph{and} resulted in a contradiction. For example, changing ``the ball is in my room \emph{or} your room'' to ``the ball is in my room \emph{and} your room'' produces a contradiction because a ball cannot be in two rooms at once.
 
 Two issues arise with respect to logical consistency. First, our diagnostic is quite strict. In many cases, propositions are not inconsistent so much as implausible. For example, drinking both tea and coffee at the same time is consistent, but not conventionally likely or plausible. Many exclusive interpretations may be based on such judgments of plausibility. Second, if the coordinands are inconsistent, this does not necessarily mean that the connective interpretation must be exclusive. For example, in ``you could stay here or go out'', the alternatives ``staying here'' and ``going out'' are inconsistent, yet the overall interpretation of the connective could still be conjunctive: you could stay here AND you could go out. Both possibilities hold. This pattern of interaction between possibility modals like \emph{can} and disjunctive terms like \emph{or} are often discussed as ``free-choice inferences'' in the semantics and pragmatics literature (Kamp, 1973; Von Wright, 1968). Another example is unconditionals such as ``Ready or not, here I come!''. The coordinands are contradictions: one is the negation of the other. But the overall interpretation is that, in both cases, the speaker is going to come.
 
@@ -490,7 +487,7 @@ Two issues arise with respect to logical consistency. First, our diagnostic is q
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3115}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5246}}@{}}
 \caption{\label{tab:consistencyType} Definitions of consistency types and their examples.}\tabularnewline
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Consistency
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -498,9 +495,9 @@ Definitions
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Consistency
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -508,11 +505,11 @@ Definitions
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Consistent & The coordinands can be true at the same time. & \emph{``We could spell some things with a pen or draw some pictures.''} \\
 Inconsistent & The coordinands cannot be true at the same time. & \emph{``Do you want to stay or go?''} \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{enumerate}
@@ -530,7 +527,7 @@ Annotators decided whether an utterance was an instance of a declarative, an int
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4615}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3462}}@{}}
 \caption{\label{tab:utteranceTypes} Definitions of the utterance types and their examples.}\tabularnewline
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Utterance Types
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -538,9 +535,9 @@ Definitions
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Utterance Types
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -548,12 +545,12 @@ Definitions
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Declarative & A statement with a subject-verb-object word order and a flat intonation. & \emph{``It looks a little bit like a drum stick or a mallet.''} \\
 Interrogative & A question with either subject-auxiliary inversion or a rising terminal intonation. & \emph{``Is that a dog or a cat?''} \\
 Imperative & A directive with an uninflected verb and no subject & \emph{``Have a little more French toast or have some of your juice.''} \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{enumerate}
@@ -571,7 +568,7 @@ Annotators listened to the utterances and decided whether the intonation contour
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5000}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3824}}@{}}
 \caption{\label{tab:intonationTypes} Definitions of the intonation types and their examples.}\tabularnewline
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Intonation
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -579,9 +576,9 @@ Definitions
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Intonation
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -589,12 +586,12 @@ Definitions
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Flat & Intonation does not show any substantial rise at the end of the sentence. & \emph{``I don't hear any meows or bow-wow-wows.''} \\
 Rise & There is a substantial intonation rise on each disjunct or generally on both. & \emph{``Do you want some seaweed? or some wheat germ?''} \\
 Rise-Fall & There is a substantial rise on the non-final disjunct(s), and a fall on the final disjunct. & \emph{``Is that big Q or little q?'' -- ``(are) You patting them, petting them, or slapping them?''} \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{enumerate}
@@ -605,14 +602,14 @@ Rise-Fall & There is a substantial rise on the non-final disjunct(s), and a fall
   \emph{Syntactic Level}
 \end{enumerate}
 
-Annotators marked whether the coordination was at the clausal level or sub-clausal level. Clausal level was defined as sentences, clauses, verb phrases, and verbs. Coordination of other categories was coded as sub-clausal. This annotation category was introduced to check whether the syntactic category of the coordinands influenced the interpretation of a coordination. For example, ``He drank tea or coffee'' is less likely to be interpreted as exclusive than ``He drank tea or he drank coffee.'' The clausal vs.~sub-clausal distinction was inspired by the fact that in many languages, coordinators that connect sentences and verb phrases differ from those that connect nominal, adjectival, or prepositional phrases (Haspelmath, 2007).
+Annotators marked whether the coordination was at the clausal level or sub-clausal level (Table @ref\label{tab:syntacticLevel}). Clausal level was defined as sentences, clauses, verb phrases, and verbs. Coordination of other categories was coded as sub-clausal. This annotation category was introduced to check whether the syntactic category of the coordinands influenced the interpretation of a coordination. For example, ``He drank tea or coffee'' is less likely to be interpreted as exclusive than ``He drank tea or he drank coffee.'' The clausal vs.~sub-clausal distinction was inspired by the fact that in many languages, coordinators that connect sentences and verb phrases differ from those that connect nominal, adjectival, or prepositional phrases (Haspelmath, 2007).
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1852}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4074}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4074}}@{}}
 \caption{\label{tab:syntacticLevel} Definitions of the syntactic levels and their examples.}\tabularnewline
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Syntactic Level
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -620,9 +617,9 @@ Definitions
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Syntactic Level
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -630,11 +627,11 @@ Definitions
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Clausal & The coordinands are sentences, clauses, verb phrases, or verbs. & \emph{``Does he lose his tail sometimes and Pooh helps him and puts it back on?''} \\
 Sub-clausal & The coordinands are nouns, adjectives, noun phrases, determiner phrases, or prepositional phrases. & \emph{``Hollies can be bushes or trees.''} \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{enumerate}
@@ -652,7 +649,7 @@ We constructed a set of categories to capture particular usages or communicative
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4889}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3667}}@{}}
 \caption{\label{tab:speechActs} Definitions of the communicative functions and their examples.}\tabularnewline
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Function
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -660,9 +657,9 @@ Definitions
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Function
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -670,7 +667,7 @@ Definitions
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 Descriptions & Describing what the world is like or asking about it. The primary goal is to inform the addressee about how things are. & ``\emph{It's not in the ditch or the drain pipe.}'' \\
 Identifications & Identifying the category membership or an attribute of an object. Speaker has uncertainty. A subtype of ``Description''. & ``\emph{Is that a ball or a balloon honey?}'' \\
@@ -682,7 +679,7 @@ Clarifications & Something is said or done as a communicative act but the speake
 Repairs & Speaker correcting herself on something she said (self repair) or correcting the addressee (other repair). The second disjunct is what holds and is intended by the speaker. The speaker does not have uncertainty with respect to what actually holds. & \emph{``There's an Oatio here, or actually, there's a wheat here.''} \\
 Conditionals & Explaining in the second coordinand, what would follow if the first coordinand is (or is not) followed. Subtype of Directive. & \emph{``Put that out of your mouth, or I'm gonna put it away.''} -- \emph{``Come over here and I'll show you.''} \\
 Unconditionals & Denying the dependence of something on a set of conditions. Typical format: ``Whether X or Y, Z''. Subtype of Descriptions. & \emph{``Ready or not, here I come!''} (playing hide and seek) \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{enumerate}
@@ -700,7 +697,7 @@ Whenever a parent's utterance was a polar question, annotators coded for the typ
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4571}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3571}}@{}}
 \caption{\label{tab:answerTypes} Definitions of answer types and their examples.}\tabularnewline
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Type
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -708,9 +705,9 @@ Definitions
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
 \begin{minipage}[b]{\linewidth}\raggedright
 Type
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -718,12 +715,12 @@ Definitions
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Examples
 \end{minipage} \\
-\midrule
+\midrule()
 \endhead
 No Answer & The child provides no answer to the question. & Mother: \emph{``Would you like to eat some applesauce or some carrots?''} Child: \emph{``Guess what Max!''} \\
 YN & The child responds with \emph{yes} or \emph{no}. & Father: \emph{``Can I finish eating one or two more bites of my cereal?''} Child: \emph{``No.''} \\
 AB & The child responds with one of the disjuncts (alternatives). & Mother: \emph{``Is she a baby elephant or is she a toddler elephant?''} Child: \emph{``It's a baby. She has a tail.''} \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \begin{enumerate}
@@ -1022,6 +1019,9 @@ Cameron-Faulkner, T., Lieven, E., \& Tomasello, M. (2003). A construction based 
 \leavevmode\vadjust pre{\hypertarget{ref-de2019prosody}{}}%
 Carvalho, A. de, He, A. X., Lidz, J., \& Christophe, A. (2019). Prosody and function words cue the acquisition of word meanings in 18-month-old infants. \emph{Psychological Science}, \emph{30}(3), 319--332.
 
+\leavevmode\vadjust pre{\hypertarget{ref-chierchia2004scalar}{}}%
+Chierchia, G. et al. (2004). Scalar implicatures, polarity phenomena, and the syntax/pragmatics interface. \emph{Structures and Beyond}, \emph{3}, 39--103.
+
 \leavevmode\vadjust pre{\hypertarget{ref-chierchia2001acquisition}{}}%
 Chierchia, G., Crain, S., Guasti, M. T., Gualmini, A., \& Meroni, L. (2001). The acquisition of disjunction: Evidence for a grammatical view of scalar implicatures. \emph{Proceedings of the 25th {B}oston {U}niversity Conference on Language Development}, 157--168. Somerville, MA: Cascadilla Press.
 
@@ -1030,9 +1030,6 @@ Chierchia, G., Fox, D., \& Spector, B. (2012). The grammatical view of scalar im
 
 \leavevmode\vadjust pre{\hypertarget{ref-chierchia2004semantic}{}}%
 Chierchia, G., Guasti, M. T., Gualmini, A., Meroni, L., Crain, S., \& Foppolo, F. (2004). Semantic and pragmatic competence in children's and adults' comprehension of or. In I. Noveck \& D. Sperber (Eds.), \emph{Experimental pragmatics} (pp. 283--300). Basingstoke: Palgrave Macmillan.
-
-\leavevmode\vadjust pre{\hypertarget{ref-chierchia2004scalar}{}}%
-Chierchia, G.others. (2004). Scalar implicatures, polarity phenomena, and the syntax/pragmatics interface. \emph{Structures and Beyond}, \emph{3}, 39--103.
 
 \leavevmode\vadjust pre{\hypertarget{ref-chouinardclark2003}{}}%
 Chouinard, M. M., \& Clark, E. V. (2003). Adult reformulations of child errors as negative evidence. \emph{Journal of Child Language}, \emph{30}(03), 637--669.
@@ -1179,7 +1176,7 @@ Notley, A., Zhou, P., Jensen, B., \& Crain, S. (2012). Children's interpretation
 Noveck, I. A. (2001). When children are more logical than adults: Experimental investigations of scalar implicature. \emph{Cognition}, \emph{78}(2), 165--188.
 
 \leavevmode\vadjust pre{\hypertarget{ref-pedregosa2011scikit}{}}%
-Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., \ldots{} others. (2011). Scikit-learn: Machine learning in python. \emph{Journal of Machine Learning Research}, \emph{12}(Oct), 2825--2830.
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., et al.others. (2011). Scikit-learn: Machine learning in python. \emph{Journal of Machine Learning Research}, \emph{12}(Oct), 2825--2830.
 
 \leavevmode\vadjust pre{\hypertarget{ref-piantadosi2016logical}{}}%
 Piantadosi, S. T., Tenenbaum, J. B., \& Goodman, N. D. (2016). The logical primitives of thought: Empirical foundations for compositional cognitive models. \emph{Psychological Review}, \emph{123}(4), 392.
